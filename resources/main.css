@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
 
 :root {
 
@@ -45,7 +45,7 @@ span.bold {
 #header {
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
 
   text-align: left;
@@ -118,4 +118,67 @@ span.bold {
 #sidenav div a:hover {
   color: white;
   background-position: top;
+}
+
+.emoji-block {
+  padding-right: 30px;
+  padding-left: 5px;
+  margin-left: -87px; /* 75 + 12 */
+}
+
+
+
+.emoji-word {
+  font-weight: 500;
+  color: #FFD52E;
+  transition: 0.3s ease-in-out;
+}
+
+.emoji-word::after {
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.emoji-word:hover {
+  color: white;
+}
+
+.emoji-word:hover::after {
+  opacity: 1;
+}
+
+.emoji-word.diamond::after {
+  content: "💎";
+  margin-left: -50px;
+}
+
+.emoji-word.glasses::after {
+  content: "👓";
+  margin-left: -45px;
+}
+
+.emoji-word.research::after {
+  content: "🔬";
+  margin-left: -50px;
+}
+
+#education::before {
+  content: "📚";
+  position: absolute;
+  margin-left: -50px;
+}
+
+ul.class_list {
+    -moz-column-count: 2;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 20px;
+    column-count: 2;
+    column-gap: 30px;
+    font-size: 16px;
+    height: 780px;
+    column-fill: auto;
+    text-align: left;
+    margin: -15px;
 }
