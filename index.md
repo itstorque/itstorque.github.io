@@ -25,7 +25,8 @@ that filter out epileptic triggers with a team of product designers. Outside of 
   <img src="http://placekitten.com/700/400" alt="">
 </div>
 
-<h2 id="education">Education</h2>
+{: #education.title_with_emoji}
+## Education
 
 I am a double major at MIT graduating with a
 B.S. in <span class="bold ee-color">Electrical Engineering</span> and <span class="bold cs-color">Computer Science</span> and a
@@ -101,7 +102,7 @@ platforms, TCS, hardware simulation & FPGA design, processor design, semiconduct
 Outside of classes, I have learned group theory, representation theory, lie groups and quantum algorithms
 by reading books[1][2][3][4] and solving problems.
 
-{: #teaching}
+{: #teaching.title_with_emoji}
 ## Teaching Experience
 
 I also got the chance to help out with courses over my time at MIT.
@@ -119,10 +120,10 @@ In the class we teach good programming practices by showing them bad meme-y code
 and exercises where they get to write their own bad code. We had some students even write their bad code in
 MIPS assembly and even brainfuck.
 
-{: #research}
+{: #research.title_with_emoji}
 ## Research
 
 
 
-{: #projects}
+{: #projects.title_with_emoji}
 ## Projects

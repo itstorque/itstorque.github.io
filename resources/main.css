@@ -211,34 +211,31 @@ span.bold {
   margin-left: -50px;
 }
 
-#education::before {
-  content: "📚";
+.title_with_emoji::before {
   position: absolute;
   margin-left: -50px;
+}
+
+#education::before {
+  content: "📚";
 }
 
 #teaching { margin-top: 50px; }
 
 #teaching::before {
   content: "🍎";
-  position: absolute;
-  margin-left: -50px;
 }
 
 #research { margin-top: 50px; }
 
 #research::before {
   content: "🔬";
-  position: absolute;
-  margin-left: -50px;
 }
 
 #projects { margin-top: 50px; }
 
 #projects::before {
   content: "🛠";
-  position: absolute;
-  margin-left: -50px;
 }
 
 ul#class_list {
@@ -315,5 +312,29 @@ ul#class_list.unhide {
        0% { opacity: 1; color: var(--pop); }
       50% { opacity: 0; color: var(--pop); }
      100% { opacity: 1; color: var(--white);}
+
+}
+
+@media (max-width:900px) {
+
+  #header {
+    display: block;
+  }
+
+  #header .emoji-block {
+
+    display: block;
+    margin: 0 0 -40px 0;
+
+  }
+
+  .title_with_emoji::before {
+
+    position: relative;
+    display: inline-block;
+    margin-left: 0px;
+    margin-right: 10px;
+
+  }
 
 }
