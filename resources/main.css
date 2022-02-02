@@ -3,10 +3,32 @@
 :root {
 
   --pop:    #FE1717;
-  --subtle: #fafafa;
-  --light: #9B9B9B;
-  --dark:   #1E1E1E;
+  --emoji:  #f1c40f; /* #FFD52E: */
 
+}
+
+.ee-color {
+  color: #ff4757;
+}
+
+.cs-color {
+  color: #26de81;
+}
+
+.meche-color {
+  color: #1e90ff;
+}
+
+.quantum-color {
+  color: #a55eea;
+}
+
+.math-color {
+  color: #fa8231;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 body {
@@ -65,6 +87,29 @@ span.bold {
 
 }
 
+#header .emoji-block h1 {
+  animation-name: wave-hand;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 1.3s;        /* Change to speed up or slow down */
+  animation-iteration-count: 1;  /* Never stop waving :) */
+  animation-timing-function: ease-in-out;
+  transform-origin: 90% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+#header .emoji-block {
+  animation-name: wave-hand;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 1.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  animation-timing-function: ease;
+  transform-origin: 90% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+  animation-play-state: paused;
+}
+
+#header .emoji-block:hover {
+  animation-play-state: running;
+}
+
 .landscape {
   margin: 60px 0;
   width: 100%;
@@ -101,23 +146,26 @@ span.bold {
   color: black;
   text-decoration: none;
   padding: 10px 2px;
-  background: linear-gradient(to top, white 50%, var(--pop) 50%);
-  background-size: 100% 300%;
-  background-position:left bottom;
+  background: linear-gradient(to top, var(--pop) 25%, white 25%, white 50%, black 50%, black 75%, var(--pop) 75%);
+  background-size: 100% 700%;
+  background-position: 0% 66%;
   transition: 0.3s ease-in-out;
 }
 
 #sidenav div.selected a {
   font-weight: bold;
   color: white;
-  background: linear-gradient(to top, black 50%, var(--pop) 50%);
-  background-size: 100% 300%;
-  background-position:left bottom;
+  background-position: 0% 33%;
 }
 
 #sidenav div a:hover {
   color: white;
-  background-position: top;
+  background-position: 0% 100%;
+}
+
+#sidenav div.selected a:hover {
+  color: white;
+  background-position: 0% 0%;
 }
 
 .emoji-block {
@@ -130,7 +178,7 @@ span.bold {
 
 .emoji-word {
   font-weight: 500;
-  color: #FFD52E;
+  color: var(--emoji);
   transition: 0.3s ease-in-out;
 }
 
@@ -169,7 +217,7 @@ span.bold {
   margin-left: -50px;
 }
 
-ul.class_list {
+ul#class_list {
     -moz-column-count: 2;
     -moz-column-gap: 20px;
     -webkit-column-count: 2;
@@ -177,8 +225,71 @@ ul.class_list {
     column-count: 2;
     column-gap: 30px;
     font-size: 16px;
-    height: 780px;
+    height: 0px;
+    overflow-y: hidden;
     column-fill: auto;
     text-align: left;
     margin: -15px;
+    margin-top: 40px;
+}
+
+ul#class_list.unhide {
+  height: 760px;
+}
+
+#toggle_class_list {
+  font-size: 16px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  transition: 0.2s;
+
+  background: linear-gradient(to right, var(--pop) 50%, white 50%);
+  background-size: 205% 100%;
+  background-position: right 0%;
+  padding: 5px 8px;
+
+}
+
+#toggle_class_list:hover {
+  background-position: left 0%;
+  color: white;
+}
+
+#toggle_class_list.changing {
+  animation-name: opacity-bump;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 0.2s;        /* Change to speed up or slow down */
+  animation-iteration-count: 1;  /* Never stop waving :) */
+  animation-timing-function: ease-in-out;
+  transform-origin: 90% 70%;       /* Pivot around the bottom-left palm */
+}
+
+#toggle_class_list.changing2 {
+  animation-name: opacity-bump;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 0.2s;        /* Change to speed up or slow down */
+  animation-iteration-count: 1;  /* Never stop waving :) */
+  animation-timing-function: ease-in-out;
+  transform-origin: 90% 70%;       /* Pivot around the bottom-left palm */
+}
+
+
+@keyframes wave-hand {
+
+       0% { transform: rotate( 0.0deg) }
+      15% { transform: rotate(14.0deg) }
+      30% { transform: rotate(-8.0deg) }
+      45% { transform: rotate(14.0deg) }
+      60% { transform: rotate(-4.0deg) }
+      75% { transform: rotate(10.0deg) }
+     100% { transform: rotate( 0.0deg) }
+
+}
+
+
+@keyframes opacity-bump {
+
+       0% { opacity: 1; color: var(--pop); }
+      50% { opacity: 0; color: var(--pop); }
+     100% { opacity: 1; color: var(--white);}
+
 }
