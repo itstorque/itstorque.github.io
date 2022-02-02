@@ -217,6 +217,30 @@ span.bold {
   margin-left: -50px;
 }
 
+#teaching { margin-top: 50px; }
+
+#teaching::before {
+  content: "🍎";
+  position: absolute;
+  margin-left: -50px;
+}
+
+#research { margin-top: 50px; }
+
+#research::before {
+  content: "🔬";
+  position: absolute;
+  margin-left: -50px;
+}
+
+#projects { margin-top: 50px; }
+
+#projects::before {
+  content: "🛠";
+  position: absolute;
+  margin-left: -50px;
+}
+
 ul#class_list {
     -moz-column-count: 2;
     -moz-column-gap: 20px;

@@ -5,9 +5,6 @@ script: lazy
 ---
 
 <div id="header">
-  <!-- <div class="portrait">
-    <img src="http://placekitten.com/250/250" alt="">
-  </div> -->
   <div class="emoji-block">
     <h1>👋</h1>
   </div>
@@ -16,7 +13,8 @@ script: lazy
   </div>
 </div>
 
-Hey there! I go by Torque (<a onclick="playAudio()">/tɔɹk/</a>) and I am a senior at MIT interested in hardware, computational photography, quantum computing and math. I spent the past year doing
+Hey there! I go by Torque (<a onclick="playAudio()"><span style="font-size: 15px; margin-right:-5px; transform: translateY(-3px);display: inline-block;">🔉</span>/tɔɹk/</a>)
+and I am a senior at MIT interested in hardware, computational photography, quantum computing and math. I spent the past year doing
 <span class="emoji-word research">research</span> on
 <span class="emoji-word diamond">diamond</span>-based
 quantum computing, making simulators for superconductors and developing
@@ -99,3 +97,32 @@ platforms, TCS, hardware simulation & FPGA design, processor design, semiconduct
   - {: .quantum-color} Programming the Universe
   - {: .other-color} Bioethics
   - {: .other-color} Introduction to Solid-State Chemistry
+
+Outside of classes, I have learned group theory, representation theory, lie groups and quantum algorithms
+by reading books[1][2][3][4] and solving problems.
+
+{: #teaching}
+## Teaching Experience
+
+I also got the chance to help out with courses over my time at MIT.
+
+I was a lab assistant for "Circuits and Electronics" where I got the chance to help students understand circuit analysis, op-amp applications, and transistors. As a lab assistant, testing out labs, debugging circuits, helping students understand concepts taught in class and giving them check-offs as they worked in lab were part of my duties.
+
+I was an LA for "Computation Structures." The class covers assembly and the RISC-V processor architecture, the labs include HDL and assembly code where students get to build their own
+RISC-V processor and run algorithms on it.
+As an LA, I worked on testing labs and the backbones of the processor. I also helped teach students concepts
+such as processor cycles and timing, combinatoric and sequential logic, memory hierarchy, processor pipelining and processor design tradeoffs.
+
+I also got the chance to teach a programming class to high schoolers with my friend Savoldy
+in MIT's Educational Studies Program in a class we called (excuse the pun) "[Making Code Hard(ly Work)](https://github.com/tareqdandachi/MIT-Splash-2019-Making-Code-Hardly-Work)."
+In the class we teach good programming practices by showing them bad meme-y code, interesting debug problems that arise from poorly structured code,
+and exercises where they get to write their own bad code. We had some students even write their bad code in
+MIPS assembly and even brainfuck.
+
+{: #research}
+## Research
+
+
+
+{: #projects}
+## Projects
