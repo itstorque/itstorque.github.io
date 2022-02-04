@@ -1,3 +1,6 @@
+---
+---
+
 function playAudio() {
   new Audio("https://upload.wikimedia.org/wikipedia/commons/2/20/En-us-torque.ogg").play();
 }
@@ -8,7 +11,49 @@ window.addEventListener("scroll", function() {
 
 window.addEventListener("load", function() {
   checkSection()
+  addIndividualExpands()
 });
+
+function addIndividualExpands() {
+
+  k = 0
+
+  for (section of document.getElementsByClassName("individual-expands")) {
+
+    for (sectionItem of section.children) {
+
+      if (sectionItem.tagName == "H4") {
+
+        k++
+
+        sectionItem.innerHTML = sectionItem.innerHTML + '<div class="openTab"' + k + ' onclick="toggleIndivExpand(this, ' + k + ')"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg></div>'
+
+      } else {
+
+        sectionItem.innerHTML = "<div class='expandable hidden dataID" + k + "'>" + sectionItem.innerHTML + "</div>"
+
+        // sectionItem.style.margin = 0
+        sectionItem.style.margin = '-5px'
+
+      }
+
+    }
+
+  }
+
+}
+
+function toggleIndivExpand(controller, indivIndex) {
+
+  controller.classList.toggle("opened");
+
+  for (dataItem of document.getElementsByClassName("dataID"+indivIndex)) {
+
+    dataItem.classList.toggle("hidden");
+
+  }
+
+}
 
 function checkSection() {
   var education = document.getElementById("education");
@@ -55,5 +100,25 @@ function toggleClassList() {
 
   class_list_button.classList.toggle("changing");
   class_list_button.classList.toggle("changing2");
+
+}
+
+function toggleSection(controller, section) {
+
+  if (controller.innerHTML == "EXPAND") {
+
+    controller.innerHTML = "COLLAPSE";
+
+  } else {
+
+    controller.innerHTML = "EXPAND";
+
+  }
+
+  for (item of document.getElementsByClassName(section)) {
+
+    item.classList.toggle("unhide");
+
+  }
 
 }
