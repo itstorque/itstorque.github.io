@@ -21,3 +21,7 @@ kramdown:
 future: true
 jailed: false
 gfm_quirks: paragraph_end
+
+collections:
+  projects:
+    sort_by: priority

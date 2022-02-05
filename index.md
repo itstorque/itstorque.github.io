@@ -1,7 +1,6 @@
 ---
 title: Home
 layout: default
-script: lazy
 ---
 
 <div id="header">
@@ -166,47 +165,26 @@ At QNN,
 {: #projects.title_with_emoji}
 ## Projects
 
-<div markdown="1" class="individual-expands">
+<div class="individual-expands">
+
+{% assign projects = site.projects | sort: 'priority' %}
+
+{% for project in projects %}
+
+{% if project.hide == false %}
+
+{{ project | markdownify }}
+
+{% endif %}
+
+{% endfor %}
 
 <!-- #### RISC V processor
 
 #### Custom Dev Board -->
 
-#### FPGA Depth Estimation using a Camera Array
 
-During the month of January 2022, I worked on developing a modular camera setup powered by an FPGA
-that can support variable offsets on the x and z positions of the camera. Using two offset cameras,
-the code is able to use color segmentation to determine an object of interest and estimate the
-distance away from it using the center offset. It powers a VGA display that showcases the two images,
-debug information and crosshairs that show the center of the object of interest. It was coded using
-Verik, precompiled into SystemVerilog and then synthesized using vivado before being uploaded onto a
-Xilinx A7. Here is a [link to the GitHub code](https://github.com/tareqdandachi/FPGA-Depth-Camera).
-
-#### Eclipse - _glasses that modulate epileptic triggers_
-
-In the Fall of 2021, with a team of product designers of different backgrounds, we went through the
-process of generating ideas, mockups, testing, user interviewing and finally fabrication and coming
-up with a plan to scale up. After mocking up different projects, we settled on developing a pair of
-glasses intended for people with photosensitivity and photosensitive epilepsy. The glasses have
-electrochromic lenses that darken automatically when a voltage is applied. Here's a photo of me
-presenting at our product launch :)
-
-<img src="resources/2009prodlaunchphoto.JPG" class="innerphoto"/>
-
-We designed our custom PCB that houses an ATSAMD21G18A processor and programmed it to scan and predict
-for epileptic triggers and then darken the lenses when a trigger is found. I personally worked on
-coding prototypes on the feather, user design, coding in Atmel's Microchip Studio and choosing the
-PCB components and circuit connections.
-
-<img src="resources/2009glasses.svg" class="innerphoto"/>
-
-I was also responsible for documenting our entire process through multiple mediums including [our
-instagram](https://www.instagram.com/2.009blue/).
-<div style="margin: 0; text-align: center;">
-{% include 2009insta.html %}
-</div>
-
-#### Digital Instrument
+<!--
 
 #### qasm circuit preview
 
@@ -230,7 +208,6 @@ instagram](https://www.instagram.com/2.009blue/).
 
 #### Self Driving Computer Vision algorithm
 
-#### MASLAB?
-
+#### MASLAB? -->
 
 </div>

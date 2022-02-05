@@ -32,8 +32,7 @@ function addIndividualExpands() {
 
         sectionItem.innerHTML = "<div class='expandable hidden dataID" + k + "'>" + sectionItem.innerHTML + "</div>"
 
-        // sectionItem.style.margin = 0
-        sectionItem.style.margin = '-5px'
+        sectionItem.classList.add('loaded')
 
       }
 

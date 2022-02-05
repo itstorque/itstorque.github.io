@@ -428,6 +428,29 @@ ul#class_list.unhide {
   fill: var(--pop);
 }
 
+.individual-expands p {
+  height: 0;
+  overflow-y: hidden;
+  margin: 0px;
+}
+
+.individual-expands p.loaded {
+  height: auto;
+  margin: -5px;
+}
+
+.individual-expands .insta-block {
+  display: none;
+}
+
+.individual-expands .loaded .insta-block {
+  display: block;
+}
+
+.individual-expands h4 {
+  min-height: 39px;
+}
+
 .expandable {
   overflow-y: hidden;
   max-height: 100vh;
@@ -436,11 +459,14 @@ ul#class_list.unhide {
   font-size: 16px;
   margin-top: 10px;
   margin-bottom: 10px;
+  opacity: 1;
+  transition: 0.3s;
 }
 
 .expandable.hidden {
   max-height: 0;
   margin: 0;
+  opacity: 0;
 }
 
 .innerphoto {
