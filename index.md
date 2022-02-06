@@ -207,10 +207,6 @@ considering.
 
 #### qupong
 
-#### Computational Photography Project
-
-#### Self Driving Computer Vision algorithm
-
 #### MASLAB? -->
 
 </div>

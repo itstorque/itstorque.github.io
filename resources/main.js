@@ -145,3 +145,7 @@ function nprToggle() {
   }, 3000);
 
 }
+
+function playAudioGif() {
+  new Audio("https://upload.wikimedia.org/wikipedia/commons/4/48/En-us-gif-2.ogg").play();
+}
