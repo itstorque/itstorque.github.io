@@ -12,6 +12,16 @@ window.addEventListener("scroll", function() {
 window.addEventListener("load", function() {
   checkSection()
   addIndividualExpands()
+
+  // add _blank to all links
+  var links = document.links;
+  for (var i = 0; i < links.length; i++) {
+       links[i].target = "_blank";
+  }
+
+  // indiv projects code
+  nprToggle()
+
 });
 
 function addIndividualExpands() {
@@ -119,5 +129,19 @@ function toggleSection(controller, section) {
     item.classList.toggle("unhide");
 
   }
+
+}
+
+function nprToggle() {
+
+  k = 1
+
+  totalk = document.getElementById("nprtable").children[0].children.length
+
+  var intervalId = window.setInterval(function(){
+    document.getElementById("nprtable").children[0].children[k].hidden = false
+    document.getElementById("nprtable").children[0].children[(5+k-1) % totalk].hidden = true
+    k = (k+1) % totalk
+  }, 3000);
 
 }

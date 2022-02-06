@@ -518,3 +518,25 @@ ul#class_list.unhide {
   }
 
 }
+
+/* NPR STUFF */
+
+#nprtable {
+  height: 380px;
+  max-height: 380px;
+  min-height: 380px;
+  margin: 0;
+  text-align: center;
+  table-layout:fixed;
+  margin: auto;
+}
+
+#nprtable td {
+  width: 50%;
+}
+
+#nprtable td img {
+  height: 380px;
+  margin: 0;
+  object-fit: contain;
+}
