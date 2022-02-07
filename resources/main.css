@@ -202,6 +202,10 @@ span.bold {
   background-position: 0% 0%;
 }
 
+#mobilenav {
+  display: none;
+}
+
 .emoji-block {
   padding-right: 30px;
   padding-left: 5px;
@@ -503,6 +507,22 @@ ul#class_list.unhide {
 
 @media (max-width:900px) {
 
+  #mobilenav {
+    display: block;
+    left: 0;
+    top: -100vh;
+    background-color: white;
+    position: fixed;
+    width: 100vh;
+    height: 100vh;
+    transition: 0.3s;
+    z-index: 100;
+  }
+
+  #mobilenav.active {
+    top: 0;
+  }
+
   #header {
     display: block;
     font-size: 16px;
@@ -568,6 +588,8 @@ ul#class_list.unhide {
     margin-top: -13px;
     background-color: white;
     top: 13px;
+    transform: rotate( 0.0deg);
+    animation: none;
   }
 
   #header .emoji-block.activeSection h1 {
@@ -583,10 +605,6 @@ ul#class_list.unhide {
 
   #header .emoji-block.mobile-only {
     display: inline-block;
-  }
-
-  #header .activeSection:hover {
-    background-color: black;
   }
 
 }

@@ -13,16 +13,35 @@ window.addEventListener("load", function() {
   checkSection()
   addIndividualExpands()
 
+  addMobileMenus()
+
   // add _blank to all links
   var links = document.links;
   for (var i = 0; i < links.length; i++) {
+    if (links[i].hostname != window.location.hostname && links[i].pathname != window.location.pathname) {
        links[i].target = "_blank";
+     }
   }
 
   // indiv projects code
   nprToggle()
 
 });
+
+function addMobileMenus() {
+
+  for (emoji of [...document.getElementsByClassName("title_with_emoji"),
+                    document.getElementById("hello-emoji")             ]) {
+
+    emoji.addEventListener('click', function (e) {
+
+      document.getElementById('mobilenav').classList.toggle("active");
+
+    });
+
+  }
+
+}
 
 function addIndividualExpands() {
 
