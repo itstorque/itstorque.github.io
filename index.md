@@ -31,6 +31,20 @@ that filter out epileptic triggers with a team of product designers. Outside of 
   <img src="http://placekitten.com/700/400" alt="">
 </div>
 
+### Check out my
+{: .check_out_my}
+
+<div id="resume-github-container">
+  <div id="resume"><a href="https://tareqdandachi.github.io/resume-2022/main.pdf">
+  {% include resume_icon.html %}
+  Resume
+  </a></div>
+  <div id="github"><a href="https://github.com/tareqdandachi">
+  {% include github_icon.html %}
+  GitHub
+  </a></div>
+</div>
+
 {: #education.title_with_emoji}
 ## Education
 

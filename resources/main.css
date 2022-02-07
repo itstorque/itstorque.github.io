@@ -153,7 +153,6 @@ span.bold {
   width: 100%;
 }
 
-
 #sidenav {
   height: 100vh; /* 100% Full-height */
   position: fixed; /* Stay in place */
@@ -206,13 +205,94 @@ span.bold {
   display: none;
 }
 
+div#resume-github-container {
+  text-align: center;
+  display: flex;
+  margin: 30px 20px 60px 20px;
+}
+
+#resume, #github {
+  display: inline-block;
+  width: 45%;
+  margin: auto;
+  text-align: center;
+}
+
+#resume a {
+  background: linear-gradient(to left, white 50%, var(--pop) 50%);
+  background-position: right;
+}
+
+#github a {
+  background: linear-gradient(to left, white 50%, var(--pop) 50%);
+  background-position: right;
+}
+
+#resume a, #github a {
+
+  text-align: center;
+  font-weight: bold;
+
+  color: var(--pop);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  padding: 10px 10px;
+  background-size: 210% 100%;
+
+  transition: 0.3s ease-in-out;
+}
+
+#resume a:hover {
+  color: white;
+  background-position: left;
+}
+
+#resume svg {
+  height: 25px;
+  margin-bottom: -5px;
+  margin-right: 5px;
+}
+
+#resume a .resume_icon {
+  fill: var(--pop);
+  transition: 0.3s;
+}
+
+#resume a:hover .resume_icon {
+  fill: white;
+}
+
+#github a:hover{
+  color: white;
+  background-position: left;
+}
+
+#github svg {
+  height: 25px;
+  margin-bottom: -5px;
+  margin-right: 3px;
+}
+
+#github a .github_icon {
+  fill: var(--pop);
+  transition: 0.3s;
+}
+
+#github a:hover .github_icon {
+  fill: white;
+}
+
+h3.check_out_my {
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .emoji-block {
   padding-right: 30px;
   padding-left: 5px;
   margin-left: -87px; /* 75 + 12 */
 }
-
-
 
 .emoji-word {
   font-weight: 500;
