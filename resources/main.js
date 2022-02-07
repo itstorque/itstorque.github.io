@@ -56,6 +56,12 @@ function toggleIndivExpand(controller, indivIndex) {
 
   controller.classList.toggle("opened");
 
+  if (controller.classList.contains("opened")) {
+
+    setTimeout(() => { controller.scrollIntoView({block: "start", inline: "nearest", behavior: 'smooth'}); }, 300);
+
+  }
+
   for (dataItem of document.getElementsByClassName("dataID"+indivIndex)) {
 
     dataItem.classList.toggle("hidden");
@@ -155,12 +161,6 @@ function setSectionStrict(section) {
       document.getElementById(section).classList = "title_with_emoji activeSection";
 
     }
-
-    console.log(section)
-
-    console.log(document.getElementById("header-indicator").offsetTop)
-    console.log(document.getElementById("education").offsetTop)
-    console.log(window.scrollY)
 
 }
 
