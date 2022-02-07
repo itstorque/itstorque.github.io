@@ -70,6 +70,46 @@ function checkSection() {
   var projects = document.getElementById("projects");
   var research = document.getElementById("research");
 
+  var header = document.getElementById("header-indicator");
+
+  deltaStrictSoft = 100
+
+  if (window.scrollY > (projects.offsetTop) - deltaStrictSoft) {
+    setSection("projects");
+  } else if (window.scrollY > (research.offsetTop) - deltaStrictSoft) {
+    setSection("research");
+  } else if (window.scrollY > (teaching.offsetTop) - deltaStrictSoft) {
+    setSection("teaching");
+  } else if (window.scrollY > (education.offsetTop) - deltaStrictSoft) {
+    setSection("education");
+  } else {
+    setSection("hello");
+  }
+
+  deltaStrict = 10
+
+  if (window.scrollY > (projects.offsetTop) - deltaStrict) {
+    setSectionStrict("projects");
+  } else if (window.scrollY > (research.offsetTop) - deltaStrict) {
+    setSectionStrict("research");
+  } else if (window.scrollY > (teaching.offsetTop) - deltaStrict) {
+    setSectionStrict("teaching");
+  } else if (window.scrollY > (education.offsetTop) - deltaStrict) {
+    setSectionStrict("education");
+  } else if (window.scrollY > (header.offsetTop + 10)){
+    setSectionStrict("hello");
+  } else {
+    setSectionStrict("");
+  }
+
+}
+
+function checkSectionStrict() {
+  var education = document.getElementById("education");
+  var teaching = document.getElementById("teaching");
+  var projects = document.getElementById("projects");
+  var research = document.getElementById("research");
+
   if (window.scrollY > (projects.offsetTop) - 100) {
     setSection("projects");
   } else if (window.scrollY > (research.offsetTop) - 100) {
@@ -93,6 +133,34 @@ function setSection(section) {
   }
 
   document.getElementById("nav-" + section).classList = "selected";
+
+}
+
+function setSectionStrict(section) {
+
+  for (sectionTitle of document.getElementsByClassName("title_with_emoji")) {
+
+    sectionTitle.classList = "title_with_emoji";
+
+  }
+
+    if (section=="hello") {
+
+      document.getElementById("hello-emoji").classList = "emoji-block activeSection";
+
+    } else {
+
+      document.getElementById("hello-emoji").classList = "emoji-block";
+
+      document.getElementById(section).classList = "title_with_emoji activeSection";
+
+    }
+
+    console.log(section)
+
+    console.log(document.getElementById("header-indicator").offsetTop)
+    console.log(document.getElementById("education").offsetTop)
+    console.log(window.scrollY)
 
 }
 

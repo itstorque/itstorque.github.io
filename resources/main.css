@@ -495,16 +495,24 @@ ul#class_list.unhide {
 
 }
 
+@media (min-width:901px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
 @media (max-width:900px) {
 
   #header {
     display: block;
+    font-size: 16px;
   }
 
   #header .emoji-block {
 
     display: block;
     margin: 0 0 -40px 0;
+    width: min-content;
 
   }
 
@@ -515,6 +523,80 @@ ul#class_list.unhide {
     margin-left: 0px;
     margin-right: 10px;
 
+  }
+
+  #sidenav {
+    display: none;
+  }
+
+  .title_with_emoji {
+    margin-left: 40px;
+  }
+
+  .title_with_emoji::before {
+    position: absolute;
+    left: 0px;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    padding: 10px;
+    margin-top: -13px;
+    background-color: white;
+  }
+
+  .title_with_emoji.activeSection {
+    margin-top: 50px;
+  }
+
+  .title_with_emoji.activeSection::before {
+    position: fixed;
+    top: 13px;
+  }
+
+  #header .emoji-block {
+    /* transition: 0.3s; */
+    display: inline-block;
+  }
+
+  #header .emoji-block.activeSection {
+    position: fixed;
+    left: 0px;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    padding: 10px;
+    margin-top: -13px;
+    background-color: white;
+    top: 13px;
+  }
+
+  #header .emoji-block.activeSection h1 {
+    margin: 0px;
+    font-size: 27px;
+    margin-left: -3px;
+    margin-right: 3px;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  #header .emoji-block.mobile-only {
+    display: inline-block;
+  }
+
+  #header .activeSection:hover {
+    background-color: black;
+  }
+
+}
+
+@media (max-width:460px) {
+
+  #header {
+    margin-left: -5vw;
+    margin-right: -5vw;
+    width: 100vw;
   }
 
 }

@@ -4,8 +4,13 @@ layout: default
 ---
 
 <div id="header">
-  <div class="emoji-block">
+  <div id="header-indicator"></div>
+  <div class="emoji-block" id="hello-emoji">
     <h1>👋</h1>
+  </div>
+  <div class="emoji-block mobile-only">
+    <!-- this spacer is for phones, helps keep the correct spacing on top of the title after emoji-block jumps into menu icon -->
+    <h1 style="opacity:0">o</h1>
   </div>
   <div>
     <h1>
