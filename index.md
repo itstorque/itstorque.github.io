@@ -28,7 +28,7 @@ that filter out epileptic triggers with a team of product designers. Outside of 
 {: .intro}
 
 <div class="landscape">
-  <img src="http://placekitten.com/700/400" alt="">
+  <img src="resources/portraits/portrait-1.jpg" alt="" id="portrait">
 </div>
 
 ### Check out my

@@ -26,7 +26,28 @@ window.addEventListener("load", function() {
   // indiv projects code
   nprToggle()
 
+  changeImage()
+  setInterval(changeImage, 4000)
+
 });
+
+let portrait_index = 0;
+let total_portrait_num = 9;
+
+function changeImage() {
+
+   var image = new Image();
+   image.src = "resources/portraits/portrait-" + (portrait_index+1) + ".jpg";
+
+   image.onload = function () {
+
+        document.getElementById('portrait').src = image.src
+
+    };
+
+    portrait_index > total_portrait_num-2 ? portrait_index = 0 : portrait_index++;
+
+}
 
 function addMobileMenus() {
 
@@ -169,17 +190,21 @@ function setSectionStrict(section) {
 
   }
 
-    if (section=="hello") {
+  if (section=="hello") {
 
-      document.getElementById("hello-emoji").classList = "emoji-block activeSection";
+    document.getElementById("hello-emoji").classList = "emoji-block activeSection";
 
-    } else {
+  } else {
 
-      document.getElementById("hello-emoji").classList = "emoji-block";
+    document.getElementById("hello-emoji").classList = "emoji-block";
+
+    if (section != "") {
 
       document.getElementById(section).classList = "title_with_emoji activeSection";
 
     }
+
+  }
 
 }
 

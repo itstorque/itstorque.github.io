@@ -211,6 +211,14 @@ div#resume-github-container {
   margin: 30px 20px 60px 20px;
 }
 
+#portrait {
+  height: 450px;
+
+  object-fit: cover;
+  transition: 
+
+}
+
 #resume, #github {
   display: inline-block;
   width: 45%;
