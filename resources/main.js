@@ -1,8 +1,10 @@
 ---
 ---
 
-function playAudio() {
-  new Audio("https://upload.wikimedia.org/wikipedia/commons/2/20/En-us-torque.ogg").play();
+mobileMenuDisabled = true // still in development
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
 }
 
 window.addEventListener("scroll", function() {
@@ -49,7 +51,13 @@ function changeImage() {
 
 }
 
+function playAudio() {
+  new Audio("https://upload.wikimedia.org/wikipedia/commons/2/20/En-us-torque.ogg").play();
+}
+
 function addMobileMenus() {
+
+  if (mobileMenuDisabled) { return }
 
   for (emoji of [...document.getElementsByClassName("title_with_emoji"),
                     document.getElementById("hello-emoji")             ]) {
@@ -131,6 +139,8 @@ function checkSection() {
   } else {
     setSection("hello");
   }
+
+  if (mobileMenuDisabled) { return }
 
   deltaStrict = 10
 
