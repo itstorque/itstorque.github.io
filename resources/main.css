@@ -69,6 +69,11 @@ p {
   line-height: 1.7;
 }
 
+li {
+  line-height: 1.7;
+  margin-bottom: 5px; 
+}
+
 a {
   cursor: pointer;
   color: var(--pop);
