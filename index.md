@@ -19,7 +19,7 @@ layout: default
 </div>
 
 Hey there! I go by Torque (<a onclick="playAudio()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/tɔɹk/</a>)
-and I am a senior at MIT interested in hardware, superconducting electronics, computational photography and 
+and I am a masters student at MIT interested in hardware, superconducting electronics, computational photography and 
 quantum computing. I enjoy reducing problems into math, designing devices and algorithms to be 
 <span class="emoji-word optimal-stars">optimal</span> and hacking functionality into existing
 software.
@@ -27,7 +27,7 @@ Outside of my research, you can find me designing my own microcontroller, going 
 <span class="emoji-word julia">julia</span>.
 {: .intro}
 
-In my undergrad, I did
+I did my undergrad also at MIT where I got to do
 <span class="emoji-word research">research</span> on
 <span class="emoji-word diamond">diamond</span>-based
 quantum computing, made simulators for superconducting devices and developed
