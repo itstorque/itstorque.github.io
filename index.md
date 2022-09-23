@@ -219,6 +219,8 @@ parts of a model is very complex - let alone making it fast.
 {: #projects.title_with_emoji}
 ## Projects
 
+## Highlighted Projects
+
 <div class="individual-expands">
 
 {% assign projects = site.projects | sort: 'priority' %}
@@ -261,3 +263,20 @@ parts of a model is very complex - let alone making it fast.
 #### MASLAB? -->
 
 </div>
+
+## A collection of other random projects
+
+- [performer](https://github.com/tareqdandachi/performer): Music, Instrument and MIDI synthesis tool in python. Supposed to be a python replacement for Max/MSP and puredata.
+- [ltspice-tikz](https://github.com/tareqdandachi/ltspice-tikz): A one-night project to convert LTspice circuit and symbol files into LaTeX pgp/tikz code. Hopefully people have no excuses to publish ugly looking circuits now.
+- [spice-daemon](https://github.com/tareqdandachi/spice-daemon): A toolkit that spawns alongside LTspice and adds functionality on top of LTspice. It can adds true noise generation, solve diff. eq.'s and adds a new level of parametrization not available in LTspice through python. Designed to suit the needs of people in my lab.
+- [RCSJ-Washboard-Potential](https://github.com/tareqdandachi/RCSJ-Washboard-Potential): A MATLAB visualization of washboard potentials you get by solving the RCSJ differential equation.
+- [cookie-hijacker-chrome](https://github.com/tareqdandachi/cookie-hijacker-chrome): A weekend project with a friend to develop a malicious chrome extension that steals a users cookies and passwords.
+- [jekyll-shell-theme](https://github.com/tareqdandachi/jekyll-shell-theme): A weekend project that makes jekyll webpages look like a shell. 
+- [dumb-anyconnect](https://github.com/tareqdandachi/dumb-anyconnect): A tweak that hooks into the Cisco AnyConnect app and adds a connection to the iOS keychain. A one-night project born out of the frustration of hacing to type my password everytime I want to use a VPN.
+- [assistivetech.mit.edu](https://github.com/tareqdandachi/assistivetech.mit.edu): A PHP website written from scratch for MIT's assistive technology hackathon with a hacker management backend.
+- [QuickTimeVNC](https://github.com/tareqdandachi/QuickTimeVNC): A python script that allows VNC like control of a jailbroken iPhone over QuickTime.
+- [BetterCCBattery](https://github.com/tareqdandachi/BetterCCBattery) and [OrientationControl](https://github.com/tareqdandachi/OrientationControl): iOS tweaks that modify the user experience with the control center and orientation lock.
+- [2086-WallFollower](https://github.com/tareqdandachi/2086-WallFollower): A PID controlled robot simulator with visualization written in MATLAB.
+- [quhackman](https://github.com/tareqdandachi/quhackman): A quantum twist on pacman written in python and uses the IBM qiskit backend.
+- [Turing-Machine-Simulator](https://github.com/tareqdandachi/Turing-Machine-Simulator): A one-night project to simulate a turing machine tape in python.
+- [rrg.mit.edu](https://github.com/tareqdandachi/mit-rrg): I was hired to make a website for MIT ESI's Rapid Response Group.
