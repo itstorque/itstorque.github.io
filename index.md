@@ -19,12 +19,20 @@ layout: default
 </div>
 
 Hey there! I go by Torque (<a onclick="playAudio()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/tɔɹk/</a>)
-and I am a senior at MIT interested in hardware, computational photography, quantum computing and math. I spent the past year doing
+and I am a senior at MIT interested in hardware, superconducting electronics, computational photography and 
+quantum computing. I enjoy reducing problems into math, designing devices and algorithms to be 
+<span class="emoji-word optimal-stars">optimal</span> and hacking functionality into existing
+software.
+Outside of my research, you can find me designing my own microcontroller, going on hikes or fangriling about 
+<span class="emoji-word julia">julia</span>.
+{: .intro}
+
+In my undergrad, I did
 <span class="emoji-word research">research</span> on
 <span class="emoji-word diamond">diamond</span>-based
-quantum computing, making simulators for superconductors and developing
+quantum computing, made simulators for superconducting devices and developed
 <span class="emoji-word glasses">glasses</span>
-that filter out epileptic triggers with a team of product designers. Outside of research and classes, you can find me designing my own microcontroller, going on hikes or practicing the ukulele.
+that filter out epileptic triggers with a team of product designers.
 {: .intro}
 
 <div class="landscape">
@@ -48,12 +56,30 @@ that filter out epileptic triggers with a team of product designers. Outside of 
 {: #education.title_with_emoji}
 ## Education
 
-I am a double major at MIT graduating with a
+#### Masters Degree
+
+For my masters, I am leveraging mathematical methods to approach several different problems
+when it comes to simulating, designing, fabricating and testing superconducting nanoelectronics.
+These electronics are tiny and are cooled down below 4 Kelvin. Through their highly non-linear 
+behaviour, we can design a range of cool devices including a single photon detector and a
+single photon imager!
+
+- I build efficient julia simulators for large-scale networks of non-linear superconducting devices. 
+<!-- The goal is being able to simulate millions of devices, where the smallest deviceis thousands of LC elements in less than a minute! To do that, I spend a lot of time finding symmteries and exploiting them and utilizing cool methods such as harmonic balance for frequency domain precomputation. -->
+- Build tools on top of existing simulators (like LTspice) that exploit them to give them new 
+features and speed them up. See my project [spice-daemon](https://github.com/tareqdandachi/spice-daemon).
+- Designing a new optimal scheme to characterize fabrication defects in superconducting electronics.
+- Apply various mathematical tools ranging from gradient descent to space filling curves to design better
+devices.
+
+#### Undergraduate Degree
+
+I double majored at MIT graduating with a
 B.S. in <span class="bold ee-color">Electrical Engineering</span> and <span class="bold cs-color">Computer Science</span> and a
 B.S. in <span class="bold meche-color">Mechanical Engineering</span> and <span class="bold quantum-color">Quantum Information and Computation</span>.
 
-Over my time at MIT, I took a wide range of classes that cover quantum & information theory and quantum computing
-platforms, TCS, hardware simulation & FPGA design, processor design, semiconductor physics, image processing, controls, thermofluids, mechanics and product design.
+Over my time at MIT, I took a wide range of classes that cover quantum & information theory, quantum computing
+platforms, theoretical computer science, FPGA design, processor design, semiconductor physics, image processing, controls, thermofluids, mechanics and product design.
 
 <span style="display: block; text-align: center"><a id="toggle_class_list" class="changing" onclick="toggleClassList()">SHOW ALL CLASSES</a></span>
 
@@ -119,7 +145,7 @@ platforms, TCS, hardware simulation & FPGA design, processor design, semiconduct
   - {: .other-color} Bioethics
   - {: .other-color} Introduction to Solid-State Chemistry
 
-Outside of classes, I have learned group theory, representation theory, lie groups and quantum algorithms
+Outside of classes, I learned group theory, representation theory, lie groups and quantum algorithms
 by reading books[1][2][3][4] and solving problems.
 
 {: #teaching.title_with_emoji}
@@ -159,25 +185,31 @@ and exercises where they get to write their own bad code.
 {: #research.title_with_emoji}
 ## Research
 
-I was also involved in research in two of MIT's quantum research groups: The
+As an undergrad, I was also involved in research in two of MIT's quantum research groups: 
+The
 [Quantum Photonics Group (QPG)](https://www.rle.mit.edu/qp/)
 and The
 [Quantum Nanostructures and Nanofabrication (QNN)](https://www.rle.mit.edu/qnn).
-I worked on 2 research projects:
+I worked on 3 different research projects:
 
-#### Optimal Control Techniques on Color Centers in Diamond
+#### *QuantumClifford.jl* GPU Kernel Development
 
-I worked on generating optimal microwave control pulses for diamond-based quantum computers. I developed models to simulate arbitrary arrangements of color centers and driving wire placement. Then applied optimal control theory techniques to find optimal time-varying pulses that improve the number of qubits that along with the other methods in the paper we will publish allow for the control of thousands of spins.
+Implementing fast GPU quantum stabilizer formalism simulations for a Julia
+quantum simulation package [*QuantumClifford.jl*](https://github.com/Krastanov/QuantumClifford.jl)
+{: .sectionHide.sectionResearch}
+
+#### Multiplexed optimal control of spin quantum memories
+
+I worked on generating optimal microwave control pulses for diamond-based quantum computers. I developed models to simulate arbitrary arrangements of color centers and driving wire placement. Then applied optimal control theory techniques to find optimal time-varying pulses that improve the number of qubits that along with the other methods in the paper for the control of thousands of spins.
 {: .sectionHide.sectionResearch}
 
 #### Electro-Thermal Modeling of Superconducting Materials
 
-At QNN, I worked on generating SPICE models for different types of superconducting wires and
-superconducting nanowire single photon detector (SNSPDs). I then decomposed these circuit methods
-into matrices and used linear algebra methods to generate a fast simulator for these circuit models.
-The model also included the generation of thermal hotspots which introduced non-linearities, my model
-ended up being faster than LTSpice and produced more accurate results for the applications we were
-considering.
+At QNN, I developed mathematical methods and implemented an electro-thermal model
+in Python to efficiently simulate superconducting wires and superconducting
+nanowire single photon detector (SNSPDs). This is typically a hard problem since
+these devices are highly non-linear and solving both the thermal and electrical
+parts of a model is very complex - let alone making it fast.
 {: .sectionHide.sectionResearch}
 
 {% include sectionToggle.html sectionName="sectionResearch" %}

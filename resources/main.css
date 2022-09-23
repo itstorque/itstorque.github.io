@@ -352,6 +352,18 @@ h3.check_out_my {
   transform: translateY(-3px);
 }
 
+.emoji-word.optimal-stars::after {
+  content: "✨🏎💨";
+  margin-left: -70px;
+  transform: translateY(0px);
+}
+
+.emoji-word.julia::before {
+  content: url("https://julialang.org/assets/infra/logo.svg");
+  margin-right: -45px;
+  transform: translateY(-123px) scale(0.09) translateX(-2190px);
+}
+
 .emoji-word.computation-structures::before {
   content: url("https://img.icons8.com/fluency/48/000000/circuit.png");
   margin-right: -45px;
