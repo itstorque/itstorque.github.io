@@ -44,6 +44,10 @@
   background: var(--less-pop);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: BlinkMacSystemFont, -apple-system, "Roboto", sans-serif;
   width: 90vw;
@@ -433,10 +437,16 @@ ul#class_list {
 }
 
 ul#class_list.unhide {
-  height: 760px;
+  height: auto;
   margin-bottom: 30px;
   margin-top: 40px;
   opacity: 1;
+}
+
+ul#class_list.unhide li {
+
+  display: inline-block;
+
 }
 
 #toggle_class_list {

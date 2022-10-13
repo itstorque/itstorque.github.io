@@ -87,7 +87,6 @@ platforms, theoretical computer science, FPGA design, processor design, semicond
 - Spring 2022
   - {: .meche-color} Measurement and Instrumentation
   - {: .cs-color} Computer Systems Security
-  - {: .cs-color} Low-level Programming in C and Assembly
   - {: .ee-color} Music Technology
   - {: .quantum-color} Quantum Complexity Theory
 - Winter 2022
@@ -122,7 +121,7 @@ platforms, theoretical computer science, FPGA design, processor design, semicond
   - {: .cs-color} Numerical Computation
   - {: .other-color} Introductory Biology
   - {: .other-color} Archaeological Science
-- Winter 2022
+- Winter 2020
   - {: .quantum-color} Introduction to Quantum Computation
   - {: .cs-color} WebLab: Web Programming
   - {: .ee-color} Mobile Autonomous Systems Lab
@@ -144,9 +143,6 @@ platforms, theoretical computer science, FPGA design, processor design, semicond
   - {: .quantum-color} Programming the Universe
   - {: .other-color} Bioethics
   - {: .other-color} Introduction to Solid-State Chemistry
-
-Outside of classes, I learned group theory, representation theory, lie groups and quantum algorithms
-by reading books[1][2][3][4] and solving problems.
 
 {: #teaching.title_with_emoji}
 ## Teaching Experience
@@ -218,8 +214,9 @@ parts of a model is very complex - let alone making it fast.
 
 {: #projects.title_with_emoji}
 ## Projects
+<br/>
 
-## Highlighted Projects
+### Highlighted Projects
 
 <div class="individual-expands">
 
@@ -263,8 +260,9 @@ parts of a model is very complex - let alone making it fast.
 #### MASLAB? -->
 
 </div>
+<br/>
 
-## A collection of other random projects
+### A collection of other random projects
 
 - [performer](https://github.com/tareqdandachi/performer): Music, Instrument and MIDI synthesis tool in python. Supposed to be a python replacement for Max/MSP and puredata.
 - [ltspice-tikz](https://github.com/tareqdandachi/ltspice-tikz): A one-night project to convert LTspice circuit and symbol files into LaTeX pgp/tikz code. Hopefully people have no excuses to publish ugly looking circuits now.
