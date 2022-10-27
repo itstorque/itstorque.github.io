@@ -214,7 +214,7 @@ span.bold {
   display: none;
 }
 
-div#resume-github-container {
+div#check-out-my-container {
   text-align: center;
   display: flex;
   margin: 30px 20px 60px 20px;
@@ -227,24 +227,16 @@ div#resume-github-container {
 
 }
 
-#resume, #github {
+#resume, #github, #linkedin {
   display: inline-block;
-  width: 45%;
+  width: max-content;
   margin: auto;
   text-align: center;
 }
 
-#resume a {
+#resume a, #github a, #linkedin a {
   background: linear-gradient(to left, white 50%, var(--pop) 50%);
   background-position: right;
-}
-
-#github a {
-  background: linear-gradient(to left, white 50%, var(--pop) 50%);
-  background-position: right;
-}
-
-#resume a, #github a {
 
   text-align: center;
   font-weight: bold;
@@ -253,15 +245,24 @@ div#resume-github-container {
   text-decoration: none;
   text-transform: uppercase;
 
-  padding: 10px 15px 10px 10px;
+  padding: 10px 10px 10px 10px;
   background-size: 210% 100%;
 
   transition: 0.3s ease-in-out;
 }
 
-#resume a:hover {
+#resume a:hover, #github a:hover, #linkedin a:hover {
   color: white;
   background-position: left;
+}
+
+#resume a .resume_icon, #github a .github_icon, #linkedin a .linkedin_icon {
+  fill: var(--pop);
+  transition: 0.3s;
+}
+
+#resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon {
+  fill: white;
 }
 
 #resume svg {
@@ -270,33 +271,16 @@ div#resume-github-container {
   margin-right: 5px;
 }
 
-#resume a .resume_icon {
-  fill: var(--pop);
-  transition: 0.3s;
-}
-
-#resume a:hover .resume_icon {
-  fill: white;
-}
-
-#github a:hover{
-  color: white;
-  background-position: left;
-}
-
 #github svg {
   height: 25px;
   margin-bottom: -5px;
   margin-right: 3px;
 }
 
-#github a .github_icon {
-  fill: var(--pop);
-  transition: 0.3s;
-}
-
-#github a:hover .github_icon {
-  fill: white;
+#linkedin svg {
+  height: 25px;
+  margin-bottom: -5px;
+  margin-right: 5px;
 }
 
 h3.check_out_my {

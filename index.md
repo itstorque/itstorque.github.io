@@ -36,13 +36,13 @@ that filter out epileptic triggers with a team of product designers.
 {: .intro}
 
 <div class="landscape">
-  <img src="resources/portraits/portrait-1.jpg" alt="" id="portrait">
+  <img src="resources/portraits/portrait-main.jpg" alt="" id="portrait">
 </div>
 
 ### Check out my
 {: .check_out_my}
 
-<div id="resume-github-container">
+<div id="check-out-my-container">
   <div id="resume"><a href="https://tareqdandachi.github.io/resume-2022/main.pdf">
   {% include resume_icon.html %}
   Resume
@@ -50,6 +50,10 @@ that filter out epileptic triggers with a team of product designers.
   <div id="github"><a href="https://github.com/tareqdandachi">
   {% include github_icon.html %}
   GitHub
+  </a></div>
+  <div id="linkedin"><a href="https://www.linkedin.com/in/torqued/">
+  {% include linkedin_icon.html %}
+  LinkedIn
   </a></div>
 </div>
 

@@ -33,7 +33,7 @@ window.addEventListener("load", function() {
 
 });
 
-let portrait_index = 0;
+let portrait_index = -1;
 let total_portrait_num = 9;
 
 function changeImage() {
@@ -41,13 +41,17 @@ function changeImage() {
    var image = new Image();
    image.src = "resources/portraits/portrait-" + (portrait_index+1) + ".jpg";
 
+   if (portrait_index==-1) {
+    image.src = "resources/portraits/portrait-main.jpg";
+   }
+
    image.onload = function () {
 
         document.getElementById('portrait').src = image.src
 
     };
 
-    portrait_index > total_portrait_num-2 ? portrait_index = 0 : portrait_index++;
+    portrait_index > total_portrait_num-2 ? portrait_index = -1 : portrait_index++;
 
 }
 
