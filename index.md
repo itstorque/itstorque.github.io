@@ -23,7 +23,7 @@ and I am a masters student at MIT interested in hardware, superconducting electr
 quantum computing. I enjoy reducing problems into math, designing devices and algorithms to be 
 <span class="emoji-word optimal-stars">optimal</span> and hacking functionality into existing
 software.
-Outside of my research, you can find me designing my own microcontroller, going on hikes or fangriling about 
+Outside of my research, you can find me designing my own microcontroller, going on hikes or fangirling about 
 <span class="emoji-word julia">julia</span>.
 {: .intro}
 
