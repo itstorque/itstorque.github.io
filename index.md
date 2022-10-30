@@ -45,15 +45,15 @@ that filter out epileptic triggers with a team of product designers.
 <div id="check-out-my-container">
   <div id="resume"><a href="https://tareqdandachi.github.io/resume-2022/main.pdf">
   {% include resume_icon.html %}
-  Resume
+  <p>Resume</p>
   </a></div>
   <div id="github"><a href="https://github.com/tareqdandachi">
   {% include github_icon.html %}
-  GitHub
+  <p>GitHub</p>
   </a></div>
   <div id="linkedin"><a href="https://www.linkedin.com/in/torqued/">
   {% include linkedin_icon.html %}
-  LinkedIn
+  <p>LinkedIn</p>
   </a></div>
 </div>
 
