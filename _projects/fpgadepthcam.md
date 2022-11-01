@@ -11,4 +11,4 @@ the code is able to use color segmentation to determine an object of interest an
 distance away from it using the center offset. It powers a VGA display that showcases the two images,
 debug information and crosshairs that show the center of the object of interest. It was coded using
 Verik, precompiled into SystemVerilog and then synthesized using vivado before being uploaded onto a
-Xilinx A7. Here is a [link to the GitHub code](https://github.com/tareqdandachi/FPGA-Depth-Camera).
+Xilinx A7. Here is a [link to the GitHub code](https://github.com/itstorque/FPGA-Depth-Camera).

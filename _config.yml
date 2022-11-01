@@ -1,12 +1,11 @@
 # Site Settings
 title: Torque's Portfolio
-email: tareqdandachi@gmail.com
+email: hi@itstorque.com
 description: >
   Torque's Portfolio
 baseurl: ''
 url: 'hi.itstorque.com'
-twitter_username: tareqdandachi
-github_username: tareqdandachi
+github_username: itstorque
 theme: jekyll-theme-slate
 
 plugins:

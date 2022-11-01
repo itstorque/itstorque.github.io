@@ -14,29 +14,29 @@ design styles from a reference image. Here are some example renderings:
 <tbody>
 <tr hidden>
 <td>
-<img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_5.png"  alt="1" width="100%" loading="lazy"></td>
+<img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_5.png"  alt="1" width="100%" loading="lazy"></td>
 
-<td><img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Output/unsplash_5_gamma.png" alt="2" width="100%" loading="lazy"></td>
+<td><img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Output/unsplash_5_gamma.png" alt="2" width="100%" loading="lazy"></td>
 </tr>
 <tr hidden>
-<td> <img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_6.png"  alt="1" width="100%" loading="lazy"></td>
+<td> <img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_6.png"  alt="1" width="100%" loading="lazy"></td>
 
-<td><img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Output/unsplash_6_gamma.png" alt="2" width="100%" loading="lazy"></td>
+<td><img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Output/unsplash_6_gamma.png" alt="2" width="100%" loading="lazy"></td>
 </tr>
 <tr hidden>
-<td> <img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_7.png"  alt="1" width="100%" loading="lazy"></td>
+<td> <img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_7.png"  alt="1" width="100%" loading="lazy"></td>
 
-<td><img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Output/unsplash_7_gamma.png" alt="2" width="100%" loading="lazy"></td>
+<td><img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Output/unsplash_7_gamma.png" alt="2" width="100%" loading="lazy"></td>
 </tr>
 <tr hidden>
-<td> <img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_3.png"  alt="1" width="100%" loading="lazy"></td>
+<td> <img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_3.png"  alt="1" width="100%" loading="lazy"></td>
 
-<td><img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Output/unsplash_3_gamma.png" alt="2" width="100%" loading="lazy"></td>
+<td><img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Output/unsplash_3_gamma.png" alt="2" width="100%" loading="lazy"></td>
 </tr>
 <tr hidden>
-<td> <img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_1.png"  alt="1" width="100%" loading="lazy"></td>
+<td> <img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Input/unsplash_photos/unsplash_1.png"  alt="1" width="100%" loading="lazy"></td>
 
-<td><img src="https://raw.githubusercontent.com/tareqdandachi/Non-Photorealistic-Renderer/main/Output/unsplash_1_gamma.png" alt="2" width="100%" loading="lazy"></td>
+<td><img src="https://raw.githubusercontent.com/itstorque/Non-Photorealistic-Renderer/main/Output/unsplash_1_gamma.png" alt="2" width="100%" loading="lazy"></td>
 </tr>
 </tbody>
 </table>

@@ -43,11 +43,11 @@ that filter out epileptic triggers with a team of product designers.
 {: .check_out_my}
 
 <div id="check-out-my-container">
-  <div id="resume"><a href="https://tareqdandachi.github.io/resume-2022/main.pdf">
+  <div id="resume"><a href="https://itstorque.github.io/resume-2022/main.pdf">
   {% include resume_icon.html %}
   <p>Resume</p>
   </a></div>
-  <div id="github"><a href="https://github.com/tareqdandachi">
+  <div id="github"><a href="https://github.com/itstorque">
   {% include github_icon.html %}
   <p>GitHub</p>
   </a></div>
@@ -71,7 +71,7 @@ single photon imager!
 - I build efficient julia simulators for large-scale networks of non-linear superconducting devices. 
 <!-- The goal is being able to simulate millions of devices, where the smallest deviceis thousands of LC elements in less than a minute! To do that, I spend a lot of time finding symmteries and exploiting them and utilizing cool methods such as harmonic balance for frequency domain precomputation. -->
 - Build tools on top of existing simulators (like LTspice) that exploit them to give them new 
-features and speed them up. See my project [spice-daemon](https://github.com/tareqdandachi/spice-daemon).
+features and speed them up. See my project [spice-daemon](https://github.com/itstorque/spice-daemon).
 - Designing a new optimal scheme to characterize fabrication defects in superconducting electronics.
 - Apply various mathematical tools ranging from gradient descent to space filling curves to design better
 devices.
@@ -175,7 +175,7 @@ I was a lab assistant for "Circuits and Electronics" where I got the chance to h
 #### Teaching MIT ESP class - <span class="emoji-word splash-class">Making Code Hard(ly Work)</span>
 
 I also got the chance to teach a programming class to high schoolers with my friend Savoldy
-in MIT's Educational Studies Program in a class we called (excuse the pun) "[Making Code Hard(ly Work)](https://github.com/tareqdandachi/MIT-Splash-2019-Making-Code-Hardly-Work)."
+in MIT's Educational Studies Program in a class we called (excuse the pun) "[Making Code Hard(ly Work)](https://github.com/itstorque/MIT-Splash-2019-Making-Code-Hardly-Work)."
 In the class we teach good programming practices by showing them bad meme-y code, interesting debug problems that arise from poorly structured code,
 and exercises where they get to write their own bad code.
 {: .sectionHide.sectionTeaching}
@@ -268,17 +268,17 @@ parts of a model is very complex - let alone making it fast.
 
 ### A collection of other random projects
 
-- [performer](https://github.com/tareqdandachi/performer): Music, Instrument and MIDI synthesis tool in python. Supposed to be a python replacement for Max/MSP and puredata.
-- [ltspice-tikz](https://github.com/tareqdandachi/ltspice-tikz): A one-night project to convert LTspice circuit and symbol files into LaTeX pgp/tikz code. Hopefully people have no excuses to publish ugly looking circuits now.
-- [spice-daemon](https://github.com/tareqdandachi/spice-daemon): A toolkit that spawns alongside LTspice and adds functionality on top of LTspice. It can adds true noise generation, solve diff. eq.'s and adds a new level of parametrization not available in LTspice through python. Designed to suit the needs of people in my lab.
-- [RCSJ-Washboard-Potential](https://github.com/tareqdandachi/RCSJ-Washboard-Potential): A MATLAB visualization of washboard potentials you get by solving the RCSJ differential equation.
-- [cookie-hijacker-chrome](https://github.com/tareqdandachi/cookie-hijacker-chrome): A weekend project with a friend to develop a malicious chrome extension that steals a users cookies and passwords.
-- [jekyll-shell-theme](https://github.com/tareqdandachi/jekyll-shell-theme): A weekend project that makes jekyll webpages look like a shell. 
-- [dumb-anyconnect](https://github.com/tareqdandachi/dumb-anyconnect): A tweak that hooks into the Cisco AnyConnect app and adds a connection to the iOS keychain. A one-night project born out of the frustration of hacing to type my password everytime I want to use a VPN.
-- [assistivetech.mit.edu](https://github.com/tareqdandachi/assistivetech.mit.edu): A PHP website written from scratch for MIT's assistive technology hackathon with a hacker management backend.
-- [QuickTimeVNC](https://github.com/tareqdandachi/QuickTimeVNC): A python script that allows VNC like control of a jailbroken iPhone over QuickTime.
-- [BetterCCBattery](https://github.com/tareqdandachi/BetterCCBattery) and [OrientationControl](https://github.com/tareqdandachi/OrientationControl): iOS tweaks that modify the user experience with the control center and orientation lock.
-- [2086-WallFollower](https://github.com/tareqdandachi/2086-WallFollower): A PID controlled robot simulator with visualization written in MATLAB.
-- [quhackman](https://github.com/tareqdandachi/quhackman): A quantum twist on pacman written in python and uses the IBM qiskit backend.
-- [Turing-Machine-Simulator](https://github.com/tareqdandachi/Turing-Machine-Simulator): A one-night project to simulate a turing machine tape in python.
-- [rrg.mit.edu](https://github.com/tareqdandachi/mit-rrg): I was hired to make a website for MIT ESI's Rapid Response Group.
+- [performer](https://github.com/itstorque/performer): Music, Instrument and MIDI synthesis tool in python. Supposed to be a python replacement for Max/MSP and puredata.
+- [ltspice-tikz](https://github.com/itstorque/ltspice-tikz): A one-night project to convert LTspice circuit and symbol files into LaTeX pgp/tikz code. Hopefully people have no excuses to publish ugly looking circuits now.
+- [spice-daemon](https://github.com/itstorque/spice-daemon): A toolkit that spawns alongside LTspice and adds functionality on top of LTspice. It can adds true noise generation, solve diff. eq.'s and adds a new level of parametrization not available in LTspice through python. Designed to suit the needs of people in my lab.
+- [RCSJ-Washboard-Potential](https://github.com/itstorque/RCSJ-Washboard-Potential): A MATLAB visualization of washboard potentials you get by solving the RCSJ differential equation.
+- [cookie-hijacker-chrome](https://github.com/itstorque/cookie-hijacker-chrome): A weekend project with a friend to develop a malicious chrome extension that steals a users cookies and passwords.
+- [jekyll-shell-theme](https://github.com/itstorque/jekyll-shell-theme): A weekend project that makes jekyll webpages look like a shell. 
+- [dumb-anyconnect](https://github.com/itstorque/dumb-anyconnect): A tweak that hooks into the Cisco AnyConnect app and adds a connection to the iOS keychain. A one-night project born out of the frustration of hacing to type my password everytime I want to use a VPN.
+- [assistivetech.mit.edu](https://github.com/itstorque/assistivetech.mit.edu): A PHP website written from scratch for MIT's assistive technology hackathon with a hacker management backend.
+- [QuickTimeVNC](https://github.com/itstorque/QuickTimeVNC): A python script that allows VNC like control of a jailbroken iPhone over QuickTime.
+- [BetterCCBattery](https://github.com/itstorque/BetterCCBattery) and [OrientationControl](https://github.com/itstorque/OrientationControl): iOS tweaks that modify the user experience with the control center and orientation lock.
+- [2086-WallFollower](https://github.com/itstorque/2086-WallFollower): A PID controlled robot simulator with visualization written in MATLAB.
+- [quhackman](https://github.com/itstorque/quhackman): A quantum twist on pacman written in python and uses the IBM qiskit backend.
+- [Turing-Machine-Simulator](https://github.com/itstorque/Turing-Machine-Simulator): A one-night project to simulate a turing machine tape in python.
+- [rrg.mit.edu](https://github.com/itstorque/mit-rrg): I was hired to make a website for MIT ESI's Rapid Response Group.

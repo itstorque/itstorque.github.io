@@ -15,4 +15,4 @@ of the key.
 
 I primarily worked on the communication scheme over RawHID and hardware interfacing and the 
 authentication protocol on the key side. Here is a cool [write-up](https://www.itstorque.com/u2f/write-up.pdf) on the security key and here
-is the [repository](https://github.com/tareqdandachi/u2f) you can use to make your own security key!
+is the [repository](https://github.com/itstorque/u2f) you can use to make your own security key!
