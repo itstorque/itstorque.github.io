@@ -3,8 +3,6 @@ title: Home
 layout: default
 ---
 
-{%- include hello_ai.html -%}
-
 <div id="header">
   <div id="header-indicator"></div>
   <div class="emoji-block" id="hello-emoji">
@@ -29,7 +27,7 @@ Outside of my research, you can find me designing my own microcontroller, going 
 <span class="emoji-word julia">julia</span>.
 {: .intro}
 
-I did my undergrad also at MIT where I got to do
+I also did my undergrad at MIT where I got to do
 <span class="emoji-word research">research</span> on
 <span class="emoji-word diamond">diamond</span>-based
 quantum computing, made simulators for superconducting devices and developed
@@ -40,6 +38,8 @@ that filter out epileptic triggers with a team of product designers.
 <div class="landscape">
   <img src="resources/portraits/portrait-main.jpg" alt="" id="portrait">
 </div>
+
+{%- include hello_ai.html -%}
 
 ### Check out my
 {: .check_out_my}
