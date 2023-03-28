@@ -3,6 +3,8 @@ title: Home
 layout: default
 ---
 
+{%- include hello_ai.html -%}
+
 <div id="header">
   <div id="header-indicator"></div>
   <div class="emoji-block" id="hello-emoji">
