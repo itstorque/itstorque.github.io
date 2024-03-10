@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
-
 :root {
 
   --pop:    #FE1717;
@@ -346,7 +344,7 @@ h3.check_out_my {
 }
 
 .emoji-word.julia::before {
-  content: url("https://julialang.org/assets/infra/logo.svg");
+  content: url("/resources/julia_logo.webp");
   margin-right: -45px;
   transform: translateY(-123px) scale(0.09) translateX(-2190px);
 }
