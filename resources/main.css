@@ -350,9 +350,9 @@ h3.check_out_my {
 }
 
 .emoji-word.computation-structures::before {
-  content: url("https://img.icons8.com/fluency/48/000000/circuit.png");
+  content: url("/resources/circuit_emoji.jpg");
   margin-right: -45px;
-  transform: translateY(-12px) scale(0.6) translateX(-20px);
+  transform: translateY(-260px) scale(0.05) translateX(-4700px);
 }
 
 .emoji-word.circuits-and-electronics::before {

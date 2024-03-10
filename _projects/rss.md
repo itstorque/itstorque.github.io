@@ -11,7 +11,7 @@ where we don't have a pre-determined map, and obstacles are placed randomly on t
 of (1) is to reach the finish line first, in (2), it is a timing and number of obstacles hit race. Here is
 the hardware that was on our car and what we simulated when we moved online.
 
-<img src="resources/rss_hardware.png" class="innerphoto"/>
+<img src="resources/rss_hardware.jpg" class="innerphoto"/>
 
 This is a gif
 (<a onclick="playAudioGif()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/dʒɪf/</a>)
