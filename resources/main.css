@@ -344,7 +344,7 @@ h3.check_out_my {
 }
 
 .emoji-word.julia::before {
-  content: url("/resources/julia_logo.webp");
+  content: url("./julia_logo.webp");
   margin-right: -45px;
   transform: translateY(-123px) scale(0.09) translateX(-2190px);
 }
