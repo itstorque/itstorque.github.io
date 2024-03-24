@@ -400,6 +400,10 @@ h3.check_out_my {
   content: "🛠";
 }
 
+#ai_blurb_title::before {
+  content: "🤖";
+}
+
 ul#class_list {
     -moz-column-count: 2;
     -moz-column-gap: 20px;
@@ -435,6 +439,7 @@ div.publication .author_list {
   color: rgba(0,0,0,.54); 
   font-size: 0.8rem; 
   font-style: italic; 
+  text-align: left;
 }
 
 div.publication a {
@@ -443,6 +448,10 @@ div.publication a {
   border-radius: 5px; 
   padding: 0.3rem; 
   text-decoration: none;
+}
+
+#ai_blurb {
+  margin-top: 4rem;
 }
 
 #toggle_class_list {

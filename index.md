@@ -39,8 +39,6 @@ that filter out epileptic triggers with a team of product designers.
   <img src="resources/portraits/portrait-main.jpg" alt="" id="portrait">
 </div>
 
-{%- include hello_ai.html -%}
-
 ### Check out my
 {: .check_out_my}
 
@@ -230,7 +228,6 @@ parts of a model is very complex - let alone making it fast.
 
 {: #projects.title_with_emoji}
 ## Projects
-<br/>
 
 ### Highlighted Projects
 
@@ -294,3 +291,5 @@ parts of a model is very complex - let alone making it fast.
 - [quhackman](https://github.com/itstorque/quhackman): A quantum twist on pacman written in python and uses the IBM qiskit backend.
 - [Turing-Machine-Simulator](https://github.com/itstorque/Turing-Machine-Simulator): A one-night project to simulate a turing machine tape in python.
 - [rrg.mit.edu](https://github.com/itstorque/mit-rrg): I was hired to make a website for MIT ESI's Rapid Response Group.
+
+{% include hello_ai.html %}
