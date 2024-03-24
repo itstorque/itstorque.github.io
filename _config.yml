@@ -24,3 +24,5 @@ gfm_quirks: paragraph_end
 collections:
   projects:
     sort_by: priority
+  publications:
+    sort_by: date

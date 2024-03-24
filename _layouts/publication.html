@@ -1,0 +1,14 @@
+<h4>{% if page.type == "paper" %}
+📄
+{% else if page.type == "thesis" %}
+📒
+{% endif %}{{ page.title }}</h4>
+
+<p style="color: rgba(0,0,0,.54); font-size: 0.8rem; font-style: italic; margin-bottom: -10px;">
+    {{ page.authors | join: ", " | truncatewords: 30 }}
+</p>
+
+<a href="{{page.link}}" style="font-size: 0.9rem; border: var(--pop) solid 2px; border-radius: 5px; padding: 0.3rem; text-decoration: none;">{{page.link_name}}</a>
+{% if page.pdf_link != "" -%}
+<a href="{{page.pdf_link}}" style="font-size: 0.9rem; border: var(--pop) solid 2px; border-radius: 5px; padding: 0.3rem; text-decoration: none;">PDF</a>
+{%- endif -%}

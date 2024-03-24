@@ -6,6 +6,11 @@
   --less-pop:    #FF7777;
   --hover-pop:    #BB1313;
 
+  --text-font-size-L: 1.4rem; /* 20px; */
+  --text-font-size-M: 1.2rem; /* 18px; */
+
+  --title-font-size: 27px;
+
 }
 
 .ee-color {
@@ -49,7 +54,7 @@ html {
 body {
   font-family: BlinkMacSystemFont, -apple-system, "Roboto", sans-serif;
   width: 90vw;
-  font-size: 18px;
+  font-size: var(--text-font-size-M);
 
   margin: 15vh auto 15vh auto;
 
@@ -94,7 +99,7 @@ span.bold {
 }
 
 .intro {
-  font-size: 20px;
+  font-size: var(--text-font-size-L);
 }
 
 #header {
@@ -402,7 +407,7 @@ ul#class_list {
     -webkit-column-gap: 20px;
     column-count: 2;
     column-gap: 30px;
-    font-size: 16px;
+    font-size: var(--text-font-size-M);
     height: 0px;
     overflow-y: hidden;
     column-fill: auto;
@@ -427,7 +432,7 @@ ul#class_list.unhide li {
 }
 
 #toggle_class_list {
-  font-size: 16px;
+  font-size: var(--text-font-size-M);
   text-align: center;
   margin-top: 30px;
   margin-bottom: 50px;
@@ -462,7 +467,7 @@ ul#class_list.unhide li {
 }
 
 .toggleSection {
-  font-size: 16px;
+  font-size: var(--text-font-size-M);
   background: linear-gradient(to right, white 50%, var(--pop) 50%);
   background-size: 205%;
   background-position: left;
@@ -551,7 +556,7 @@ ul#class_list.unhide li {
   max-height: 100vh;
   padding-left: 20px;
   padding-top: 5px;
-  font-size: 16px;
+  font-size: var(--text-font-size-M);
   margin-top: 10px;
   margin-bottom: 10px;
   opacity: 1;
@@ -616,7 +621,7 @@ ul#class_list.unhide li {
 
   #header {
     display: block;
-    font-size: 16px;
+    font-size: var(--text-font-size-M);
   }
 
   #header .emoji-block {
@@ -685,7 +690,7 @@ ul#class_list.unhide li {
 
   #header .emoji-block.activeSection h1 {
     margin: 0px;
-    font-size: 27px;
+    font-size: var(--title-font-size);
     margin-left: -3px;
     margin-right: 3px;
   }
@@ -698,9 +703,17 @@ ul#class_list.unhide li {
     display: inline-block;
   }
 
+  body {
+    text-align: left
+  }
+
 }
 
 @media (max-width:460px) {
+
+  h1 {
+    font-size: 10vw;
+  }
 
   #header {
     margin-left: -5vw;

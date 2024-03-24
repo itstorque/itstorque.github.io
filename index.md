@@ -187,7 +187,7 @@ and exercises where they get to write their own bad code.
 {: #research.title_with_emoji}
 ## Research
 
-As an undergrad, I was also involved in research in two of MIT's quantum research groups: 
+ As an undergrad, I was also involved in research in two of MIT's quantum research groups: 
 The
 [Quantum Photonics Group (QPG)](https://www.rle.mit.edu/qp/)
 and The
@@ -217,6 +217,16 @@ parts of a model is very complex - let alone making it fast.
 {% include sectionToggle.html sectionName="sectionResearch" %}
 
 <!-- ### Quantum Julia -->
+
+### Select Publications
+
+{% assign publications = site.publications | sort: 'date' | reverse %}
+
+{% for pub in publications %}
+
+{{ pub }}
+
+{% endfor %}
 
 {: #projects.title_with_emoji}
 ## Projects
