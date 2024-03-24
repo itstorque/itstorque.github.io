@@ -431,6 +431,20 @@ ul#class_list.unhide li {
 
 }
 
+div.publication .author_list {
+  color: rgba(0,0,0,.54); 
+  font-size: 0.8rem; 
+  font-style: italic; 
+}
+
+div.publication a {
+  font-size: 0.9rem; 
+  border: var(--pop) solid 2px; 
+  border-radius: 5px; 
+  padding: 0.3rem; 
+  text-decoration: none;
+}
+
 #toggle_class_list {
   font-size: var(--text-font-size-M);
   text-align: center;

@@ -13,5 +13,5 @@ abstract: "Efficiently simulating large circuits is crucial for the broader use 
 link_name: "DSpace@MIT"
 link: "https://arxiv.org/abs/2401.12360"
 
-pdf_link: "https://arxiv.org/html/2401.12360v1"
+pdf_link: "https://arxiv.org/pdf/2401.12360v1"
 ---
