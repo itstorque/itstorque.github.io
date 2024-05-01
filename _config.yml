@@ -24,5 +24,30 @@ gfm_quirks: paragraph_end
 collections:
   projects:
     sort_by: priority
+    sitemap: true
   publications:
     sort_by: date
+    sitemap: true
+  blog_posts:
+    sort_by: date
+    title: true
+    output: true
+    permalink: /blog/:path/
+    sitemap: true
+
+highlighter: rouge
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      include_side_nav: true
+      include_math_jax: false
+      layout: "default"
+  -
+    scope:
+      path: "_blog_posts"
+    values:
+      layout: "blog_post"
+      title: Untitled Blog Post
+      emoji: 📝

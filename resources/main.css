@@ -13,6 +13,19 @@
 
 }
 
+.pageLine {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: none;
+  background-color: var(--pop);
+  flex-basis: 100%;
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  height: 0.4rem;
+}
+
 .ee-color {
   color: #ff4757;
 }
@@ -58,8 +71,8 @@ body {
 
   margin: 15vh auto 15vh auto;
 
-  max-width: 600px;
-  text-align: justify;
+  max-width: 60ch;
+  text-align: left;
 }
 
 h1 {

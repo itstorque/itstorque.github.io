@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    {%- include head.html -%}
+
+    {% include mathjax.html %}
+
+    {% seo %}
+
+    <script src="/resources/toc.js"></script>
+
+    <style>
+        body {
+            margin: 15vh auto 15vh auto;
+            /* width: 100vw; */
+            max-width: 100vw;
+        }
+        #toc {
+            flex-shrink: 0;
+            width: 15.5rem;
+            /* margin-right: 5em; */
+            flex-grow: 1;
+            flex-basis: 15%;
+            padding-right: 3.5em;
+            min-width: 13rem;
+
+            position: sticky; 
+            top: 0; 
+
+            margin-bottom: auto;
+            font-size: 0.875rem;
+            max-width: 20rem;
+
+            /* position: fixed; */
+            /* padding-top: 20vh; */
+            /* left: 0; */
+            /* font-size: 100%;
+            color: #202122;
+            font-family: sans-serif;
+            overflow-x: hidden;
+            top: 24px;
+            contain: paint;
+            box-sizing: border-box;
+            max-height: calc(100vh - (24px * 2));
+            margin-left: 2em;
+            width: 15.5rem;
+            font-size: 0.8em; */
+        }
+
+        #toc nav {
+            color: #202122;
+            font-family: sans-serif;
+            display: block;
+            /* position: fixed; */
+            margin-top: 5em;
+        }
+
+        /* copied this from more button in blog.md - unify these later */
+        .hide_button {
+            margin-left: 2em;
+            color: black;
+            background-color: #f6f6f6;
+            padding: 0.5em;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+
+
+            transition: background ease-in-out 0.3s, color ease-in-out 0.1s;
+        }
+
+        .hide_button:hover {
+            background-color: var(--pop);
+            color: #f6f6f6;
+        }
+
+        #toc .nav_content_label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 6px;
+            margin-bottom: 6px;
+            border-bottom: 1px solid #eaecf0;
+            line-height: 1.6;
+        }
+
+        #toc .nav_content_label h2 {
+            font-size: 1.2em;
+            padding-top: 0.5em;
+            margin: 0;
+        }
+
+        #toc a {
+            text-decoration: none;
+        }
+
+        #toc ul {
+            color: #202122;
+            font-family: sans-serif;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        #toc li {
+            color: #202122;
+            font-family: sans-serif;
+            list-style: none;
+            position: relative;
+            list-style-type: none;
+            padding-left: 12px;
+            margin: 0;
+            margin-bottom: 0.4em;
+        }
+
+        #toc .sublist {
+            padding-left: 1.2em;
+        }
+
+        #article_container {
+            /* max-width: 60ch; */
+            flex-basis: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            flex-grow: 1;
+            flex-shrink: 8;
+            overflow-x: visible;
+        }
+
+        #content {
+            max-width: 60ch;
+            margin-left: 2rem;  /* emoji offset */
+        }
+
+        #content h2 {
+            margin-top: 2em;
+            margin-bottom: 0.8em;
+        }
+
+        .blog_emoji {
+            font-size: 5em;
+            margin-bottom: -0.3em;
+        }
+
+        #autofill_toc {
+            max-height: 50vh;
+            overflow-y: auto;
+            transition: max-height 0.3s ease-in;
+        }
+
+        #autofill_toc.tochidden {
+            max-height: 0;
+            transition: 0.15s ease-out;
+            overflow: hidden;
+        }
+
+        h1.article_title {
+            margin-left: 2rem; /* emoji offset */
+        }
+
+        div#flex_article {
+            display: flex;
+            justify-content: center;
+            /* flex-wrap: wrap; */
+            flex-wrap: nowrap;
+            overflow-wrap: break-word;
+            word-break: break-word;
+            width: 100%;
+        }
+
+        div#article_right_col {
+            flex-basis: 10%;
+            flex-shrink: 2;
+        }
+
+        #toc .back_button {
+            color: black;
+            transition: 0.1s ease-in;
+        }
+        
+        #toc .back_button svg {
+            margin-bottom: -0.15em;
+            margin-right: -0.2em;
+            transition: 0.1s ease-in;
+        }
+
+        #toc .back_button:hover {
+            color: var(--pop);
+            transition: 0.1s ease-out;
+        }
+
+        #toc .back_button:hover svg {
+            fill: var(--pop);
+            transition: 0.1s ease-out;
+        }
+
+        @media (max-width: 800px) {
+
+            div#flex_article {
+                flex-direction: column;
+            }
+
+            #toc {
+                position: relative; 
+                font-size: 1.2rem;
+                width: 100%;
+                max-width: none;
+            }
+
+            #article_right_col {
+                display: none;
+            }
+            
+        }
+
+    </style>
+
+</head>
+
+<body id="body">
+
+    <div class="pageLine"></div>
+
+    <div id="flex_article">
+
+        <div id="toc">
+            <nav>
+                <!-- <a href="/blog/">&laquo; Back</a> -->
+                <a href="/blog/" class="back_button">
+                    {% include arrow_back.svg %}
+                    Back
+                </a>
+                <br/>
+                <br/>
+
+                <div>
+                    <div>
+                        <div class="nav_content_label">
+                            <h2>📕 Contents</h2>
+                            <a class="hide_button" id="hide_toc">hide</a>
+                        </div>
+
+                        <ul>
+                            <li>
+                                <a href="#body">
+                                    {{ page.title | markdownify }}
+                                </a>
+                            </li>
+                            <ul class="sublist" id="autofill_toc">
+                            </ul>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </nav>
+
+        </div>
+
+        <div id="article_container">
+
+            <div>
+
+                <h1 class="blog_emoji">{{ page.emoji }}</h1>
+
+                <h1 class="article_title">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
+
+                <br/><br/>
+
+                <div id="content">
+                    {{ content }}
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div id="article_right_col">
+        </div>
+
+    </div>
+
+    <script>
+        // window.onload = function () {
+        //     var toc = "";
+        //     var level = 0;
+
+        //     console.log("ONLOAD")
+
+        //     document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace(
+        //         /<h([0-9])>([^<]+)<\/h([0-9])>/gi,
+        //         function (str, openLevel, titleText, closeLevel) {
+        //             if (openLevel != closeLevel) {
+        //                 return str;
+        //             }
+        //             if (openLevel > level) {
+        //                 toc += (new Array(openLevel - level + 1)).join("<ul>");
+        //             } else if (openLevel < level) {
+        //                 toc += (new Array(level - openLevel + 1)).join("</ul>");
+        //             }
+        //             level = parseInt(openLevel);
+        //             var anchor = titleText.replace(/ /g, "_");
+        //             toc += `<li><a href="#${anchor}">${titleText}</a></li>`;
+        //             console.log(openLevel)
+        //             return `<h${openLevel}><a name="${anchor}">${titleText}</a></h${closeLevel}>`;
+        //         }
+        //     );
+
+        //     if (level) {
+        //         toc += (new Array(level + 1)).join("</ul>");
+        //     }
+
+        //     document.getElementById("toc").innerHTML += toc;
+        // };
+
+        window.onload = function () {
+            var toc = "";
+            var headings = document.querySelectorAll("#content h1, #content h2, #content h3, #content h4");
+
+            headings.forEach(function (heading) {
+                var level = parseInt(heading.tagName.charAt(1));
+                var titleText = heading.textContent;
+                toc += `<li><a href="#${heading.id}">${titleText}</a></li>`;
+                // heading.innerHTML = `<a name="${anchor}">${titleText}</a>`;
+            });
+
+            document.getElementById("autofill_toc").innerHTML += `<ul>${toc}</ul>`;
+
+
+            // wrap_adjust_toc()
+
+            // addEventListener("resize", (event)=>{ wrap_adjust_toc() });
+
+        };
+
+        document.getElementById('hide_toc').addEventListener('click', function() {
+            
+            toc_list_elem = document.getElementById('autofill_toc')
+            
+            if (toc_list_elem.classList.contains("tochidden")) {
+                toc_list_elem.classList.remove('tochidden');
+            } else {
+                toc_list_elem.classList.add('tochidden');
+            }
+            
+            return false;
+        });
+
+        // function wrap_adjust_toc() {
+
+        //     artcont = document.getElementById("article_container")
+        //     toc = document.getElementById("toc")
+        //     rightcol = document.getElementById("article_right_col")
+
+        //     console.log(toc.offsetTop == artcont.offsetTop, toc.offsetTop, artcont.offsetTop)
+
+        //     if (toc.offsetTop == artcont.offsetTop) {
+                
+        //         toc.classList.remove("attach_to_top")
+
+        //     } else {
+
+        //         toc.classList.add("attach_to_top")
+
+        //     }
+
+        // }
+
+        
+
+    </script>
+
+</body>
+
+</html>
