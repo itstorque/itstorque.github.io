@@ -1,6 +1,3 @@
----
----
-
 mobileMenuDisabled = true // still in development
 
 window.onbeforeunload = function () {
