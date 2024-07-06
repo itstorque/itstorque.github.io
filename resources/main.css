@@ -938,8 +938,12 @@ div.publication a {
   animation: theme_swap_anim 0.5s ease-in-out 1;
 }
 
-#next_theme.animation, #next_theme:hover.animation {
+#next_theme.animation {
   animation: opacity-blink 1s linear 1;
+}
+
+#next_theme:hover.animation {
+  animation: opacity-blink 1s linear 1, tilt-shaking 0.25s linear 4;
 }
 
 #next_theme:hover {
