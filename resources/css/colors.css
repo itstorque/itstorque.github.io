@@ -11,6 +11,7 @@
     --c-font: black;
     --c-font-muted: rgba(0,0,0,.38);
     --c-font-sel: var(--c-bg);
+    --c-font-sel-bg: var(--c-less-pop);
     --c-inv-bg: var(--c-bg);
 
     --c-emoji: #f1c40f; /* #FFD52E: */
@@ -30,6 +31,7 @@
     --c-font: rgb(255, 227, 255);
     --c-font-muted: #daa7d2;
     --c-font-sel: var(--c-bg);
+    --c-font-sel-bg: var(--c-less-pop);
     --c-inv-bg: var(--c-bg);
 
     --c-emoji: #ffc326;
@@ -49,6 +51,7 @@
     --c-font: #FBF6E2;
     --c-font-muted: #ECCEAE;
     --c-font-sel: var(--c-bg);
+    --c-font-sel-bg: var(--c-less-pop);
     --c-inv-bg: var(--c-bg);
 
     --c-emoji: #ffc326;
@@ -69,6 +72,7 @@
     --c-font: #333;
     --c-font-muted: #666;
     --c-font-sel: var(--c-bg);
+    --c-font-sel-bg: var(--c-less-pop);
     --c-inv-bg: var(--c-bg);
 
     --c-emoji: #f1c40f;
@@ -90,6 +94,7 @@
     --c-font: #e5ddae;
     --c-font-muted: #cb9866;
     --c-font-sel: var(--c-bg);
+    --c-font-sel-bg: var(--c-less-pop);
     --c-inv-bg: var(--c-bg);
 
     --c-emoji: #ecb653;
@@ -105,12 +110,13 @@
     --c-elem-bg-pop: rgba(1, 10, 25, 0.6);
 
     --c-pop: #6c7a96;
-    --c-less-pop: #19253b;
+    --c-less-pop: #5f6a7d;
     --c-hover-pop: var(--c-font-muted);
 
     --c-font: #afbed3;
     --c-font-muted: #8391a7;
-    --c-font-sel: var(--c-bg);
+    --c-font-sel: var(--c-less-pop);
+    --c-font-sel-bg: #afbed3cc;
     --c-inv-bg: var(--c-bg);
 
     --c-emoji: #ae8740;
@@ -132,6 +138,7 @@
     --c-font: #f6dbb0;
     --c-font-muted: #dec99a;
     --c-font-sel: var(--c-bg);
+    --c-font-sel-bg: var(--c-less-pop);
     --c-inv-bg: var(--c-bg);
 
     --c-emoji: #ffb800;
@@ -163,6 +170,7 @@
     --c-font: ;
     --c-font-muted: ;
     --c-font-sel: var(--c-bg);
+    --c-font-sel-bg: var(--c-less-pop);
     --c-inv-bg: var(--c-bg);
 
     --c-emoji: ;

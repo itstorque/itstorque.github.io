@@ -49,12 +49,12 @@
 
 ::-moz-selection {
   color: var(--c-font-sel);
-  background: var(--c-less-pop);
+  background: var(--c-font-sel-bg);
 }
 
 ::selection {
   color: var(--c-font-sel);
-  background: var(--c-less-pop);
+  background: var(--c-font-sel-bg);
 }
 
 html {
@@ -249,7 +249,7 @@ div#check-out-my-container {
   height: 450px;
 
   object-fit: cover;
-
+  cursor: pointer;
 }
 
 #resume, #github, #linkedin {
@@ -343,6 +343,13 @@ h3.check_out_my {
   --e-🧑‍💻: none;
   --e-😭: none;
 
+  --e-👁️: none;
+  --e-🧠: none;
+
+  --e-🐸: none;
+
+  --e-🍩: none;
+  --e-🪢: none;
 }
 
 .emoji-word.toy-design, .emoji-word.circuits-and-electronics, .emoji-word.splash-class {
@@ -379,11 +386,28 @@ h3.check_out_my {
   background: var(--e-🔬) center;
 }
 
+.emoji-word.frog:hover {
+  background: var(--e-🐸) center;
+}
+
+.emoji-word.topological:hover {
+  background:
+    var(--e-🍩) calc(50% - 0.6em), 
+    var(--e-🪢) calc(50% + 0.6em);
+  
+}
+
 .emoji-word.optimal-stars:hover {
   background:
-    var(--e-✨) calc(50% - 1em), 
-    var(--e-🏎️) calc(50% - 0.1em), 
-    var(--e-💨) calc(50% + 1em);
+    var(--e-🏎️) calc(50% - 0.6em), 
+    var(--e-💨) calc(50% + 0.6em);
+}
+
+.emoji-word.cv-ai:hover {
+  background:
+    var(--e-👁️) calc(50% - 1.3em),
+    var(--e-✨) center,
+    var(--e-🧠) calc(50% + 1.3em)
 }
 
 .emoji-word.diamond:hover {

@@ -71,25 +71,33 @@ color: default
   </div>
 </div>
 
-Hey there! I go by Torque (<a onclick="playAudio()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/tɔɹk/</a>)
-and I am a masters student at MIT interested in hardware, superconducting electronics, computational photography and 
-quantum computing. I enjoy reducing problems into math, designing devices and algorithms to be 
-<span class="emoji-word optimal-stars">optimal</span> and hacking functionality into existing
-software.
-Outside of my research, you can find me designing my own microcontroller, going on hikes or fangirling about 
-<span class="emoji-word julia">julia</span>.
+Hey there! My name is Torque (<a onclick="playAudio()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/tɔɹk/</a>)
+and I am a researcher at Microsoft working on developing a <span class="emoji-word topological">topological</span> quantum computer. 
 {: .intro}
 
-I also did my undergrad at MIT where I got to do
-<span class="emoji-word research">research</span> on
+In my free time, you can catch me working on personal projects spanning: digital system architecture, <span class="emoji-word cv-ai">computer vision and AI</span>,
+differentiable and verifiable propgramming, and superconducting devices. 
+I enjoy reducing problems into math, proving designs and algorithms to be 
+<span class="emoji-word optimal-stars">optimal</span> and reverse engineering hardware and software.
+{: .intro}
+
+I also love <span class="emoji-word frog">frogs</span>.
+{: .intro}
+
+<!-- Outside of my research, you can find me designing my own microcontroller, going on hikes or fangirling about 
+<span class="emoji-word julia">julia</span>.
+{: .intro} -->
+
+<!-- I did my Master and Undergrad at MIT where I got to do
+cutting-edge <span class="emoji-word research">research</span> on building
 <span class="emoji-word diamond">diamond</span>-based
-quantum computing, made simulators for superconducting devices and developed
+quantum computers, develop high-performance simulators for superconducting devices and design
 <span class="emoji-word glasses">glasses</span>
 that filter out epileptic triggers with a team of product designers.
-{: .intro}
+{: .intro} -->
 
 <div class="landscape">
-  <img src="resources/portraits/portrait-main.jpg" alt="" id="portrait">
+  <img src="resources/portraits/portrait-main.jpg" alt="Image of Torque Dandachi" id="portrait" onclick="manualChangeImage()">
 </div>
 
 ### Check out my

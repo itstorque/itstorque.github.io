@@ -11,6 +11,10 @@ window.addEventListener("scroll", function() {
   checkSection()
 });
 
+manualChangeImage = () => { 
+  // To be defined later after loading...
+}
+
 window.addEventListener("load", function() {
   checkSection()
   addIndividualExpands()
@@ -29,11 +33,18 @@ window.addEventListener("load", function() {
   nprToggle()
 
   changeImage()
-  setInterval(changeImage, 4000)
+  changeImageProcess = setInterval(changeImage, 4000)
+
+  manualChangeImage = () => {
+
+    changeImage();
+    clearInterval(changeImageProcess);
+    changeImageProcess = setInterval(changeImage, 4000);
+  }
 
 });
 
-let portrait_index = -1;
+let portrait_index = -2;
 let total_portrait_num = 9;
 
 function changeImage() {
@@ -41,7 +52,7 @@ function changeImage() {
    var image = new Image();
    image.src = "resources/portraits/portrait-" + (portrait_index+1) + ".jpg";
 
-   if (portrait_index==-1) {
+   if (portrait_index < 0) {
     image.src = "resources/portraits/portrait-main.jpg";
    }
 
@@ -51,7 +62,7 @@ function changeImage() {
 
     };
 
-    portrait_index > total_portrait_num-2 ? portrait_index = -1 : portrait_index++;
+    (portrait_index > total_portrait_num-2) ? (portrait_index = -2) : (portrait_index++);
 
 }
 
@@ -307,6 +318,7 @@ function swap_theme() {
 function set_theme(theme) {
 
   console.log("Changing theme to " + theme)
+  setThemeCookie(theme)
 
   document.body.classList.add(theme);
 
@@ -404,11 +416,14 @@ function replaceEmojis() {
   fetch('/resources/emojis.json')
     .then((response) => response.json())
     .then((json) => {
-      E = json["emojis"]
+      E = json
+      console.log(json)
       D = {}
       E.forEach(x => {
+        console.log(x["name"])
         D[ x["emoji"] ] =  ("https://em-content.zobj.net/source/apple/391/" + x["name"].replaceAll(" ", "-").replaceAll(":", "") + "_" + x["unicode"].replaceAll(" ", "-") + ".png").toLowerCase()
       });
+      console.log(D)
 
       matches.forEach((emoji) => {
           console.log(emoji);
@@ -437,7 +452,7 @@ function replaceEmojis() {
   // document.body.innerHTML = document.body.innerHTML.replace('🎲', '<img alt="🎲" src="https://em-content.zobj.net/thumbs/60/apple/391/grinning-face_1f600.webp" style="height: 1.1em" />');
 }
 
-window.addEventListener("load", replaceEmojis);
+window.addEventListener("load", () => { replaceEmojis(); loadTheme(); });
 
 function add_emojis_css(emoji_url_map) {
 
@@ -474,4 +489,36 @@ function add_emojis_css(emoji_url_map) {
 
   // sheet.insertRule(".emoji-word:hover::before { opacity: 0 !important; }")
 
+}
+
+function setThemeCookie(current_theme) {
+  const cookieName = "site_theme";
+  const default_expiration = 3600000*24*350 // 350 days
+  var today = new Date();
+  var expire = new Date();
+
+  expire.setTime(today.getTime() + default_expiration);
+  document.cookie = cookieName+"="+current_theme
+      + ";expires="+expire.toGMTString();
+}
+
+function readThemeCookie() {
+  const cookieName = "site_theme";
+
+  var theCookie=""+document.cookie;
+
+  var ind=theCookie.indexOf(cookieName+"=");
+
+  if (ind==-1) return "default";
+
+  var ind1=theCookie.indexOf(";", ind);
+
+  if (ind1==-1) ind1=theCookie.length;
+
+  return theCookie.substring(ind+cookieName.length+1,ind1);
+
+}
+
+function loadTheme() {
+  return set_theme(readThemeCookie())
 }
