@@ -464,36 +464,37 @@ h3.check_out_my {
   transform: translateY(-3px);
 } */
 
-.title_with_emoji::before {
+.title_with_emoji em {
   position: absolute;
   margin-left: -50px;
+  font-style: normal;
 }
 
-#education::before {
+/* #education::before {
   content: "📚";
-}
+} */
 
 #teaching { margin-top: 50px; }
 
-#teaching::before {
+/* #teaching::before {
   content: "🍎";
-}
+} */
 
 #research { margin-top: 50px; }
 
-#research::before {
+/* #research::before {
   content: "🔬";
-}
+} */
 
 #projects { margin-top: 50px; }
 
-#projects::before {
+/* #projects::before {
   content: "🛠";
-}
+} */
 
-#ai_blurb_title::before {
+/* #ai_blurb_title::before {
   content: "🤖";
-}
+} */
 
 ul#class_list {
     -moz-column-count: 2;

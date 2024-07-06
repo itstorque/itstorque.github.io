@@ -111,7 +111,7 @@ that filter out epileptic triggers with a team of product designers.
 </div>
 
 {: #education.title_with_emoji}
-## Education
+## *📚* Education
 
 #### Masters Degree
 
@@ -202,7 +202,7 @@ platforms, theoretical computer science, FPGA design, processor design, semicond
   - {: .other-color} Introduction to Solid-State Chemistry
 
 {: #teaching.title_with_emoji}
-## Teaching Experience
+## *🍎* Teaching Experience
 
 I also got the chance to help out with courses over my time at MIT.
 
@@ -236,7 +236,7 @@ and exercises where they get to write their own bad code.
 {% include sectionToggle.html sectionName="sectionTeaching" %}
 
 {: #research.title_with_emoji}
-## Research
+## *🔬* Research
 
  As an undergrad, I was also involved in research in two of MIT's quantum research groups: 
 The
@@ -280,7 +280,7 @@ parts of a model is very complex - let alone making it fast.
 {% endfor %}
 
 {: #projects.title_with_emoji}
-## Projects
+## *🛠* Projects
 
 ### Highlighted Projects
 
