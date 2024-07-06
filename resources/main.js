@@ -298,7 +298,7 @@ function swap_theme() {
   
   set_theme(theme)
 
-  if (css_stylesheet_counter == CSS_STYLESHEET_COUNTER_SWITCH) {
+  if (css_stylesheet_counter > CSS_STYLESHEET_COUNTER_SWITCH) {
     colors_dev_mode(theme)
   }
 
@@ -366,7 +366,6 @@ function get_themes() {
 function colors_dev_mode(current_theme) {
   
   themes = get_themes()
-  css_stylesheet_counter = 0
 
   themes_dev_div = document.getElementById("themes_dev_div")
 
@@ -383,8 +382,11 @@ function colors_dev_mode(current_theme) {
 
   innerHTML += "</ul><br/>"
 
+  if (themes_dev_div.innerHTML.trim() == "") {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
+  
   themes_dev_div.innerHTML = innerHTML
-  document.body.scrollTop = document.documentElement.scrollTop = 0;
 
 }
 
@@ -412,7 +414,7 @@ function replaceEmojis() {
           console.log(emoji);
           document.body.innerHTML = document.body.innerHTML.replace(
             RegExp('(\>[^\>]*)' + emoji + '([^\>=]*\<)', 'g'), 
-            '$1<img alt=\"' + emoji + '\" src=\"' + D[emoji] + '\" style=\"height: 1em; margin: 0\" />$2'
+            '$1<img alt=\"' + emoji + '\" src=\"' + D[emoji] + '\" style=\"height: 1em; margin: 0\" loading="lazy" />$2'
             );
         }
       )
@@ -424,6 +426,8 @@ function replaceEmojis() {
       //   document.body.innerHTML = document.body.innerHTML.replace(key, '<img alt="' + key + '" src="' + value + '" style="height: 1.1em" />');
       // }
 
+      add_emojis_css(D)
+
     });
 
   console.log("hello")
@@ -434,3 +438,40 @@ function replaceEmojis() {
 }
 
 window.addEventListener("load", replaceEmojis);
+
+function add_emojis_css(emoji_url_map) {
+
+  emoji_props = Array.from(document.styleSheets)
+  .filter(
+    sheet =>
+      sheet.href === null || sheet.href.startsWith(window.location.origin)
+  )
+  .reduce(
+    (acc, sheet) =>
+      (acc = [
+        ...acc,
+        ...Array.from(sheet.cssRules).reduce(
+          (def, rule) =>
+            (def =
+              rule.selectorText === ".emoji-word"
+                ? [
+                    ...def,
+                    ...Array.from(rule.style).filter(name =>
+                      name.startsWith("--e-")
+                    )
+                  ]
+                : def),
+          []
+        )
+      ]),
+    []
+  );
+
+  console.log(emoji_props)
+
+  sheet = document.styleSheets[0]
+  definitions = emoji_props.map((x) => sheet.insertRule(".emoji-word { " + x + `: url(${ emoji_url_map[x.replace('--e-', '')] }) !important;` + " }"))
+
+  // sheet.insertRule(".emoji-word:hover::before { opacity: 0 !important; }")
+
+}
