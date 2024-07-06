@@ -75,6 +75,10 @@ Hey there! My name is Torque (<a onclick="playAudio()"><span style="font-size: 1
 and I am a researcher at Microsoft working on developing a <span class="emoji-word topological">topological</span> quantum computer. 
 {: .intro}
 
+<div class="landscape">
+  <img src="resources/portraits/portrait-main.jpg" alt="Image of Torque Dandachi" id="portrait" onclick="manualChangeImage()">
+</div>
+
 In my free time, you can catch me working on personal projects spanning: digital system architecture, <span class="emoji-word cv-ai">computer vision and AI</span>,
 differentiable and verifiable propgramming, and superconducting devices. 
 I enjoy reducing problems into math, proving designs and algorithms to be 
@@ -95,10 +99,6 @@ quantum computers, develop high-performance simulators for superconducting devic
 <span class="emoji-word glasses">glasses</span>
 that filter out epileptic triggers with a team of product designers.
 {: .intro} -->
-
-<div class="landscape">
-  <img src="resources/portraits/portrait-main.jpg" alt="Image of Torque Dandachi" id="portrait" onclick="manualChangeImage()">
-</div>
 
 ### Check out my
 {: .check_out_my}
