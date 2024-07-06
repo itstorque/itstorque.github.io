@@ -9,8 +9,10 @@
         {{ page.authors | join: ", " | truncatewords: 30 }}
     </p>
 
-    <a href="{{page.link}}">{{page.link_name}}</a>
-    {% if page.pdf_link != "" -%}
-    <a href="{{page.pdf_link}}">PDF</a>
-    {%- endif -%}
+    <div class="pub_links">
+        <a href="{{page.link}}">{{page.link_name}}</a>
+        {% if page.pdf_link != "" -%}
+        <a href="{{page.pdf_link}}">PDF</a>
+        {%- endif -%}
+    </div>
 </div>

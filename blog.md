@@ -4,6 +4,8 @@ layout: default
 
 include_side_nav: false
 include_math_jax: true
+
+color: purple
 ---
 
 {{ site.drafts }}
@@ -12,6 +14,7 @@ include_math_jax: true
 
     body {
         margin-top: 20em;
+        background-color: var(--c-bg)
     }
 
     #header.blog {
@@ -28,7 +31,7 @@ include_math_jax: true
     }
     
     #header.blog h1, #header.blog span.pop {
-        color: black;
+        /* color: black; */
     }
 
     #header.blog .emoji-block h1 {
@@ -121,8 +124,9 @@ include_math_jax: true
         z-index: -20;
         object-position: bottom;
         object-fit: cover;
-        background: rgb(131,58,180);
-        background: linear-gradient(152deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); 
+        background: var(--less-pop);
+        /* background: rgb(131,58,180);
+        background: linear-gradient(152deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
     }
 
 </style>
@@ -134,7 +138,7 @@ include_math_jax: true
 <div id="header" class="blog">
 <div id="header-indicator"></div>
 <div class="emoji-block">
-    <h1>📝</h1>
+    <h1>🐸</h1>
 </div>
 <div class="emoji-block mobile-only">
     <!-- this spacer is for phones, helps keep the correct spacing on top of the title after emoji-block jumps into menu icon -->
@@ -142,8 +146,8 @@ include_math_jax: true
 </div>
 <div>
 <div class="blogs_splash"></div>
-    <h1 style="lineheight: 2.5;">
-    <span class="pop bold">Torque's</span> <b>Blog</b>
+    <h1 style="lineheight: 2.5; font-size: 5em;" class="serif pop">
+    <span class="bold">Torque's</span><br/><b>Blog</b>
     </h1>
 
 

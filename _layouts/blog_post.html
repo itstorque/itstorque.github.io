@@ -5,6 +5,8 @@
 
     {%- include head.html -%}
 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     {% include mathjax.html %}
 
     {% seo %}
@@ -16,7 +18,9 @@
             margin: 15vh auto 15vh auto;
             /* width: 100vw; */
             max-width: 100vw;
+            overflow-x: hidden;
         }
+
         #toc {
             flex-shrink: 0;
             width: 15.5rem;
@@ -230,7 +234,7 @@
         <div id="toc">
             <nav>
                 <!-- <a href="/blog/">&laquo; Back</a> -->
-                <a href="/blog/" class="back_button">
+                <a href="/blog" class="back_button">
                     {% include arrow_back.svg %}
                     Back
                 </a>

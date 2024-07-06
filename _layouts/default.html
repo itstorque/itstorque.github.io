@@ -1,3 +1,7 @@
+---
+color: default
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,15 +12,26 @@
 
   </head>
 
-  <body id="body">
+  <body id="body" class="{{ page.color }}">
 
     <div class="pageLine"></div>
+
+    <div id="themes_dev_div">
+
+    </div>
 
     {% if page.include_side_nav %}
       {% include nav.html %}
     {% endif %}
 
     {{ content }}
+
+    <div id="next_theme" onclick="swap_theme()">
+      🎲
+    </div> 
+    <div id="theme_swap_indicator" onclick="swap_theme()">
+      🎨
+    </div> 
 
   </body>
 

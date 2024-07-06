@@ -1,4 +1,7 @@
 mobileMenuDisabled = true // still in development
+css_color_stylesheet = false
+css_stylesheet_counter = 0
+CSS_STYLESHEET_COUNTER_SWITCH = 5
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -271,4 +274,116 @@ function nprToggle() {
 
 function playAudioGif() {
   new Audio("https://upload.wikimedia.org/wikipedia/commons/4/48/En-us-gif-2.ogg").play();
+}
+
+function swap_theme() {
+
+  css_stylesheet_counter += 1
+  
+  var themes = get_themes(); // ["default", "purple", "dawn"];
+  var current_theme = "default";
+
+  document.body.classList.forEach((existingClass) => {
+    if (themes.includes(existingClass)) {
+      document.body.classList.remove(existingClass);
+      current_theme = existingClass
+    }
+  });
+
+  const current_theme_index = themes.indexOf(current_theme);
+
+  themes.splice(current_theme_index, 1)
+
+  var theme = themes[Math.floor(Math.random()*themes.length)];
+  
+  set_theme(theme)
+
+  if (css_stylesheet_counter == CSS_STYLESHEET_COUNTER_SWITCH) {
+    colors_dev_mode(theme)
+  }
+
+}
+
+function set_theme(theme) {
+
+  console.log("Changing theme to " + theme)
+
+  document.body.classList.add(theme);
+
+  theme_swap_button = document.getElementById("next_theme");
+  theme_swap_indicator = document.getElementById("theme_swap_indicator");
+
+  theme_swap_button.classList.add("animation");
+  theme_swap_indicator.classList.add("animation");
+  setTimeout(() => {
+    theme_swap_button.classList.remove("animation");
+    theme_swap_indicator.classList.remove("animation");
+  }, 1000);
+
+}
+
+function manual_set_theme(theme) {
+  var themes = get_themes(); // ["default", "purple", "dawn"];
+  var current_theme = "default";
+
+  document.body.classList.forEach((existingClass) => {
+    if (themes.includes(existingClass)) {
+      document.body.classList.remove(existingClass);
+      current_theme = existingClass
+    }
+  });
+
+  set_theme(theme);
+  colors_dev_mode(theme);
+}
+
+function get_themes() {
+  if (css_color_stylesheet == false) {
+    // document.body.classList.forEach((existingClass) => {
+    //   if (themes.includes(existingClass)) {
+    //     document.body.classList.remove(existingClass);
+    //   }
+    // });
+    Array.prototype.some.call(document.styleSheets, function(a){
+      filename = a.href.split('/').pop()
+      if (filename == "colors.css") {
+        css_color_stylesheet = a
+        return true;
+      }
+    })
+  } 
+
+  if (css_color_stylesheet == false) {
+    return []
+  }
+
+  return Array.prototype.map.call(css_color_stylesheet.cssRules, function(a) {
+    return a.selectorText.split(".").pop()
+  })
+
+}
+
+function colors_dev_mode(current_theme) {
+  
+  themes = get_themes()
+  css_stylesheet_counter = 0
+
+  themes_dev_div = document.getElementById("themes_dev_div")
+
+  innerHTML = "<h3>🪄 Available Themes:</h3> <ul>"
+
+  themes.forEach((theme_name) => {
+
+    tag = current_theme == theme_name ? " (current)" : ""
+
+    innerHTML +=
+    "<li><a onclick='manual_set_theme(\"" + theme_name + "\")'>" + theme_name + tag + "</a></li>";
+
+  })
+
+  innerHTML += "</ul><br/>"
+
+  themes_dev_div.innerHTML = innerHTML
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
+
 }

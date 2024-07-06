@@ -1,7 +1,60 @@
 ---
 title: Home
 layout: default
+
+color: default
 ---
+
+<script>
+
+  function replaceEmojisWithImages(element = "*", size = 1.4, marginTop = 0.3) {
+    const emojiRegex = /([\uD800-\uDBFF][\uDC00-\uDFFF])/;
+
+    function replaceEmojiInTextNode(node) {
+        let matches;
+        while ((matches = node.nodeValue.match(emojiRegex))) {
+            const emoji = matches[0];
+            const emojiIndex = node.nodeValue.indexOf(emoji);
+
+            const preMatchText = node.nodeValue.slice(0, emojiIndex);
+            const postMatchText = node.nodeValue.slice(emojiIndex + 2);
+
+            const preTextNode = document.createTextNode(preMatchText);
+            const emojiElement = document.createElement("img");
+
+            emojiElement.alt = emoji;
+            emojiElement.draggable = false;
+            emojiElement.src = `https://raw.githubusercontent.com/zhmidd/emoji/main/resources/${emoji}.webp`;
+            emojiElement.style = `width: ${size}em; display: inline-block; margin-left: 0.1em; margin-right: 0.1em; margin-top: ${marginTop}em; margin-bottom: -${marginTop}em;`;
+
+            node.nodeValue = postMatchText;
+            node.parentNode.insertBefore(preTextNode, node);
+            node.parentNode.insertBefore(emojiElement, node);
+        }
+    }
+
+    function traverseAndReplace(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            replaceEmojiInTextNode(node);
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            for (const childNode of node.childNodes) {
+                traverseAndReplace(childNode);
+            }
+        }
+    }
+
+    if (element[0] === "#") {
+        const targetElement = document.querySelector(element);
+        traverseAndReplace(targetElement);
+    } else {
+        const targetElements = document.querySelectorAll(element);
+        for (const targetElement of targetElements) {
+            traverseAndReplace(targetElement);
+        }
+    }
+}
+
+</script>
 
 <div id="header">
   <div id="header-indicator"></div>
@@ -13,8 +66,8 @@ layout: default
     <h1 style="opacity:0">o</h1>
   </div>
   <div>
-    <h1>
-      <b><span style="opacity: 0">"</span>Hello! I'm</b> Tareq<br/> <span class="pop bold quote-it">Torque</span> El Dandachi</h1>
+    <h1 style="color: var(--c-font-muted)">
+      <b style="color: var(--c-font)"><span style="opacity: 0">"</span>Hello! I'm</b> Tareq<br/> <span class="pop bold quote-it">Torque</span> El Dandachi</h1>
   </div>
 </div>
 

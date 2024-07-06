@@ -1,15 +1,65 @@
 :root {
 
-  --pop:    #FE1717;
-  --emoji:  #f1c40f; /* #FFD52E: */
+  /* --c-bg: ; */
 
-  --less-pop:    #FF7777;
-  --hover-pop:    #BB1313;
 
   --text-font-size-L: 1.4rem; /* 20px; */
   --text-font-size-M: 1.2rem; /* 18px; */
 
   --title-font-size: 27px;
+
+
+
+  --c-bg: white;
+  --c-elem-bg-dull: ;
+  --c-elem-bg-pop: ;
+  
+
+  --c-pop:    #FE1717;
+  --c-less-pop:    #FF7777;
+  --c-hover-pop:    #BB1313;
+
+  --c-font: black;
+  --c-font-muted: rgba(0,0,0,.54);
+  --c-font-sel: var(--c-bg);
+  --c-inv-bg: var(--c-bg);
+
+  --c-emoji:  #f1c40f; /* #FFD52E: */
+
+  --c-link: var(--c-pop);
+  
+
+  /* --c-elem-bg-dull: rgba(178, 127, 170, 0.1);
+  --c-elem-bg-pop: rgba(178, 127, 170, 0.2); */
+  /* --c-pop: #6ebbd5; */
+  /* --c-star: ; */
+  /* --c-font: rgb(255, 227, 255); */
+  /* --c-font-muted: #daa7d2;
+  --c-box: #b27faa;
+  --c-link: var(--c-pop); */
+
+
+    /* --c-bg: #4a113c;
+    --c-elem-bg-dull: rgba(178, 127, 170, 0.1);
+    --c-elem-bg-pop: rgba(178, 127, 170, 0.2);
+
+    --c-pop: #6ebbd5;
+    --c-less-pop: rgba(110, 187, 213, 0.9);
+    --c-hover-pop: #b27faa;
+
+    --c-font: rgb(255, 227, 255);
+    --c-font-muted: #daa7d2;
+    --c-font-sel: var(--c-bg);
+    --c-inv-bg: var(--c-bg);
+
+    --c-emoji:  #ffc326;
+
+    --c-link: var(--c-pop);
+
+    --c-line-1: var(--c-elem-bg-pop);
+    --c-line-2: rgba(110, 187, 213, 0.9);
+    --c-line-3: rgba(218, 167, 210, 0.9);
+    --c-line-4: rgba(218, 167, 210, 0.9); */
 
 }
 
@@ -18,7 +68,7 @@
   top: 0;
   left: 0;
   transition: none;
-  background-color: var(--pop);
+  background-color: var(--c-pop);
   flex-basis: 100%;
   max-width: 100%;
   width: 100%;
@@ -51,13 +101,13 @@
 }
 
 ::-moz-selection {
-  color: white;
-  background: var(--less-pop);
+  color: var(--c-font-sel);
+  background: var(--c-less-pop);
 }
 
 ::selection {
-  color: white;
-  background: var(--less-pop);
+  color: var(--c-font-sel);
+  background: var(--c-less-pop);
 }
 
 html {
@@ -73,6 +123,17 @@ body {
 
   max-width: 60ch;
   text-align: left;
+
+  background-color: var(--c-bg);
+  color: var(--c-font);
+}
+
+.serif {
+  font-family: -apple-system-ui-serif, ui-serif, 'Georgia', serif;
+}
+
+.code {
+  font-family: ui-monospace, SFMono-Regular, ui-monospace, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
 h1 {
@@ -96,15 +157,15 @@ li {
 
 a {
   cursor: pointer;
-  color: var(--pop);
+  color: var(--c-link);
 }
 
 a:hover {
-  color: var(--hover-pop);
+  color: var(--c-hover-pop);
 }
 
-span.pop {
-  color: var(--pop);
+.pop {
+  color: var(--c-pop);
 }
 
 span.bold {
@@ -201,10 +262,10 @@ span.bold {
 }
 
 #sidenav a {
-  color: black;
+  color: var(--c-font);
   text-decoration: none;
   padding: 10px 2px;
-  background: linear-gradient(to top, var(--pop) 25%, white 25%, white 50%, black 50%, black 75%, var(--pop) 75%);
+  background: linear-gradient(to top, var(--c-pop) 25%, var(--c-bg) 25%, var(--c-bg) 50%, var(--c-font) 50%, var(--c-font) 75%, var(--c-pop) 75%);
   background-size: 100% 700%;
   background-position: 0% 66%;
   transition: 0.3s ease-in-out;
@@ -212,17 +273,17 @@ span.bold {
 
 #sidenav div.selected a {
   font-weight: bold;
-  color: white;
+  color: var(--c-inv-bg);
   background-position: 0% 33%;
 }
 
 #sidenav div a:hover {
-  color: white;
+  color: var(--c-inv-bg);
   background-position: 0% 100%;
 }
 
 #sidenav div.selected a:hover {
-  color: white;
+  color: var(--c-inv-bg);
   background-position: 0% 0%;
 }
 
@@ -253,13 +314,13 @@ div#check-out-my-container {
 }
 
 #resume a, #github a, #linkedin a {
-  background: linear-gradient(to left, white 50%, var(--pop) 50%);
+  background: linear-gradient(to left, var(--c-bg) 50%, var(--c-pop) 50%);
   background-position: right;
 
   text-align: center;
   font-weight: bold;
 
-  color: var(--pop);
+  color: var(--c-pop);
   text-decoration: none;
   text-transform: uppercase;
 
@@ -276,17 +337,17 @@ div#check-out-my-container {
 }
 
 #resume a:hover, #github a:hover, #linkedin a:hover {
-  color: white;
+  color: var(--c-inv-bg);
   background-position: left;
 }
 
 #resume a .resume_icon, #github a .github_icon, #linkedin a .linkedin_icon {
-  fill: var(--pop);
+  fill: var(--c-pop);
   transition: 0.3s;
 }
 
 #resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon {
-  fill: white;
+  fill: var(--c-inv-bg);
 }
 
 #resume svg, #github svg, #linkedin svg {
@@ -307,7 +368,7 @@ h3.check_out_my {
 
 .emoji-word {
   font-weight: 500;
-  color: var(--emoji);
+  color: var(--c-emoji);
   transition: 0.3s ease-in-out;
 }
 
@@ -324,7 +385,7 @@ h3.check_out_my {
 }
 
 .emoji-word:hover {
-  color: white;
+  color: var(--c-inv-bg);
 }
 
 .emoji-word:hover::after {
@@ -449,7 +510,7 @@ ul#class_list.unhide li {
 }
 
 div.publication .author_list {
-  color: rgba(0,0,0,.54); 
+  color: var(--c-font-muted); 
   font-size: 0.8rem; 
   font-style: italic; 
   text-align: left;
@@ -457,10 +518,11 @@ div.publication .author_list {
 
 div.publication a {
   font-size: 0.9rem; 
-  border: var(--pop) solid 2px; 
+  border: var(--c-pop) solid 2px; 
   border-radius: 5px; 
-  padding: 0.3rem; 
+  padding: 0.4rem; 
   text-decoration: none;
+  margin-left: 0.2em;
 }
 
 #ai_blurb {
@@ -474,7 +536,7 @@ div.publication a {
   margin-bottom: 50px;
   transition: 0.2s;
 
-  background: linear-gradient(to right, var(--pop) 50%, white 50%);
+  background: linear-gradient(to right, var(--c-pop) 50%, var(--c-bg) 50%);
   background-size: 205% 100%;
   background-position: right 0%;
   padding: 5px 8px;
@@ -483,7 +545,7 @@ div.publication a {
 
 #toggle_class_list:hover {
   background-position: left 0%;
-  color: white;
+  color: var(--c-inv-bg);
 }
 
 #toggle_class_list.changing {
@@ -504,7 +566,7 @@ div.publication a {
 
 .toggleSection {
   font-size: var(--text-font-size-M);
-  background: linear-gradient(to right, white 50%, var(--pop) 50%);
+  background: linear-gradient(to right, var(--c-inv-bg) 50%, var(--c-pop) 50%);
   background-size: 205%;
   background-position: left;
   transition: 0.3s;
@@ -515,7 +577,7 @@ div.publication a {
 
 .toggleSection:hover {
   background-position: right;
-  color: white;
+  color: var(--c-font-sel);
 }
 
 .sectionHide {
@@ -557,11 +619,11 @@ div.publication a {
 }
 
 .openTab path {
-  fill: var(--less-pop);
+  fill: var(--c-less-pop);
 }
 
 .openTab:hover path {
-  fill: var(--pop);
+  fill: var(--c-pop);
 }
 
 .individual-expands p {
@@ -625,9 +687,9 @@ div.publication a {
 
 @keyframes opacity-bump {
 
-       0% { opacity: 1; color: var(--pop); }
-      50% { opacity: 0; color: var(--pop); }
-     100% { opacity: 1; color: var(--white);}
+       0% { opacity: 1; color: var(--c-pop); }
+      50% { opacity: 0; color: var(--c-pop); }
+     100% { opacity: 1; color: var(--c-bg);}
 
 }
 
@@ -643,7 +705,7 @@ div.publication a {
     display: block;
     left: 0;
     top: -100vh;
-    background-color: white;
+    background-color: var(--c-bg);
     position: fixed;
     width: 100vh;
     height: 100vh;
@@ -693,7 +755,7 @@ div.publication a {
     text-align: center;
     padding: 10px;
     margin-top: -13px;
-    background-color: white;
+    background-color: var(--c-bg);
   }
 
   .title_with_emoji.activeSection {
@@ -718,7 +780,7 @@ div.publication a {
     text-align: center;
     padding: 10px;
     margin-top: -13px;
-    background-color: white;
+    background-color: var(--c-bg);
     top: 13px;
     transform: rotate( 0.0deg);
     animation: none;
@@ -779,4 +841,56 @@ div.publication a {
   height: 380px;
   margin: 0;
   object-fit: contain;
+}
+
+#next_theme, #theme_swap_indicator {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+
+    cursor: pointer;
+}
+
+#theme_swap_indicator {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#theme_swap_indicator.animation {
+  animation: theme_swap_anim 0.5s ease-in-out 1;
+}
+
+#next_theme.animation, #next_theme:hover.animation {
+  animation: opacity-blink 1s linear 1;
+}
+
+#next_theme:hover {
+  animation: tilt-shaking 0.25s linear 4;
+}
+
+@keyframes tilt-shaking {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes theme_swap_anim {
+  0% { transform: translateY(0.5em); opacity: 0; }
+  50% { transform: translateY(0em); opacity: 1; }
+  100% { transform: translateY(-0.5em); opacity: 0; }
+}
+
+@keyframes opacity-blink {
+  0% { opacity: 1; }
+  20% { opacity: 0; }
+  80% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#themes_dev_div {
+  display: block;
+  font-weight: bold;
 }
