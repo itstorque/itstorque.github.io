@@ -115,7 +115,7 @@ html {
 }
 
 body {
-  font-family: BlinkMacSystemFont, -apple-system, "Roboto", sans-serif;
+  font-family: -apple-system, "Roboto", sans-serif;
   width: 90vw;
   font-size: var(--text-font-size-M);
 

@@ -387,3 +387,50 @@ function colors_dev_mode(current_theme) {
   document.body.scrollTop = document.documentElement.scrollTop = 0;
 
 }
+
+
+
+// TEST EMOJI REPLACING
+
+function replaceEmojis() {
+
+  const regexpEmojiPresentation = /\p{Emoji_Presentation}/gu;
+  matches = document.body.innerHTML.match(regexpEmojiPresentation);
+
+
+
+  fetch('/resources/emojis.json')
+    .then((response) => response.json())
+    .then((json) => {
+      E = json["emojis"]
+      D = {}
+      E.forEach(x => {
+        D[ x["emoji"] ] =  ("https://em-content.zobj.net/source/apple/391/" + x["name"].replaceAll(" ", "-").replaceAll(":", "") + "_" + x["unicode"].replaceAll(" ", "-") + ".png").toLowerCase()
+      });
+
+      matches.forEach((emoji) => {
+          console.log(emoji);
+          document.body.innerHTML = document.body.innerHTML.replace(
+            RegExp('(\>[^\>]*)' + emoji + '([^\>=]*\<)', 'g'), 
+            '$1<img alt=\"' + emoji + '\" src=\"' + D[emoji] + '\" style=\"height: 1em; margin: 0\" />$2'
+            );
+        }
+      )
+
+      // for (const [key, value] of Object.entries(D)) {
+      //   if (key in document.body.innerHTML) {
+      //     console.log(key)
+      //   }
+      //   document.body.innerHTML = document.body.innerHTML.replace(key, '<img alt="' + key + '" src="' + value + '" style="height: 1.1em" />');
+      // }
+
+    });
+
+  console.log("hello")
+
+    
+
+  // document.body.innerHTML = document.body.innerHTML.replace('🎲', '<img alt="🎲" src="https://em-content.zobj.net/thumbs/60/apple/391/grinning-face_1f600.webp" style="height: 1.1em" />');
+}
+
+window.addEventListener("load", replaceEmojis);
