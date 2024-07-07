@@ -11,13 +11,13 @@ where we don't have a pre-determined map, and obstacles are placed randomly on t
 of (1) is to reach the finish line first, in (2), it is a timing and number of obstacles hit race. Here is
 the hardware that was on our car and what we simulated when we moved online.
 
-<img src="resources/rss_hardware.jpg" class="innerphoto"/>
+<img src="" data-echo="/resources/rss_hardware.jpg" class="innerphoto"/>
 
 This is a gif
 (<a onclick="playAudioGif()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/dʒɪf/</a>)
 of the first iteration of our LIDAR-based code trying to path find!
 
-<img src="resources/rss_slow_drive.gif" class="innerphoto"/>
+<img src="" data-echo="/resources/rss_slow_drive.gif" class="innerphoto"/>
 
 **(1)** For the regular race, I worked with my team to program SLAM with LIDAR data for localization and then implemented path finding to find the optimal path. We then had a micro-strategy that controlled steering
 using PID controllers to control steering and the amount of acceleration the car is applying at all times.

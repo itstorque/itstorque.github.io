@@ -413,20 +413,18 @@ function replaceEmojis() {
 
 
 
-  fetch('/resources/emojis.json')
-    .then((response) => response.json())
-    .then((json) => {
-      E = json
-      console.log(json)
+  fetch('/resources/emojis.json.gz')
+    .then((response) => {
+      return response.arrayBuffer()
+    })
+    .then((compressed) => {
+      E = JSON.parse( pako.ungzip(compressed, { to: 'string' }) )
       D = {}
       E.forEach(x => {
-        console.log(x["name"])
         D[ x["emoji"] ] =  ("https://em-content.zobj.net/source/apple/391/" + x["name"].replaceAll(" ", "-").replaceAll(":", "") + "_" + x["unicode"].replaceAll(" ", "-") + ".png").toLowerCase()
       });
-      console.log(D)
 
       matches.forEach((emoji) => {
-          console.log(emoji);
           document.body.innerHTML = document.body.innerHTML.replace(
             RegExp('(\>[^\>]*)' + emoji + '([^\>=]*\<)', 'g'), 
             '$1<img alt=\"' + emoji + '\" src=\"' + D[emoji] + '\" style=\"height: 1em; margin: 0\" loading="lazy" />$2'
@@ -434,22 +432,10 @@ function replaceEmojis() {
         }
       )
 
-      // for (const [key, value] of Object.entries(D)) {
-      //   if (key in document.body.innerHTML) {
-      //     console.log(key)
-      //   }
-      //   document.body.innerHTML = document.body.innerHTML.replace(key, '<img alt="' + key + '" src="' + value + '" style="height: 1.1em" />');
-      // }
-
       add_emojis_css(D)
 
     });
 
-  console.log("hello")
-
-    
-
-  // document.body.innerHTML = document.body.innerHTML.replace('🎲', '<img alt="🎲" src="https://em-content.zobj.net/thumbs/60/apple/391/grinning-face_1f600.webp" style="height: 1.1em" />');
 }
 
 window.addEventListener("load", () => { replaceEmojis(); loadTheme(); });
@@ -481,8 +467,6 @@ function add_emojis_css(emoji_url_map) {
       ]),
     []
   );
-
-  console.log(emoji_props)
 
   sheet = document.styleSheets[0]
   definitions = emoji_props.map((x) => sheet.insertRule(".emoji-word { " + x + `: url(${ emoji_url_map[x.replace('--e-', '')] }) !important;` + " }"))

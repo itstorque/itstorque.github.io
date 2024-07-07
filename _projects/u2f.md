@@ -5,7 +5,7 @@ hide: false
 ---
 #### Teensy U2F Authenticator
 
-<img src="resources/hardware_key.jpeg" class="innerphoto"/>
+<img src="" data-echo="/resources/hardware_key.jpeg" class="innerphoto"/>
 
 As part of a computer systems security team, we designed and open sourced a homemade 2-factor
 authentication security key based on the FIDO alliance's U2F specification. We designed it
