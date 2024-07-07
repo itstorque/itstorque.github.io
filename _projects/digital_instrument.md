@@ -14,7 +14,7 @@ position, roll, pitch and yaw of the glasses at all times. The code also had a l
 being frequency analyzed to detect the sounds of wine glasses clinking or resonating on their own.
 This is what the setup looked like with a mic on the bottom side of the table:
 
-<img src="" data-echo="/resources/21M_370_diagram.jpg" class="innerphoto" loading="lazy"/>
+<img src="" data-echo="/resources/21M_370_diagram.jpg" class="innerphoto" loading="lazy" alt="Diagram showcasing the Glasses at a Picnic instrument. Arrows point to glasses that control the voice of the instrument, glasses that are used as fiducial markers, a ring that is the active area for glasses, an april tag and the computer running the computer vision and sound classificatier models."/>
 
 This all fed into a sound generating patch with different submodules that produced different
 unique sounds for every glass. The position of the glass would change the position of the audio
