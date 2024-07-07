@@ -71,7 +71,7 @@ color: default
   </div>
 </div>
 
-Hey there! My name is Torque (<a onclick="playAudio()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/tɔɹk/</a>)
+Hey there! My name is Torque (<span class="fake_anchor" onclick="playAudio()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/tɔɹk/</span>)
 and I am a researcher at Microsoft working on developing a <span class="emoji-word topological">topological</span> quantum computer. 
 {: .intro}
 
@@ -87,6 +87,8 @@ I enjoy reducing problems into math, proving designs and algorithms to be
 
 I also love <span class="emoji-word frog">frogs</span>.
 {: .intro}
+
+<br/>
 
 <!-- Outside of my research, you can find me designing my own microcontroller, going on hikes or fangirling about 
 <span class="emoji-word julia">julia</span>.

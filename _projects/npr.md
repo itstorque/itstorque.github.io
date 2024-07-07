@@ -56,4 +56,4 @@ and draw the first photo while using the style of another image. For example, fe
 night photo of a desert and a day photo of some other setting, the color mapping can interpolate
 colors and produce a day photo of the desert. Here is a scene change example:
 
-<img src="" data-echo="resources/npr_reference.jpg" class="innerphoto" alt="Demonstration of style transfer using the Non=Photorealistic Renderer developed."/>
+<img src="" data-echo="resources/projects/npr_reference.jpg" class="innerphoto" alt="Demonstration of style transfer using the Non=Photorealistic Renderer developed."/>

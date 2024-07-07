@@ -4,9 +4,11 @@ email: hi@itstorque.com
 description: >
   Torque's Portfolio
 baseurl: ''
-url: 'hi.itstorque.com'
+url: 'https://itstorque.com'
+og_image: "https://itstorque.com/resources/portraits/portrait-main.jpg"
 github_username: itstorque
 theme: jekyll-theme-slate
+description: Torque Dandachi — Electrical Engineer, Computer Scientist and Physicist.
 
 plugins:
   - jekyll-seo-tag

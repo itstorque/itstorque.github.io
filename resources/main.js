@@ -19,8 +19,6 @@ function addEmojiAnimations() {
   emoji_words = document.getElementsByClassName("emoji-word")
 
   for (let element of emoji_words) {
-      console.log(element)
-
       element.addEventListener("click", (event) => {
           event.target.classList.add("animation");
           setTimeout(() => {
@@ -69,9 +67,9 @@ function changeImage() {
    var image = new Image();
 
    if (portrait_index < 0) {
-    image.src = "resources/portraits/portrait-main.jpg";
+    image.src = "/resources/portraits/portrait-main.jpg";
    } else {
-    image.src = "resources/portraits/portrait-" + (portrait_index+1) + ".jpg";
+    image.src = "/resources/portraits/portrait-" + (portrait_index+1) + ".jpg";
    }
 
    image.onload = function () {
@@ -333,6 +331,7 @@ function swap_theme() {
 
 }
 
+theme_swap_anim_process = false
 function set_theme(theme, skip_anim=false) {
 
   console.log("Changing theme to " + theme)
@@ -349,10 +348,14 @@ function set_theme(theme, skip_anim=false) {
 
     theme_swap_button.classList.add("animation");
     theme_swap_indicator.classList.add("animation");
-    setTimeout(() => {
+    
+    if (theme_swap_anim_process) {
+      clearTimeout(theme_swap_anim_process)
+    }
+    theme_swap_anim_process = setTimeout(() => {
       theme_swap_button.classList.remove("animation");
       theme_swap_indicator.classList.remove("animation");
-    }, 1000);
+    }, 500);
   }
 
 }

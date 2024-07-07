@@ -12,7 +12,7 @@ glasses intended for people with photosensitivity and photosensitive epilepsy. T
 electrochromic lenses that darken automatically when a voltage is applied. Here's a photo of me
 presenting at our product launch :)
 
-<img src="" data-echo="/resources/2009prodlaunchphoto.JPG" class="innerphoto" loading="lazy" alt="Photo of Torque on stage presenting Eclipse at the product launch."/>
+<img src="" data-echo="/resources/projects/2009prodlaunchphoto.JPG" class="innerphoto" loading="lazy" alt="Photo of Torque on stage presenting Eclipse at the product launch."/>
 
 We designed our custom PCB that houses an ATSAMD21G18A processor and programmed it to scan using RGB
 photodiodes the incoming light and predicting when an epileptic trigger occur.
@@ -20,7 +20,7 @@ It then darkens and undarkens the lenses at a frequency that cancels out the tri
 to still see and protecting them from the flashing light. I personally worked on
 the sensing and modulation code, prototyping on a Feather M0 dev board, designing user interaction, designing and performing EEG trials, coding in Atmel's Microchip Studio and choosing the PCB & circuit components.
 
-<img src="" data-echo="/resources/2009glasses.svg" class="innerphoto" loading="lazy" alt="Illustration of the glasses build and the components that are inside it, including a detailed schematic of the PCB, Battery, Sensors and Electrochromic Lenses."/>
+<img src="" data-echo="/resources/projects/2009glasses.svg" class="innerphoto" loading="lazy" alt="Illustration of the glasses build and the components that are inside it, including a detailed schematic of the PCB, Battery, Sensors and Electrochromic Lenses."/>
 
 I was also responsible for documenting our entire process through multiple mediums including [our
 instagram](https://www.instagram.com/2.009blue/).

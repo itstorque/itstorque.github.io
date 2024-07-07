@@ -5,7 +5,7 @@ hide: false
 ---
 #### Teensy U2F Authenticator
 
-<img src="" data-echo="/resources/hardware_key.jpeg" class="innerphoto" alt="Image of the Hardware Key build. A perfboard soldered onto an arduino adding a Male USB Type A port and a button for proof of presence."/>
+<img src="" data-echo="/resources/projects/hardware_key.jpeg" class="innerphoto" alt="Image of the Hardware Key build. A perfboard soldered onto an arduino adding a Male USB Type A port and a button for proof of presence."/>
 
 As part of a computer systems security team, we designed and open sourced a homemade 2-factor
 authentication security key based on the FIDO alliance's U2F specification. We designed it

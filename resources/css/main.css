@@ -137,13 +137,13 @@ li {
   margin-bottom: 5px; 
 }
 
-a {
+a, .fake_anchor, .toggleSection {
   cursor: pointer;
   color: var(--c-link);
 }
 
 @media (hover: hover) {
-  a:hover {
+  a:hover, .fake_anchor:hover {
     color: var(--c-hover-pop);
   }
 }
@@ -332,9 +332,6 @@ div#check-out-my-container {
 }
 
 #resume a, #github a, #linkedin a {
-  background: linear-gradient(to left, var(--c-bg) 50%, var(--c-pop) 50%);
-  background-position: right;
-
   text-align: center;
   font-weight: bold;
 
@@ -343,9 +340,6 @@ div#check-out-my-container {
   text-transform: uppercase;
 
   padding: 8px 15px;
-  background-size: 210% 100%;
-
-  transition: 0.3s ease-in-out;
   display: inline-block;
 }
 
@@ -361,9 +355,18 @@ div#check-out-my-container {
 
 
 @media (hover: hover) {
+
+  #resume a, #github a, #linkedin a {
+    background: linear-gradient(to left, var(--c-bg) 50%, var(--c-pop) 50%);
+    background-position: right;
+    background-size: 0;
+    transition: background-position 0.3s ease-in-out;
+  }
+
   #resume a:hover, #github a:hover, #linkedin a:hover {
     color: var(--c-inv-bg);
     background-position: left;
+    background-size: 210% 100%;
   }
 
   #resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon {
@@ -373,6 +376,7 @@ div#check-out-my-container {
 
 #resume svg, #github svg, #linkedin svg {
   height: 25px;
+  width: 25px;
   margin: 0 5px -5px 5px;
 }
 
@@ -1006,7 +1010,7 @@ div.publication a {
 }
 
 #theme_swap_indicator.animation {
-  animation: theme_swap_anim 0.5s ease-in-out 1;
+  animation: theme_swap_anim 0.8s ease-in-out 1;
 }
 
 #next_theme.animation {
@@ -1033,7 +1037,8 @@ div.publication a {
 
 @keyframes theme_swap_anim {
   0% { transform: translateY(0.5em); opacity: 0; }
-  50% { transform: translateY(0em); opacity: 1; }
+  40% { transform: translateY(0em); opacity: 1; }
+  70% { transform: translateY(0em); opacity: 1; }
   100% { transform: translateY(-0.5em); opacity: 0; }
 }
 
