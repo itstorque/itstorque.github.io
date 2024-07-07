@@ -15,6 +15,21 @@ manualChangeImage = () => {
   // To be defined later after loading...
 }
 
+function addEmojiAnimations() {
+  emoji_words = document.getElementsByClassName("emoji-word")
+
+  for (let element of emoji_words) {
+      console.log(element)
+
+      element.addEventListener("click", (event) => {
+          event.target.classList.add("animation");
+          setTimeout(() => {
+              event.target.classList.remove("animation");
+            }, 2000);
+      })
+  }
+}
+
 window.addEventListener("load", function() {
   checkSection()
   addIndividualExpands()
@@ -42,6 +57,8 @@ window.addEventListener("load", function() {
     changeImageProcess = setInterval(changeImage, 4000);
   }
 
+  setTimeout(addEmojiAnimations, 100);
+
 });
 
 let portrait_index = -2;
@@ -50,10 +67,11 @@ let total_portrait_num = 9;
 function changeImage() {
 
    var image = new Image();
-   image.src = "resources/portraits/portrait-" + (portrait_index+1) + ".jpg";
 
    if (portrait_index < 0) {
     image.src = "resources/portraits/portrait-main.jpg";
+   } else {
+    image.src = "resources/portraits/portrait-" + (portrait_index+1) + ".jpg";
    }
 
    image.onload = function () {
@@ -321,6 +339,8 @@ function set_theme(theme, skip_anim=false) {
   setThemeCookie(theme)
 
   document.body.classList.add(theme);
+  document.querySelector('meta[name="theme-color"]')
+          .setAttribute('content', getComputedStyle(document.body).getPropertyValue('--c-color-status-bar')); //#F2F0ED
 
 
   if (!skip_anim) {
@@ -338,7 +358,7 @@ function set_theme(theme, skip_anim=false) {
 }
 
 function manual_set_theme(theme) {
-  var themes = get_themes(); // ["default", "purple", "dawn"];
+  var themes = get_themes();
   var current_theme = "default";
 
   document.body.classList.forEach((existingClass) => {

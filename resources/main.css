@@ -392,6 +392,7 @@ h3.check_out_my {
   color: var(--c-emoji);
   transition: 0.3s ease-in-out;
 
+  cursor: pointer;
 
   background-repeat: no-repeat !important;
   background-size: contain !important;
@@ -412,7 +413,7 @@ h3.check_out_my {
   --e-🚂: none;
 
   --e-🔌: none;
-  --e-⚡️: none;
+  --e-⚡: none;
 
   --e-🧑‍💻: none;
   --e-😭: none;
@@ -430,7 +431,7 @@ h3.check_out_my {
   background-position: left;
 }
 
-.emoji-word:hover, .emoji-word:active { 
+.emoji-word.animation { 
   color: #0000;
   user-select: none;
 }
@@ -448,61 +449,61 @@ h3.check_out_my {
 }
 
 
-.emoji-word:hover::after, .emoji-word:active::after, .emoji-word:hover::before, .emoji-word:active::before {
+.emoji-word.animation::after, .emoji-word.animation::before {
   opacity: 1;
 }
 
 /* Instances */
 
-.emoji-word.research:hover, .emoji-word.research:active {
+.emoji-word.research.animation {
   background: var(--e-🔬) center;
 }
 
-.emoji-word.frog:hover, .emoji-word.frog:active {
+.emoji-word.frog.animation {
   background: var(--e-🐸) center;
 }
 
-.emoji-word.topological:hover, .emoji-word.topological:active {
+.emoji-word.topological.animation {
   background:
-    var(--e-🍩) calc(50% - 0.6em), 
-    var(--e-🪢) calc(50% + 0.6em);
+    var(--e-🍩) calc(50% - 0.7em), 
+    var(--e-🪢) calc(50% + 0.7em);
   
 }
 
-.emoji-word.optimal-stars:hover, .emoji-word.optimal-stars:active {
+.emoji-word.optimal-stars.animation {
   background:
     var(--e-🏎️) calc(50% - 0.6em), 
     var(--e-💨) calc(50% + 0.6em);
 }
 
-.emoji-word.cv-ai:hover, .emoji-word.cv-ai:active {
+.emoji-word.cv-ai.animation {
   background:
     var(--e-👁️) calc(50% - 1.3em),
     var(--e-✨) center,
     var(--e-🧠) calc(50% + 1.3em)
 }
 
-.emoji-word.diamond:hover, .emoji-word.diamond:active {
+.emoji-word.diamond.animation {
   background: var(--e-💎) center;
 }
 
-.emoji-word.glasses:hover, .emoji-word.glasses:active {
+.emoji-word.glasses.animation {
   background: var(--e-👓) center;
 }
 
-.emoji-word.toy-design:hover, .emoji-word.toy-design:active {
+.emoji-word.toy-design.animation {
   background:
     var(--e-🚂) 0, 
     var(--e-🧸) 1.2em
 }
 
-.emoji-word.circuits-and-electronics:hover, .emoji-word.circuits-and-electronics:active {
+.emoji-word.circuits-and-electronics.animation {
   background:
     var(--e-🔌) 0, 
-    var(--e-⚡️) 1.2em
+    var(--e-⚡) 1.2em
 }
 
-.emoji-word.splash-class:hover, .emoji-word.splash-class:active {
+.emoji-word.splash-class.animation {
   background:
     var(--e-🧑‍💻) 0, 
     var(--e-😭) 1.2em
@@ -996,6 +997,7 @@ div.publication a {
     font-size: 2rem;
 
     cursor: pointer;
+    text-align: right;
 }
 
 #theme_swap_indicator {
@@ -1012,11 +1014,11 @@ div.publication a {
 }
 
 @media (hover: hover) {
-  #next_theme:hover.animation {
+  #next_theme:hover.animation img {
     animation: opacity-blink 1s linear 1, tilt-shaking 0.25s linear 4;
   }
 
-  #next_theme:hover {
+  #next_theme:hover img {
     animation: tilt-shaking 0.25s linear 4;
   }
 }

@@ -17,6 +17,7 @@
     --c-emoji: #f1c40f; /* #FFD52E: */
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: white;
 }
 
 .purple {
@@ -37,6 +38,7 @@
     --c-emoji: #ffc326;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 }
 
 .dawn {
@@ -57,6 +59,7 @@
     --c-emoji: #ffc326;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 }
 
 
@@ -78,6 +81,7 @@
     --c-emoji: #f1c40f;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 
 }
 
@@ -100,6 +104,7 @@
     --c-emoji: #ecb653;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 
 }
 
@@ -122,6 +127,7 @@
     --c-emoji: #ae8740;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 
 }
 
@@ -144,6 +150,7 @@
     --c-emoji: #ffb800;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 
 }
 
@@ -165,6 +172,7 @@
     --c-emoji: #ffb800;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 }
 
 .gold_sand {
@@ -185,6 +193,7 @@
     --c-emoji: #ffb800;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 }
 
 .froyo {
@@ -205,6 +214,7 @@
     --c-emoji: #FF6347; /* Tomato emoji color */
 
     --c-link: var(--c-pop); /* Link color */
+    --c-color-status-bar: var(--c-pop);
 
 }
 
@@ -226,6 +236,7 @@
     --c-emoji: #ffb800; /* Emoji color */
 
     --c-link: var(--c-pop); /* Link color */
+    --c-color-status-bar: var(--c-pop);
 }
 
 .mint_wave {
@@ -246,6 +257,7 @@
     --c-emoji: #F0A868; /* Emoji color (matching the pop color) */
 
     --c-link: var(--c-pop); /* Link color */
+    --c-color-status-bar: var(--c-pop);
 }
 
 
@@ -279,5 +291,6 @@
     --c-emoji: ;
 
     --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
 
 } */
