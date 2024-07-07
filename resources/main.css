@@ -430,7 +430,7 @@ h3.check_out_my {
   background-position: left;
 }
 
-.emoji-word:active { 
+.emoji-word:hover, .emoji-word:active { 
   color: #0000;
   user-select: none;
 }
@@ -448,65 +448,61 @@ h3.check_out_my {
 }
 
 
-.emoji-word:active::after {
-  opacity: 1;
-}
-
-.emoji-word:active::before {
+.emoji-word:hover::after, .emoji-word:active::after, .emoji-word:hover::before, .emoji-word:active::before {
   opacity: 1;
 }
 
 /* Instances */
 
-.emoji-word.research:active {
+.emoji-word.research:hover, .emoji-word.research:active {
   background: var(--e-🔬) center;
 }
 
-.emoji-word.frog:active {
+.emoji-word.frog:hover, .emoji-word.frog:active {
   background: var(--e-🐸) center;
 }
 
-.emoji-word.topological:active {
+.emoji-word.topological:hover, .emoji-word.topological:active {
   background:
     var(--e-🍩) calc(50% - 0.6em), 
     var(--e-🪢) calc(50% + 0.6em);
   
 }
 
-.emoji-word.optimal-stars:active {
+.emoji-word.optimal-stars:hover, .emoji-word.optimal-stars:active {
   background:
     var(--e-🏎️) calc(50% - 0.6em), 
     var(--e-💨) calc(50% + 0.6em);
 }
 
-.emoji-word.cv-ai:active {
+.emoji-word.cv-ai:hover, .emoji-word.cv-ai:active {
   background:
     var(--e-👁️) calc(50% - 1.3em),
     var(--e-✨) center,
     var(--e-🧠) calc(50% + 1.3em)
 }
 
-.emoji-word.diamond:active {
+.emoji-word.diamond:hover, .emoji-word.diamond:active {
   background: var(--e-💎) center;
 }
 
-.emoji-word.glasses:active {
+.emoji-word.glasses:hover, .emoji-word.glasses:active {
   background: var(--e-👓) center;
 }
 
-.emoji-word.toy-design:active {
+.emoji-word.toy-design:hover, .emoji-word.toy-design:active {
   background:
     var(--e-🚂) 0, 
     var(--e-🧸) 1.2em
 }
 
-.emoji-word.circuits-and-electronics:active {
+.emoji-word.circuits-and-electronics:hover, .emoji-word.circuits-and-electronics:active {
   background:
     var(--e-🔌) 0, 
     var(--e-⚡️) 1.2em
 }
 
-.emoji-word.splash-class:active {
+.emoji-word.splash-class:hover, .emoji-word.splash-class:active {
   background:
     var(--e-🧑‍💻) 0, 
     var(--e-😭) 1.2em
@@ -996,7 +992,7 @@ div.publication a {
 #next_theme, #theme_swap_indicator {
     position: fixed;
     top: 2rem;
-    right: 2rem;
+    right: 0.8rem;
     font-size: 2rem;
 
     cursor: pointer;
