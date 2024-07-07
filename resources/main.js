@@ -315,22 +315,25 @@ function swap_theme() {
 
 }
 
-function set_theme(theme) {
+function set_theme(theme, skip_anim=false) {
 
   console.log("Changing theme to " + theme)
   setThemeCookie(theme)
 
   document.body.classList.add(theme);
 
-  theme_swap_button = document.getElementById("next_theme");
-  theme_swap_indicator = document.getElementById("theme_swap_indicator");
 
-  theme_swap_button.classList.add("animation");
-  theme_swap_indicator.classList.add("animation");
-  setTimeout(() => {
-    theme_swap_button.classList.remove("animation");
-    theme_swap_indicator.classList.remove("animation");
-  }, 1000);
+  if (!skip_anim) {
+    theme_swap_button = document.getElementById("next_theme");
+    theme_swap_indicator = document.getElementById("theme_swap_indicator");
+
+    theme_swap_button.classList.add("animation");
+    theme_swap_indicator.classList.add("animation");
+    setTimeout(() => {
+      theme_swap_button.classList.remove("animation");
+      theme_swap_indicator.classList.remove("animation");
+    }, 1000);
+  }
 
 }
 
@@ -504,5 +507,5 @@ function readThemeCookie() {
 }
 
 function loadTheme() {
-  return set_theme(readThemeCookie())
+  return set_theme(readThemeCookie(), skip_anim=true)
 }

@@ -142,8 +142,10 @@ a {
   color: var(--c-link);
 }
 
-a:hover {
-  color: var(--c-hover-pop);
+@media (hover: hover) {
+  a:hover {
+    color: var(--c-hover-pop);
+  }
 }
 
 .pop {
@@ -191,17 +193,37 @@ span.bold {
 }
 
 #header .emoji-block {
-  animation-name: wave-hand;  /* Refers to the name of your @keyframes element below */
-  animation-duration: 1.5s;        /* Change to speed up or slow down */
-  animation-iteration-count: infinite;  /* Never stop waving :) */
-  animation-timing-function: ease;
-  transform-origin: 90% 70%;       /* Pivot around the bottom-left palm */
   display: inline-block;
-  animation-play-state: paused;
 }
 
-#header .emoji-block:hover {
-  animation-play-state: running;
+@media (hover: hover) {
+  #header .emoji-block {
+      animation-name: wave-hand;  /* Refers to the name of your @keyframes element below */
+      animation-duration: 1.5s;        /* Change to speed up or slow down */
+      animation-iteration-count: infinite;  /* Never stop waving :) */
+      animation-timing-function: ease;
+      transform-origin: 90% 70%;       /* Pivot around the bottom-left palm */
+      animation-play-state: paused;
+  }
+  #header .emoji-block:hover {
+    animation-play-state: running;
+  }
+}
+
+@media (hover: none) {
+  #header .emoji-block {
+    /* On mobile, each tap is one wave */
+    animation-iteration-count: 1;
+    animation-play-state: running;
+  }
+
+  #header .emoji-block:active {
+    animation-name: wave-hand;  /* Refers to the name of your @keyframes element below */
+    animation-duration: 1.5s;        /* Change to speed up or slow down */
+    animation-iteration-count: 1;  /* Never stop waving :) */
+    animation-timing-function: ease;
+    transform-origin: 90% 70%;       /* Pivot around the bottom-left palm */
+  }
 }
 
 .quote-it::before {
@@ -236,6 +258,8 @@ span.bold {
   display: flex;
   flex-direction: row-reverse;
 
+  user-select: none;
+
 }
 
 #sidenav div {
@@ -259,14 +283,26 @@ span.bold {
   background-position: 0% 33%;
 }
 
-#sidenav div a:hover {
+#sidenav div a:active {
   color: var(--c-inv-bg);
   background-position: 0% 100%;
 }
 
-#sidenav div.selected a:hover {
+#sidenav div.selected a:active {
   color: var(--c-inv-bg);
   background-position: 0% 0%;
+}
+
+@media (hover: hover) {
+  #sidenav div a:hover {
+    color: var(--c-inv-bg);
+    background-position: 0% 100%;
+  }
+
+  #sidenav div.selected a:hover {
+    color: var(--c-inv-bg);
+    background-position: 0% 0%;
+  }
 }
 
 #mobilenav {
@@ -318,18 +354,21 @@ div#check-out-my-container {
   margin: 0;
 }
 
-#resume a:hover, #github a:hover, #linkedin a:hover {
-  color: var(--c-inv-bg);
-  background-position: left;
-}
-
 #resume a .resume_icon, #github a .github_icon, #linkedin a .linkedin_icon {
   fill: var(--c-pop);
   transition: 0.3s;
 }
 
-#resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon {
-  fill: var(--c-inv-bg);
+
+@media (hover: hover) {
+  #resume a:hover, #github a:hover, #linkedin a:hover {
+    color: var(--c-inv-bg);
+    background-position: left;
+  }
+
+  #resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon {
+    fill: var(--c-inv-bg);
+  }
 }
 
 #resume svg, #github svg, #linkedin svg {
@@ -391,8 +430,9 @@ h3.check_out_my {
   background-position: left;
 }
 
-.emoji-word:hover {
+.emoji-word:active { 
   color: #0000;
+  user-select: none;
 }
 
 .emoji-word::after {
@@ -407,65 +447,66 @@ h3.check_out_my {
   transition: 0.3s ease-in-out;
 }
 
-.emoji-word:hover::after {
+
+.emoji-word:active::after {
   opacity: 1;
 }
 
-.emoji-word:hover::before {
+.emoji-word:active::before {
   opacity: 1;
 }
 
 /* Instances */
 
-.emoji-word.research:hover {
+.emoji-word.research:active {
   background: var(--e-🔬) center;
 }
 
-.emoji-word.frog:hover {
+.emoji-word.frog:active {
   background: var(--e-🐸) center;
 }
 
-.emoji-word.topological:hover {
+.emoji-word.topological:active {
   background:
     var(--e-🍩) calc(50% - 0.6em), 
     var(--e-🪢) calc(50% + 0.6em);
   
 }
 
-.emoji-word.optimal-stars:hover {
+.emoji-word.optimal-stars:active {
   background:
     var(--e-🏎️) calc(50% - 0.6em), 
     var(--e-💨) calc(50% + 0.6em);
 }
 
-.emoji-word.cv-ai:hover {
+.emoji-word.cv-ai:active {
   background:
     var(--e-👁️) calc(50% - 1.3em),
     var(--e-✨) center,
     var(--e-🧠) calc(50% + 1.3em)
 }
 
-.emoji-word.diamond:hover {
+.emoji-word.diamond:active {
   background: var(--e-💎) center;
 }
 
-.emoji-word.glasses:hover {
+.emoji-word.glasses:active {
   background: var(--e-👓) center;
 }
 
-.emoji-word.toy-design:hover {
+.emoji-word.toy-design:active {
   background:
     var(--e-🚂) 0, 
     var(--e-🧸) 1.2em
 }
 
-.emoji-word.circuits-and-electronics:hover {
+.emoji-word.circuits-and-electronics:active {
   background:
     var(--e-🔌) 0, 
     var(--e-⚡️) 1.2em
 }
 
-.emoji-word.splash-class:hover {
+.emoji-word.splash-class:active {
   background:
     var(--e-🧑‍💻) 0, 
     var(--e-😭) 1.2em
@@ -620,11 +661,6 @@ div.publication a {
 
 }
 
-#toggle_class_list:hover {
-  background-position: left 0%;
-  color: var(--c-inv-bg);
-}
-
 #toggle_class_list.changing {
   animation-name: opacity-bump;  /* Refers to the name of your @keyframes element below */
   animation-duration: 0.2s;        /* Change to speed up or slow down */
@@ -652,9 +688,15 @@ div.publication a {
   margin-top: 20px;
 }
 
-.toggleSection:hover {
-  background-position: right;
-  color: var(--c-font-sel);
+@media (hover: hover) {
+  #toggle_class_list:hover {
+    background-position: left 0%;
+    color: var(--c-inv-bg);
+  }
+  .toggleSection:hover {
+    background-position: right;
+    color: var(--c-font-sel);
+  }
 }
 
 .sectionHide {
@@ -699,8 +741,10 @@ div.publication a {
   fill: var(--c-less-pop);
 }
 
-.openTab:hover path {
-  fill: var(--c-pop);
+@media (hover: hover) {
+  .openTab:hover path {
+    fill: var(--c-pop);
+  }
 }
 
 .individual-expands p {
@@ -792,6 +836,35 @@ div.publication a {
 
   #mobilenav.active {
     top: 0;
+  }
+
+  #next_theme, #theme_swap_indicator {
+    position: absolute !important;
+    background-color: var(--c-bg);
+  }
+
+  #theme_swap_indicator {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    animation: none !important;
+  }
+
+  #theme_swap_indicator.animation {
+    /* animation: rev-opacity-blink 1s ease-in-out 1 !important; */
+    opacity: 1;
+    animation: none !important;
+  }
+  
+  #next_theme p, #theme_swap_indicator p {
+      font-size: 0.5em;
+      text-align: right;
+      display: inline-block;
+      max-width: min-content;
+      line-height: 1rem;
+  }
+
+  #next_theme img, #theme_swap_indicator img {
+    display: inline-block;
   }
 
   #header {
@@ -942,12 +1015,14 @@ div.publication a {
   animation: opacity-blink 1s linear 1;
 }
 
-#next_theme:hover.animation {
-  animation: opacity-blink 1s linear 1, tilt-shaking 0.25s linear 4;
-}
+@media (hover: hover) {
+  #next_theme:hover.animation {
+    animation: opacity-blink 1s linear 1, tilt-shaking 0.25s linear 4;
+  }
 
-#next_theme:hover {
-  animation: tilt-shaking 0.25s linear 4;
+  #next_theme:hover {
+    animation: tilt-shaking 0.25s linear 4;
+  }
 }
 
 @keyframes tilt-shaking {
@@ -969,6 +1044,18 @@ div.publication a {
   20% { opacity: 0; }
   80% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+@keyframes linear-opacity-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes rev-opacity-blink {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 #themes_dev_div {
