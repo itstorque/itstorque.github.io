@@ -1,8 +1,5 @@
 :root {
 
-  /* --c-bg: ; */
-
-
   --text-font-size-L: 1.4rem; /* 20px; */
   --text-font-size-M: 1.2rem; /* 18px; */
 
@@ -17,46 +14,52 @@
   top: 0;
   left: 0;
   transition: none;
-  background-color: var(--c-pop);
   flex-basis: 100%;
   max-width: 100%;
   width: 100%;
   display: block;
-  height: var(--page-line-height);
+  
   z-index: 10;
-}
 
-.mint_wave .pageLine, .froyo .pageLine, .yellows .pageLine {
+  height: calc(20px*var(--c-wavy, 0) + var(--page-line-height)*(1 - var(--c-wavy, 0)));
+
+  /* TODO: add fallback */
+  --color-gradient: color-mix(in srgb, 
+    var(--c-pop) calc(100%*(1 - var(--c-wavy, 0))), /* no gradient */
+    var(--c-hover-pop) calc(100%*var(--c-wavy, 0)) /* gradient */
+  );
+
   background:
-    linear-gradient(to right, var(--c-pop), var(--c-hover-pop));
-  height: 20px;
+    linear-gradient(to right, var(--c-pop), var(--color-gradient));
 }
 
-.mint_wave .pageLine::before, .froyo .pageLine::before, .yellows .pageLine::before {
+.pageLine::before {
   content: "";
+  height: calc(10px*var(--c-wavy, 0));
+
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
   background-repeat: repeat;
-  height: 10px;
+  
   background-size: 20px 20px;
   background-image:
     radial-gradient(circle at 10px -5px, transparent 12px, var(--c-bg) 13px);
 }
-.mint_wave .pageLine::after, .froyo .pageLine::after, .yellows .pageLine::after {
+
+.pageLine::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
   right: 0;
   background-repeat: repeat;
-  height: 15px;
+  height: calc(15px*var(--c-wavy, 0));
   background-size: 40px 20px;
   background-image:
     radial-gradient(circle at 10px 15px, var(--c-bg) 12px, transparent 13px);
 }
-
 
 .ee-color {
   color: #ff4757;
