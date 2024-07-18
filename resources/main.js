@@ -3,13 +3,13 @@ css_color_stylesheet = false
 css_stylesheet_counter = 0
 CSS_STYLESHEET_COUNTER_SWITCH = 5
 
-window.onbeforeunload = function () {
-  window.scrollTo(0, 0);
-}
+// window.onbeforeunload = function () {
+//   window.scrollTo(0, 0);
+// }
 
-window.addEventListener("scroll", function() {
-  checkSection()
-});
+// window.addEventListener("scroll", function() {
+//   checkSection()
+// });
 
 manualChangeImage = () => { 
   // To be defined later after loading...
@@ -28,7 +28,12 @@ function addEmojiAnimations() {
   }
 }
 
-window.addEventListener("load", function() {
+window.addEventListener("load", async function() {
+  loadTheme();
+
+  // this will overwrite any events...
+  await replaceEmojis();
+
   checkSection()
   addIndividualExpands()
 
@@ -55,7 +60,7 @@ window.addEventListener("load", function() {
     changeImageProcess = setInterval(changeImage, 4000);
   }
 
-  setTimeout(addEmojiAnimations, 100);
+  addEmojiAnimations();
 
 });
 
@@ -329,6 +334,8 @@ function swap_theme() {
     colors_dev_mode(theme)
   }
 
+  return theme
+
 }
 
 theme_swap_anim_process = false
@@ -432,14 +439,12 @@ function colors_dev_mode(current_theme) {
 
 // TEST EMOJI REPLACING
 
-function replaceEmojis() {
+async function replaceEmojis() {
 
   const regexpEmojiPresentation = /\p{Emoji_Presentation}/gu;
   matches = document.body.innerHTML.match(regexpEmojiPresentation);
 
-
-
-  fetch('/resources/emojis.json.gz')
+  await fetch('/resources/emojis.json.gz')
     .then((response) => {
       return response.arrayBuffer()
     })
@@ -463,8 +468,6 @@ function replaceEmojis() {
     });
 
 }
-
-window.addEventListener("load", () => { replaceEmojis(); loadTheme(); });
 
 function add_emojis_css(emoji_url_map) {
 
@@ -495,7 +498,17 @@ function add_emojis_css(emoji_url_map) {
   );
 
   sheet = document.styleSheets[0]
-  definitions = emoji_props.map((x) => sheet.insertRule(".emoji-word { " + x + `: url(${ emoji_url_map[x.replace('--e-', '')] }) !important;` + " }"))
+  emoji_urls = ""
+  definitions = emoji_props.map((x) => {
+    sheet.insertRule(".emoji-word { " + x + `: url(${ emoji_url_map[x.replace('--e-', '')] }) !important;` + " }");
+    // preload rule
+    emoji_urls += `url(${ emoji_url_map[x.replace('--e-', '')] }), `
+    
+    preload_img = new Image()
+    preload_img.src = emoji_url_map[x.replace('--e-', '')];
+    preload_img.onload = () => {};
+
+  })
 
   // sheet.insertRule(".emoji-word:hover::before { opacity: 0 !important; }")
 
@@ -519,7 +532,7 @@ function readThemeCookie() {
 
   var ind=theCookie.indexOf(cookieName+"=");
 
-  if (ind==-1) return "default";
+  if (ind==-1) return swap_theme();
 
   var ind1=theCookie.indexOf(";", ind);
 

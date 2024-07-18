@@ -5,57 +5,6 @@ layout: default
 color: default
 ---
 
-<script>
-
-  function replaceEmojisWithImages(element = "*", size = 1.4, marginTop = 0.3) {
-    const emojiRegex = /([\uD800-\uDBFF][\uDC00-\uDFFF])/;
-
-    function replaceEmojiInTextNode(node) {
-        let matches;
-        while ((matches = node.nodeValue.match(emojiRegex))) {
-            const emoji = matches[0];
-            const emojiIndex = node.nodeValue.indexOf(emoji);
-
-            const preMatchText = node.nodeValue.slice(0, emojiIndex);
-            const postMatchText = node.nodeValue.slice(emojiIndex + 2);
-
-            const preTextNode = document.createTextNode(preMatchText);
-            const emojiElement = document.createElement("img");
-
-            emojiElement.alt = emoji;
-            emojiElement.draggable = false;
-            emojiElement.src = `https://raw.githubusercontent.com/zhmidd/emoji/main/resources/${emoji}.webp`;
-            emojiElement.style = `width: ${size}em; display: inline-block; margin-left: 0.1em; margin-right: 0.1em; margin-top: ${marginTop}em; margin-bottom: -${marginTop}em;`;
-
-            node.nodeValue = postMatchText;
-            node.parentNode.insertBefore(preTextNode, node);
-            node.parentNode.insertBefore(emojiElement, node);
-        }
-    }
-
-    function traverseAndReplace(node) {
-        if (node.nodeType === Node.TEXT_NODE) {
-            replaceEmojiInTextNode(node);
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-            for (const childNode of node.childNodes) {
-                traverseAndReplace(childNode);
-            }
-        }
-    }
-
-    if (element[0] === "#") {
-        const targetElement = document.querySelector(element);
-        traverseAndReplace(targetElement);
-    } else {
-        const targetElements = document.querySelectorAll(element);
-        for (const targetElement of targetElements) {
-            traverseAndReplace(targetElement);
-        }
-    }
-}
-
-</script>
-
 <div id="header">
   <div id="header-indicator"></div>
   <div class="emoji-block" id="hello-emoji">
@@ -80,7 +29,7 @@ and I am a researcher at Microsoft working on developing a <span class="emoji-wo
 </div>
 
 In my free time, you can catch me working on personal projects spanning: digital system architecture, <span class="emoji-word cv-ai">computer vision and AI</span>,
-differentiable and verifiable propgramming, and superconducting devices. 
+differentiable and verifiable programming, and superconducting devices. 
 I enjoy reducing problems into math, proving designs and algorithms to be 
 <span class="emoji-word optimal-stars">optimal</span> and reverse engineering hardware and software.
 {: .intro}
@@ -122,6 +71,8 @@ that filter out epileptic triggers with a team of product designers.
 
 {: #education.title_with_emoji}
 ## *📚* Education
+
+I did my undergraduate and 
 
 #### Masters Degree
 

@@ -474,7 +474,6 @@ h3.check_out_my {
   background:
     var(--e-🍩) calc(50% - 0.7em), 
     var(--e-🪢) calc(50% + 0.7em);
-  
 }
 
 .emoji-word.optimal-stars.animation {
@@ -568,6 +567,11 @@ h3.check_out_my {
   transform: translateY(-3px);
 } */
 
+.title_with_emoji {
+  margin-top: 0.8em;
+  padding-top: 0.8em;
+}
+
 .title_with_emoji em {
   position: absolute;
   margin-left: -50px;
@@ -578,19 +582,19 @@ h3.check_out_my {
   content: "📚";
 } */
 
-#teaching { margin-top: 50px; }
+/* #teaching { margin-top: 50px; } */
 
 /* #teaching::before {
   content: "🍎";
 } */
 
-#research { margin-top: 50px; }
+/* #research { margin-top: 50px; } */
 
 /* #research::before {
   content: "🔬";
 } */
 
-#projects { margin-top: 50px; }
+/* #projects { margin-top: 50px; } */
 
 /* #projects::before {
   content: "🛠";
