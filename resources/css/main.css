@@ -9,6 +9,21 @@
 
 }
 
+@media (min-width:1300px) {
+
+  :root {
+
+    --text-font-size-L: 1.75rem; /* 20px; */
+    --text-font-size-M: 1.5rem; /* 18px; */
+  
+    --title-font-size: 33.75px;
+  
+    --page-line-height: 0.5rem;
+  
+  }
+  
+}
+
 .pageLine {
   position: fixed;
   top: 0;
