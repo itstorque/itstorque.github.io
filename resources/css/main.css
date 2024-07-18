@@ -21,6 +21,12 @@
     --page-line-height: 0.5rem;
   
   }
+
+  #portrait {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+  }
   
 }
 

@@ -3,13 +3,13 @@ css_color_stylesheet = false
 css_stylesheet_counter = 0
 CSS_STYLESHEET_COUNTER_SWITCH = 5
 
-// window.onbeforeunload = function () {
-//   window.scrollTo(0, 0);
-// }
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
 
-// window.addEventListener("scroll", function() {
-//   checkSection()
-// });
+window.addEventListener("scroll", function() {
+  checkSection()
+});
 
 manualChangeImage = () => { 
   // To be defined later after loading...

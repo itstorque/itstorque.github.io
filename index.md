@@ -72,121 +72,39 @@ that filter out epileptic triggers with a team of product designers.
 {: #education.title_with_emoji}
 ## *📚* Education
 
-I did my undergraduate and 
+I did my undergraduate studies at MIT in Electrical Engineering, Computer Science, Mechanical Engineering and 
+Quantum Information and Computation.
 
-#### Masters Degree
+I then followed up with an Electrical Engineering and Computer Science Masters focusing on Complexity Theory and Device Physics.
 
-For my masters, I am leveraging mathematical methods to approach several different problems
-when it comes to simulating, designing, fabricating and testing superconducting nanoelectronics.
-These electronics are tiny and are cooled down below 4 Kelvin. Through their highly non-linear 
-behaviour, we can design a range of cool devices including a single photon detector and a
-single photon imager!
-
-- I build efficient julia simulators for large-scale networks of non-linear superconducting devices. 
-<!-- The goal is being able to simulate millions of devices, where the smallest deviceis thousands of LC elements in less than a minute! To do that, I spend a lot of time finding symmteries and exploiting them and utilizing cool methods such as harmonic balance for frequency domain precomputation. -->
-- Build tools on top of existing simulators (like LTspice) that exploit them to give them new 
-features and speed them up. See my project [spice-daemon](https://github.com/itstorque/spice-daemon).
-- Designing a new optimal scheme to characterize fabrication defects in superconducting electronics.
-- Apply various mathematical tools ranging from gradient descent to space filling curves to design better
-devices.
-
-#### Undergraduate Degree
-
-I double majored at MIT graduating with a
-B.S. in <span class="bold ee-color">Electrical Engineering</span> and <span class="bold cs-color">Computer Science</span> and a
-B.S. in <span class="bold meche-color">Mechanical Engineering</span> and <span class="bold quantum-color">Quantum Information and Computation</span>.
-
-Over my time at MIT, I took a wide range of classes that cover quantum & information theory, quantum computing
-platforms, theoretical computer science, FPGA design, processor design, semiconductor physics, image processing, controls, thermofluids, mechanics and product design.
-
-<span style="display: block; text-align: center"><a id="toggle_class_list" class="changing" onclick="toggleClassList()">SHOW ALL CLASSES</a></span>
-
-{: #class_list}
-- Spring 2022
-  - {: .meche-color} Measurement and Instrumentation
-  - {: .cs-color} Computer Systems Security
-  - {: .ee-color} Music Technology
-  - {: .quantum-color} Quantum Complexity Theory
-- Winter 2022
-  - {: .ee-color} FPGA Design
-  - {: .meche-color} Mechanical Engineering Tools
-  - {: .cs-color} Battlecode: AI Player Strategies (listener)
-- Fall 2021
-  - {: .meche-color} Product Engineering Processes
-  - {: .quantum-color} Quantum Measurement
-  - {: .other-color} Technology and Culture
-  - {: .math-color} Mathematical Methods in Nanophotonics (listener)
-- Spring 2021
-  - {: .quantum-color} Physics and Engineering of Superconducting Qubits
-  - {: .math-color} Linear Algebra
-  - {: .math-color} Probability and Random Variables
-  - {: .ee-color} Digital Instrument Design
-  - {: .other-color} Science in Action: Technologies and Controversies in Everyday Life
-  - {: .cs-color} Advances in Computer Vision (listener)
-- Fall 2020
-  - {: .ee-color} Superconducting Classical and Quantum Circuits
-  - {: .cs-color} Digital & Computational Photography
-  - {: .math-color} Theory of Computation
-  - {: .quantum-color} Quantum Computation
-  - {: .other-color} Einstein, Oppenheimer, Feynman: Physics in the 20th Century
-  - {: .ee-color} Solid-State Circuits (listener)
-- Spring 2020
-  - {: .ee-color} Microelectronic Devices and Circuits
-  - {: .meche-color} Dynamics and Control
-  - {: .cs-color} Robotics: Science and Systems
-  - {: .math-color} Automata, Computability, and Complexity
-  - {: .meche-color} Thermal-Fluids Engineering
-  - {: .cs-color} Numerical Computation
-  - {: .other-color} Introductory Biology
-  - {: .other-color} Archaeological Science
-- Winter 2020
-  - {: .quantum-color} Introduction to Quantum Computation
-  - {: .cs-color} WebLab: Web Programming
-  - {: .ee-color} Mobile Autonomous Systems Lab
-- Fall 2019
-  - {: .ee-color} Computation Structures
-  - {: .cs-color} Artificial Intelligence
-  - {: .meche-color} Mechanics & Materials
-  - {: .meche-color} Introduction to Design
-  - {: .other-color} Introduction to Linguistics
-- Spring 2019
-  - {: .math-color} Differential Equations
-  - {: .math-color} Information, Entropy and Computation
-  - {: .ee-color} Circuits and Electronics
-  - {: .ee-color} Introduction to Medical Technology
-  - {: .cs-color} Fundamentals of Programming
-- Fall 2019
-  - {: .math-color} Multivariable Calculus
-  - {: .quantum-color} Electricity and Magnetism
-  - {: .quantum-color} Programming the Universe
-  - {: .other-color} Bioethics
-  - {: .other-color} Introduction to Solid-State Chemistry
+Over my time at MIT, I took a wide range of classes that cover language models and computer vision, quantum devices and computing,
+complexity theory, FPGA and CPU design, semiconductor physics, image processing, control theory and product design.
 
 {: #teaching.title_with_emoji}
 ## *🍎* Teaching Experience
 
-I also got the chance to help out with courses over my time at MIT.
+I taught several courses during my time at MIT, including:
 
-#### Mentoring 2.00b - <span class="emoji-word toy-design">Toy Design</span>
+#### 2.00b - <span class="emoji-word toy-design">Toy Design</span>
 
-I am currently mentoring MIT's Mechanical Engineering departments Toy Design class. In the class
+I was a mentor MIT's Mechanical Engineering departments Toy Design class. In the class
 students have to design and build toys using shop tools, circuits and microcontrollers.
 {: .sectionHide.sectionTeaching}
 
-#### LA-ing 6.004 - <span class="emoji-word computation-structures">Computation Structures</span>
+#### 6.004 - <span class="emoji-word computation-structures">Computation Structures</span>
 
-I was an LA for "Computation Structures." The class covers assembly and the RISC-V processor architecture, the labs include HDL and assembly code where students get to build their own
+I was a lab assistant for "Computation Structures." The class covers assembly and the RISC-V processor architecture, the labs include HDL and assembly code where students get to build their own
 RISC-V processor and run algorithms on it.
 As an LA, I worked on testing labs and the backbones of the processor. I also helped teach students concepts
 such as processor cycles and timing, combinatoric and sequential logic, memory hierarchy, processor pipelining and processor design tradeoffs.
 {: .sectionHide.sectionTeaching}
 
-#### LA-ing 6.002 - <span class="emoji-word circuits-and-electronics">Circuits and Electronics</span>
+#### 6.002 - <span class="emoji-word circuits-and-electronics">Circuits and Electronics</span>
 
 I was a lab assistant for "Circuits and Electronics" where I got the chance to help students understand circuit analysis, op-amp applications, and transistors. As a lab assistant, testing out labs, debugging circuits, helping students understand concepts taught in class and giving them check-offs as they worked in lab were part of my duties.
 {: .sectionHide.sectionTeaching}
 
-#### Teaching MIT ESP class - <span class="emoji-word splash-class">Making Code Hard(ly Work)</span>
+#### MIT ESP class - <span class="emoji-word splash-class">Making Code Hard(ly Work)</span>
 
 I also got the chance to teach a programming class to high schoolers with my friend Savoldy
 in MIT's Educational Studies Program in a class we called (excuse the pun) "[Making Code Hard(ly Work)](https://github.com/itstorque/MIT-Splash-2019-Making-Code-Hardly-Work)."
@@ -199,22 +117,18 @@ and exercises where they get to write their own bad code.
 {: #research.title_with_emoji}
 ## *🔬* Research
 
- As an undergrad, I was also involved in research in two of MIT's quantum research groups: 
-The
-[Quantum Photonics Group (QPG)](https://www.rle.mit.edu/qp/)
-and The
-[Quantum Nanostructures and Nanofabrication (QNN)](https://www.rle.mit.edu/qnn).
-I worked on 3 different research projects:
+I was involved in several research projects at MIT working on ML and Quantum Computing, including:
 
-#### *QuantumClifford.jl* GPU Kernel Development
+#### GPU Kernel Development for *QuantumClifford.jl*
 
-Implementing fast GPU quantum stabilizer formalism simulations for a Julia
-quantum simulation package [*QuantumClifford.jl*](https://github.com/Krastanov/QuantumClifford.jl)
+I developed custom CUDA kernels to speed up quantum stabilizer formalism simulations by a factor of ~100 on GPUs
+for [the Quantum Photonics Group's](https://www.rle.mit.edu/qp/) quantum simulation package [*QuantumClifford.jl*](https://github.com/Krastanov/QuantumClifford.jl).
 {: .sectionHide.sectionResearch}
 
-#### Multiplexed optimal control of spin quantum memories
+#### ML-based Control of Spin Quantum Memories
 
-I worked on generating optimal microwave control pulses for diamond-based quantum computers. I developed models to simulate arbitrary arrangements of color centers and driving wire placement. Then applied optimal control theory techniques to find optimal time-varying pulses that improve the number of qubits that along with the other methods in the paper for the control of thousands of spins.
+I developed an ML-based methodology for optimal control of spin-based qubits. This involved developing a fast physics-solver in tensorflow and a gradient optimization for continuous pulses. 
+We published a paper showcasing the method working experimentally that enables us to scale the control 3 orders of magnitude larger than the previous state-of-the-art.
 {: .sectionHide.sectionResearch}
 
 #### Electro-Thermal Modeling of Superconducting Materials
