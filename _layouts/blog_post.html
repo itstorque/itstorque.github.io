@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
     {%- include head.html -%}
 
     {% include mathjax.html %}
 
     {% seo %}
+
+    <a href="/blog/"><h3 id="main_icon"><span id="icon_hint">$\vec r\times \vec F$</span><span class="name">torque</span>'s blog</h3></a>
 
     <script src="/resources/toc.js"></script>
 
@@ -17,6 +17,43 @@
             /* width: 100vw; */
             max-width: 100vw;
             overflow-x: hidden;
+
+            font-size: 1rem;
+        }
+
+        #main_icon {
+            position: fixed;
+            top: 1.2rem;
+            left: 2rem;
+            font-size: 1.5rem;
+
+            cursor: pointer;
+            text-align: right;
+
+            color: var(--c-font);
+        }
+
+        #icon_hint {
+            position: absolute;
+            font-size: 0.7em;
+            top: 1.8em;
+            left: 1em;
+            opacity: 0;
+            transition: opacity ease-in-out 0.3s;
+            display: block;
+        }
+
+        #main_icon:hover .name {
+            text-decoration: none wavy var(--c-pop);
+            text-decoration-skip-ink: none;
+            text-underline-offset: -0.05em;
+        }
+        #main_icon:hover .name {
+            text-decoration: underline wavy var(--c-pop);
+        }
+
+        #main_icon:hover #icon_hint {
+            opacity: 1;
         }
 
         #toc {
@@ -33,7 +70,7 @@
 
             margin-bottom: auto;
             font-size: 0.875rem;
-            max-width: 20rem;
+            max-width: 8rem;
 
             /* position: fixed; */
             /* padding-top: 20vh; */
@@ -52,7 +89,7 @@
         }
 
         #toc nav {
-            color: #202122;
+            color: var(--c-link);
             font-family: sans-serif;
             display: block;
             /* position: fixed; */
@@ -131,16 +168,27 @@
             flex-grow: 1;
             flex-shrink: 8;
             overflow-x: visible;
+            max-width: 90ch;
         }
 
         #content {
-            max-width: 60ch;
             margin-left: 2rem;  /* emoji offset */
+            font-size: 1.2em;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Bitter, Georgia, 'Times New Roman', Times, serif;
+            font-weight: 700;
         }
 
         #content h2 {
             margin-top: 2em;
             margin-bottom: 0.8em;
+
+            font-weight: 400;
+            border-bottom: 1px solid var(--border-color-base, #a2a9b1);
+            padding-bottom: 0.2em;
+            
         }
 
         .blog_emoji {
@@ -162,6 +210,27 @@
 
         h1.article_title {
             margin-left: 2rem; /* emoji offset */
+            font-size: 3rem;
+            font-weight: 700;
+            margin-top: 0;
+        }
+
+        .title_separator {
+            position: absolute;
+            height: 0.25rem;
+            background: var(--c-pop);
+            width: 5rem;
+            transform-origin: left center;
+            margin-left: 2rem;
+        }
+
+        .article_date {
+            margin-left: 2rem; /* emoji offset */
+            font-weight: 700;
+            color: var(--c-pop);
+            margin-top: 10em;
+            display: block;
+            letter-spacing: .08em;
         }
 
         div#flex_article {
@@ -180,7 +249,7 @@
         }
 
         #toc .back_button {
-            color: black;
+            color: var(--c-less-pop);
             transition: 0.1s ease-in;
         }
         
@@ -200,10 +269,15 @@
             transition: 0.1s ease-out;
         }
 
-        @media (max-width: 800px) {
+        @media (max-width: 1200px) {
 
             div#flex_article {
                 flex-direction: column;
+                align-items: center;
+            }
+
+            div##article_container {
+                margin: auto;
             }
 
             #toc {
@@ -211,6 +285,7 @@
                 font-size: 1.2rem;
                 width: 100%;
                 max-width: none;
+                display: none;
             }
 
             #article_right_col {
@@ -267,10 +342,12 @@
 
             <div>
 
-                <h1 class="blog_emoji">{{ page.emoji }}</h1>
-
-                <h1 class="article_title">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}</h1>
-
+                <!-- <h1 class="blog_emoji">{{ page.emoji }}</h1> -->
+                
+                <span class="article_date">{{ page.date | date: "%-dth %B %Y" | upcase }}</span>
+                <h1 class="article_title">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}<span class="pop">.</span></h1>
+                
+                <span class="title_separator"></span>
                 <br/><br/>
 
                 <div id="content">
@@ -286,6 +363,8 @@
         </div>
 
     </div>
+
+    {%- include theme_dice.html -%}
 
     <script>
         // window.onload = function () {

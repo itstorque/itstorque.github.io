@@ -3,7 +3,6 @@
     --c-elem-bg-dull: ;
     --c-elem-bg-pop: ;
     
-
     --c-pop:    #FE1717;
     --c-less-pop:    #FF7777;
     --c-hover-pop:    #BB1313;
@@ -21,7 +20,7 @@
     --c-wavy: 0;
 }
 
-.purple {
+/* .purple {
     --c-bg: #4a113c;
     --c-elem-bg-dull: rgba(178, 127, 170, 0.1);
     --c-elem-bg-pop: rgba(178, 127, 170, 0.2);
@@ -135,7 +134,7 @@
     --c-color-status-bar: var(--c-pop);
     --c-wavy: 0;
 
-}
+} */
 
 .blorange {
 
@@ -183,7 +182,7 @@
     --c-wavy: 0;
 }
 
-.gold_sand {
+/* .gold_sand {
     --c-bg: #4B4237;
     --c-elem-bg-dull: ;
     --c-elem-bg-pop: ;
@@ -207,69 +206,69 @@
 }
 
 .froyo {
-    --c-bg: #F8E5D4; /* Light beige background */
-    --c-elem-bg-dull: #F0C9A2; /* Dull yellow for elements */
-    --c-elem-bg-pop: #FFD700; /* Bright yellow for pop elements */
+    --c-bg: #F8E5D4; 
+    --c-elem-bg-dull: #F0C9A2; 
+    --c-elem-bg-pop: #FFD700; 
 
-    --c-pop: #ff899b; /* Pink for main pop color */
-    --c-less-pop: #fcb373; /* Light pink for less prominent areas */
-    --c-hover-pop: #FFA07A; /* Coral for hover effects */
+    --c-pop: #ff899b; 
+    --c-less-pop: #fcb373; 
+    --c-hover-pop: #FFA07A; 
 
-    --c-font: #4B4237; /* Dark brown font color */
-    --c-font-muted: #736B60; /* Muted font color */
-    --c-font-sel: var(--c-bg); /* Selected font color on beige background */
-    --c-font-sel-bg: var(--c-less-pop); /* Background for selected font */
-    --c-inv-bg: var(--c-bg); /* Inverted background color */
+    --c-font: #4B4237; 
+    --c-font-muted: #736B60; 
+    --c-font-sel: var(--c-bg); 
+    --c-font-sel-bg: var(--c-less-pop); 
+    --c-inv-bg: var(--c-bg); 
 
-    --c-emoji: #FF6347; /* Tomato emoji color */
+    --c-emoji: #FF6347; 
 
-    --c-link: var(--c-pop); /* Link color */
+    --c-link: var(--c-pop); 
     --c-color-status-bar: var(--c-pop);
 
     --c-wavy: 1;
 }
 
 .yellows {
-    --c-bg: #FFE5B4; /* Peach background */
-    --c-elem-bg-dull: #FBB1C5; /* Soft blush pink for dull elements */
-    --c-elem-bg-pop: #FDA26B; /* Vibrant atomic tangerine for pop elements */
+    --c-bg: #FFE5B4; 
+    --c-elem-bg-dull: #FBB1C5; 
+    --c-elem-bg-pop: #FDA26B; 
 
-    --c-pop: #D5A021; /* Main pop color (similar to peach) */
-    --c-less-pop: #A49694; /* Muted taupe for less prominent elements */
-    --c-hover-pop: #ffa303; /* Hover effect color */
+    --c-pop: #D5A021; 
+    --c-less-pop: #A49694; 
+    --c-hover-pop: #ffa303; 
 
-    --c-font: #333; /* Dark gray font color for better readability */
-    --c-font-muted: #736B60; /* Subtle muted font color */
-    --c-font-sel: var(--c-bg); /* Font color for selected elements */
-    --c-font-sel-bg: var(--c-less-pop); /* Background for selected elements */
-    --c-inv-bg: var(--c-bg); /* Inverted background color */
+    --c-font: #333; 
+    --c-font-muted: #736B60; 
+    --c-font-sel: var(--c-bg); 
+    --c-font-sel-bg: var(--c-less-pop); 
+    --c-inv-bg: var(--c-bg); 
 
-    --c-emoji: #ffb800; /* Emoji color */
+    --c-emoji: #ffb800; 
 
-    --c-link: var(--c-pop); /* Link color */
+    --c-link: var(--c-pop); 
     --c-color-status-bar: var(--c-pop);
 
     --c-wavy: 1;
 }
 
 .mint_wave {
-    --c-bg: #E4FFE1; /* Soft minty green background */
-    --c-elem-bg-dull: #F4FDD9; /* Pale lemon for dull elements */
-    --c-elem-bg-pop: #FFE8C2; /* Warm apricot for pop elements */
+    --c-bg: #E4FFE1; 
+    --c-elem-bg-dull: #F4FDD9; 
+    --c-elem-bg-pop: #FFE8C2; 
 
-    --c-pop: #F0A868; /* Main pop color (reminiscent of peach) */
-    --c-less-pop: #6A8D73; /* Earthy olive for less prominent elements */
-    --c-hover-pop: #ff9a00; /* Hover effect color */
+    --c-pop: #F0A868; 
+    --c-less-pop: #6A8D73; 
+    --c-hover-pop: #ff9a00; 
 
-    --c-font: #333; /* Dark gray font color for readability */
-    --c-font-muted: #736B60; /* Subtle muted font color */
-    --c-font-sel: var(--c-bg); /* Font color for selected elements */
-    --c-font-sel-bg: var(--c-less-pop); /* Background for selected elements */
-    --c-inv-bg: var(--c-bg); /* Inverted background color */
+    --c-font: #333; 
+    --c-font-muted: #736B60; 
+    --c-font-sel: var(--c-bg); 
+    --c-font-sel-bg: var(--c-less-pop); 
+    --c-inv-bg: var(--c-bg); 
 
-    --c-emoji: #F0A868; /* Emoji color (matching the pop color) */
+    --c-emoji: #F0A868; 
 
-    --c-link: var(--c-pop); /* Link color */
+    --c-link: var(--c-pop); 
     --c-color-status-bar: var(--c-pop);
 
     --c-wavy: 1;
@@ -291,7 +290,16 @@
     --c-link: var(--c-pop);
     --c-color-status-bar: var(--c-pop);
     --c-wavy: 0;
-}
+} */
+
+
+
+
+
+
+/* 061629-aec9e5 */
+
+/* ffe3e0-222c77 FFE59E? E4E9EC */
 
 /* .dracula {
     --c-bg: #282A36;

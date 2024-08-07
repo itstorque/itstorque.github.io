@@ -26,16 +26,7 @@ color: default
 
     {{ content }}
 
-    <div id="next_theme" onclick="swap_theme()">
-      <div>
-        <p class="mobile-only">Randomize Theme</p>
-        🎲
-      </div>
-    </div> 
-    <div id="theme_swap_indicator" onclick="swap_theme()">
-      <p class="mobile-only">Theme &nbsp;&nbsp;&nbsp;&nbsp;Changed!</p>
-      🎨
-    </div> 
+    {%- include theme_dice.html -%}
 
     {% include lazy_loading.html %}
 
