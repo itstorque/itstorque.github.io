@@ -5,6 +5,8 @@ layout: default
 include_side_nav: false
 include_math_jax: true
 
+include_blog_css: true
+
 color: purple
 ---
 
@@ -13,7 +15,7 @@ color: purple
 <style>
 
     body {
-        margin-top: 20em;
+        margin-top: 20vh;
         background-color: var(--c-bg)
     }
 
@@ -37,6 +39,11 @@ color: purple
     #header.blog .emoji-block h1 {
         animation-name: none;
         font-size: 5rem;
+    }
+
+    /* .posts {
+        max-width: 60ch;
+        display: flex;
     }
 
     .posts .post h1:not(.emoji) {
@@ -65,6 +72,8 @@ color: purple
         flex-direction: row; 
         justify-content: space-between;
         align-items: center;
+
+        max-height: 20ch;
     }
 
     .posts .post .post_blurb {
@@ -87,6 +96,7 @@ color: purple
         margin-top: 1rem;
         text-align: left;
         margin-bottom: 0;
+        max-height: 6ch;
     }
 
     .posts .button_box {
@@ -109,7 +119,7 @@ color: purple
     .posts .post .more_button:hover {
         background-color: var(--pop); 
         color: #f6f6f6; 
-    }
+    } */
 
     div.blogs_splash {
         position: absolute;
@@ -131,33 +141,20 @@ color: purple
 
 </style>
 
-<div>
+<div class="blog_splash">
+
+    <div id="header-indicator"></div>
+    <h1 class="blog_title">Torque's Blog<span class="pop">.</span></h1>
+
+    <span class="title_separator"></span>
+    <br/><br/>
+    <p class="blog_blurb">
+        This blog aims to have some write-ups of weird esoteric mini-research projects I try to explore in my free time. Expect to see a smorgasbord of topics spanning CS, AI, 
+        ML/AI, Physics and Math.
+    </p>
+    <br/><br/>
 
 </div>
-
-<div id="header" class="blog">
-<div id="header-indicator"></div>
-<div class="emoji-block">
-    <h1>🐸</h1>
-</div>
-<div class="emoji-block mobile-only">
-    <!-- this spacer is for phones, helps keep the correct spacing on top of the title after emoji-block jumps into menu icon -->
-    <h1 style="opacity:0">o</h1>
-</div>
-<div>
-<div class="blogs_splash"></div>
-    <h1 style="lineheight: 2.5; font-size: 5em;" class="serif pop">
-    <span class="bold">Torque's</span><br/><b>Blog</b>
-    </h1>
-
-
-
-</div>
-</div>
-
-
-
-<br />
 
 <!-- <h1>{{ post.emoji }}<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1> -->
 <div class="posts">

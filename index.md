@@ -117,7 +117,21 @@ and exercises where they get to write their own bad code.
 {: #research.title_with_emoji}
 ## *🔬* Research
 
-I was involved in several research projects at MIT working on ML and Quantum Computing, including:
+I was involved in several research projects at Microsoft and MIT spanning AI, CS and Quantum Computing, including:
+
+#### Language Models for Code, Predictive Simulations and Device Design
+
+
+{: .sectionHide.sectionResearch}
+
+#### Computer Vision Models for Quantum Device Characterization
+
+Developing
+{: .sectionHide.sectionResearch}
+
+#### NN-based Interpolation using Frame Interpolation
+
+{: .sectionHide.sectionResearch}
 
 #### GPU Kernel Development for *QuantumClifford.jl*
 

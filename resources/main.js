@@ -497,10 +497,14 @@ function add_emojis_css(emoji_url_map) {
     []
   );
 
-  sheet = document.styleSheets[0]
+  var style = document.createElement('style');
+  
+
   emoji_urls = ""
   definitions = emoji_props.map((x) => {
-    sheet.insertRule(".emoji-word { " + x + `: url(${ emoji_url_map[x.replace('--e-', '')] }) !important;` + " }");
+    // sheet.insertRule(".emoji-word { " + x + `: url(${ emoji_url_map[x.replace('--e-', '')] }) !important;` + " }");
+
+    style.innerHTML += ".emoji-word { " + x + `: url(${ emoji_url_map[x.replace('--e-', '')] }) !important;` + " }";
     // preload rule
     emoji_urls += `url(${ emoji_url_map[x.replace('--e-', '')] }), `
     
@@ -509,6 +513,8 @@ function add_emojis_css(emoji_url_map) {
     preload_img.onload = () => {};
 
   })
+
+  document.head.appendChild(style);
 
   // sheet.insertRule(".emoji-word:hover::before { opacity: 0 !important; }")
 
@@ -522,7 +528,7 @@ function setThemeCookie(current_theme) {
 
   expire.setTime(today.getTime() + default_expiration);
   document.cookie = cookieName+"="+current_theme
-      + ";expires="+expire.toGMTString();
+      + ";expires="+expire.toGMTString()+";path=/;";
 }
 
 function readThemeCookie() {
