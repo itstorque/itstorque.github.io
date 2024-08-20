@@ -11,15 +11,15 @@
 
     {% seo %}
 
-    <a href="/blog/"><h3 id="main_icon"><span id="icon_hint">$\vec r\times \vec F$</span><span class="name">torque</span>'s blog</h3></a>
-
     <script src="/resources/toc.js"></script>
 
 </head>
 
 <body id="body">
 
+    <div class="pageMobileBar"></div>
     <div class="pageLine"></div>
+    <a href="/blog"><h3 id="main_icon"><span id="icon_hint">$\vec r\times \vec F$</span><span class="name">torque</span>'s blog</h3></a>
 
     <div id="flex_article">
 
@@ -63,13 +63,18 @@
 
                 <!-- <h1 class="blog_emoji">{{ page.emoji }}</h1> -->
                 
-                <span class="article_date">
+                <span class="article_date" style="margin-left: 3rem;">
                     {% assign d = page.date | date: "%-d" %}
                     {% case d %}{% when "1" or "21" or "31" %}{{ d }}ST{% when "2" or "22" %}{{ d }}ND{% when "3" or "23" %}{{ d }}RD{% else %}{{ d }}TH{% endcase %}
                     {{ page.date | date: "%B" | upcase }}
                     {{ page.date | date: "%Y" | upcase }}
                 </span>
-                <h1 class="blog_title">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' }}<span class="pop">.</span></h1>
+                <h1 class="blog_title">
+                    <span style="display: inline-flex;">
+                        <span class="pop blog_title_emoji" style="margin-right: 1rem; width: 2rem; text-align: right;">{{page.emoji}} </span>
+                        <span style="display: inline-block;">{{ page.title | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span>
+                    </span>
+                </h1>
                 
                 <span class="title_separator"></span>
                 <br/><br/>

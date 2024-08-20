@@ -17,6 +17,7 @@ body {
     text-align: right;
 
     color: var(--c-font);
+    z-index: 2;
 }
 
 #icon_hint {
@@ -165,6 +166,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: Bitter, Georgia, 'Times New Roman', Times, serif;
     font-weight: 700;
+
+}
+
+h1 {
+    margin-top: 2em;
 }
 
 #content h2 {
@@ -199,6 +205,11 @@ h1.blog_title {
     font-size: 3rem;
     font-weight: 700;
     margin-top: 0;
+}
+
+.blog_title_emoji * {
+    float: right;
+    text-align: right;
 }
 
 p.blog_blurb {
@@ -274,8 +285,12 @@ div#article_right_col {
         align-items: center;
     }
 
-    div##article_container {
+    div#article_container {
         margin: auto;
+    }
+
+    .pageMobileBar {
+        display: block;
     }
 
     #toc {
