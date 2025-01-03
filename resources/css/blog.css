@@ -46,33 +46,35 @@ body {
 #toc {
     flex-shrink: 0;
     width: 15.5rem;
-    /* margin-right: 5em; */
     flex-grow: 1;
     flex-basis: 15%;
     padding-right: 3.5em;
     min-width: 13rem;
 
     position: sticky; 
-    top: 0; 
+    top: 5%; 
 
     margin-bottom: auto;
     font-size: 0.875rem;
     max-width: 8rem;
+}
 
-    /* position: fixed; */
-    /* padding-top: 20vh; */
-    /* left: 0; */
-    /* font-size: 100%;
-    color: #202122;
-    font-family: sans-serif;
-    overflow-x: hidden;
-    top: 24px;
-    contain: paint;
-    box-sizing: border-box;
-    max-height: calc(100vh - (24px * 2));
-    margin-left: 2em;
-    width: 15.5rem;
-    font-size: 0.8em; */
+div.highlighter-rouge {
+    width: 100%;
+}
+
+div.highlight {
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    background:var(--c-elem-bg-dull) !important;
+    overflow: scroll;
+    max-height: 50ch;
+}
+
+code.highlight, p code {
+    background:var(--c-elem-bg-dull) !important;
+    border-radius: 0.35em;
+    padding: 0.3em 0.4em;
 }
 
 #toc nav {
@@ -86,20 +88,21 @@ body {
 /* copied this from more button in blog.md - unify these later */
 .hide_button {
     margin-left: 2em;
-    color: black;
-    background-color: #f6f6f6;
-    padding: 0.5em;
+    color: var(--c-less-pop);
+    padding: 0.2em 0.5em;
+    height: min-content;
     text-decoration: none;
     font-size: 1em;
     font-weight: bold;
-
+    border-radius: 0.5em;
+    vertical-align: baseline;
 
     transition: background ease-in-out 0.3s, color ease-in-out 0.1s;
 }
 
 .hide_button:hover {
-    background-color: var(--pop);
-    color: #f6f6f6;
+    background-color: var(--c-less-pop);
+    color: var(--c-elem-bg-dull);
 }
 
 #toc .nav_content_label {
@@ -107,9 +110,10 @@ body {
     justify-content: space-between;
     margin-bottom: 1rem;
     padding-bottom: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 1em;
     border-bottom: 1px solid #eaecf0;
     line-height: 1.6;
+    align-items: baseline;
 }
 
 #toc .nav_content_label h2 {
@@ -123,30 +127,98 @@ body {
 }
 
 #toc ul {
-    color: #202122;
+    color: var(--c-elem-bg-pop);
     font-family: sans-serif;
     padding: 0;
     margin: 0;
-    list-style: none;
+}
+
+#toc li ul {
+    /* border-left: solid var(--c-elem-bg-pop) 0.2em; */
+    padding-left: 1em;
+}
+
+#toc li ul li {
+    list-style-type: disc;
 }
 
 #toc li {
-    color: #202122;
+    color: var(--c-elem-bg-pop);
     font-family: sans-serif;
     list-style: none;
     position: relative;
-    list-style-type: none;
-    padding-left: 12px;
+    padding-left: 0;
     margin: 0;
-    margin-bottom: 0.4em;
+    margin-bottom: 0.2em;
+    margin-top: 0.2em;
+    list-style-type: decimal;
+}
+
+#toc li.level2, #toc li.level3, #toc li.level4 {
+    padding-left: 0.5em;
+    /* border-left: solid var(--c-elem-bg-pop) 0.2em; */
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+}
+
+#toc li.level1 + li.level2 {
+    margin-top: 0.2em;
+}
+
+#toc li.level2 + li.level1 {
+    margin-bottom: 0.2em;
+}
+
+#toc li.level2 {
+    margin-left: 0.5em;
+}
+
+#toc li.level3 {
+    margin-left: 1.5em;
+}
+
+#toc li.level4 {
+    margin-left: 2.5em;
 }
 
 #toc .sublist {
     padding-left: 1.2em;
 }
 
+blockquote {
+    background-color: var(--c-elem-bg-dull);
+    border-left: 0.3em solid var(--c-pop);
+    padding: 1px 1em;
+    margin: 2em 1.3em;
+}
+
+blockquote blockquote {
+    margin-left: 0;
+    border-left-color: var(--c-bg);
+}
+
+blockquote p:first-child > strong:only-child {
+    color: var(--c-pop);
+    margin-left: -0.75em;
+    margin-bottom: 0;
+}
+
+blockquote:has(strong:only-child) {
+    padding-left: 2em;
+}
+
+blockquote p:has(strong:only-child) {
+    margin-bottom: -0.75em;
+    margin-top: 0.75em;
+}
+
+blockquote strong {
+    color: var(--c-less-pop)
+}
+
 #article_container {
-    /* max-width: 60ch; */
     flex-basis: 60%;
     display: flex;
     align-items: center;
@@ -156,6 +228,11 @@ body {
     flex-shrink: 8;
     overflow-x: visible;
     max-width: 90ch;
+    width: 100%;
+}
+
+#article_container > div {
+    width: 100%;
 }
 
 #content {
@@ -190,7 +267,6 @@ h1 {
 
 #autofill_toc {
     max-height: 50vh;
-    overflow-y: auto;
     transition: max-height 0.3s ease-in;
 }
 
@@ -250,6 +326,7 @@ div#flex_article {
     overflow-wrap: break-word;
     word-break: break-word;
     width: 100%;
+    justify-content: space-between;
 }
 
 div#article_right_col {

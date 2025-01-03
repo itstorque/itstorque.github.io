@@ -1139,7 +1139,7 @@ article img {
 } */
 
 article.post_flat {
-  border-bottom: solid var(--c-elem-bg-dull) 0.1em;
+  border-bottom: solid var(--c-elem-bg-pop) 0.1em;
   padding-bottom: 2em;
   margin-bottom: 2em;
   width: 100%;

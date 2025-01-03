@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/blog.css">
 
     {% include mathjax.html %}
+    {% include rouge_colors.html %}
 
     {% seo %}
 
@@ -21,34 +22,30 @@
     <div class="pageLine"></div>
     <a href="/blog"><h3 id="main_icon"><span id="icon_hint">$\vec r\times \vec F$</span><span class="name">torque</span>'s blog</h3></a>
 
+    <div id="themes_dev_div"></div>
+
     <div id="flex_article">
 
         <div id="toc">
+
             <nav>
-                <!-- <a href="/blog/">&laquo; Back</a> -->
-                <a href="/blog" class="back_button">
-                    {% include arrow_back.svg %}
-                    Back
-                </a>
-                <br/>
-                <br/>
 
                 <div>
                     <div>
+                        <b>
+                            <a href="#body">
+                                {{ page.title | markdownify }}
+                            </a>
+                        </b>
+                        <br/>
                         <div class="nav_content_label">
                             <h2>📕 Contents</h2>
-                            <a class="hide_button" id="hide_toc">hide</a>
+                            <a class="hide_button" id="hide_toc" onclick="toggle_toc()">hide</a>
                         </div>
-
-                        <ul>
-                            <li>
-                                <a href="#body">
-                                    {{ page.title | markdownify }}
-                                </a>
-                            </li>
-                            <ul class="sublist" id="autofill_toc">
-                            </ul>
-                        </ul>
+                        
+                            <div id="autofill_toc">
+                                {% include toc.html html=content %}
+                            </div>
                     </div>
 
                 </div>
@@ -60,8 +57,6 @@
         <div id="article_container">
 
             <div>
-
-                <!-- <h1 class="blog_emoji">{{ page.emoji }}</h1> -->
                 
                 <span class="article_date" style="margin-left: 3rem;">
                     {% assign d = page.date | date: "%-d" %}
@@ -94,96 +89,6 @@
     </div>
 
     {%- include theme_dice.html -%}
-
-    <script>
-        // window.onload = function () {
-        //     var toc = "";
-        //     var level = 0;
-
-        //     console.log("ONLOAD")
-
-        //     document.getElementById("content").innerHTML = document.getElementById("content").innerHTML.replace(
-        //         /<h([0-9])>([^<]+)<\/h([0-9])>/gi,
-        //         function (str, openLevel, titleText, closeLevel) {
-        //             if (openLevel != closeLevel) {
-        //                 return str;
-        //             }
-        //             if (openLevel > level) {
-        //                 toc += (new Array(openLevel - level + 1)).join("<ul>");
-        //             } else if (openLevel < level) {
-        //                 toc += (new Array(level - openLevel + 1)).join("</ul>");
-        //             }
-        //             level = parseInt(openLevel);
-        //             var anchor = titleText.replace(/ /g, "_");
-        //             toc += `<li><a href="#${anchor}">${titleText}</a></li>`;
-        //             console.log(openLevel)
-        //             return `<h${openLevel}><a name="${anchor}">${titleText}</a></h${closeLevel}>`;
-        //         }
-        //     );
-
-        //     if (level) {
-        //         toc += (new Array(level + 1)).join("</ul>");
-        //     }
-
-        //     document.getElementById("toc").innerHTML += toc;
-        // };
-
-        window.onload = function () {
-            var toc = "";
-            var headings = document.querySelectorAll("#content h1, #content h2, #content h3, #content h4");
-
-            headings.forEach(function (heading) {
-                var level = parseInt(heading.tagName.charAt(1));
-                var titleText = heading.textContent;
-                toc += `<li><a href="#${heading.id}">${titleText}</a></li>`;
-                // heading.innerHTML = `<a name="${anchor}">${titleText}</a>`;
-            });
-
-            document.getElementById("autofill_toc").innerHTML += `<ul>${toc}</ul>`;
-
-
-            // wrap_adjust_toc()
-
-            // addEventListener("resize", (event)=>{ wrap_adjust_toc() });
-
-        };
-
-        document.getElementById('hide_toc').addEventListener('click', function() {
-            
-            toc_list_elem = document.getElementById('autofill_toc')
-            
-            if (toc_list_elem.classList.contains("tochidden")) {
-                toc_list_elem.classList.remove('tochidden');
-            } else {
-                toc_list_elem.classList.add('tochidden');
-            }
-            
-            return false;
-        });
-
-        // function wrap_adjust_toc() {
-
-        //     artcont = document.getElementById("article_container")
-        //     toc = document.getElementById("toc")
-        //     rightcol = document.getElementById("article_right_col")
-
-        //     console.log(toc.offsetTop == artcont.offsetTop, toc.offsetTop, artcont.offsetTop)
-
-        //     if (toc.offsetTop == artcont.offsetTop) {
-                
-        //         toc.classList.remove("attach_to_top")
-
-        //     } else {
-
-        //         toc.classList.add("attach_to_top")
-
-        //     }
-
-        // }
-
-        
-
-    </script>
 
 </body>
 

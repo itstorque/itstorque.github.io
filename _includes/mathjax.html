@@ -1,11 +1,19 @@
 <script>
     MathJax = {
+        loader: {load: ['[tex]/physics']},
         tex: {
-            inlineMath: [ ['$', '$'], ['\\(', '\\)'] ]
+            inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+            physics: {
+                italicdiff: false,
+                arrowdel: false
+            },
+            tags: 'ams',
+            packages: {'[+]': ['physics']},
         },
         svg: {
             fontCache: 'global'
         }
+        
     };
 </script>
 <script

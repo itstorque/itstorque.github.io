@@ -39,6 +39,8 @@ collections:
 
 highlighter: rouge
 
+markdown: kramdown
+
 defaults:
   - scope:
       path: ""

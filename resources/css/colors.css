@@ -1,7 +1,7 @@
 .default {
     --c-bg: white;
-    --c-elem-bg-dull: rgba(0,0,0,.1);
-    --c-elem-bg-pop: ;
+    --c-elem-bg-dull: #f6f6f6;
+    --c-elem-bg-pop: #ccc;
     
     --c-pop:    #FE1717;
     --c-less-pop:    #FF7777;
@@ -18,6 +18,33 @@
     --c-link: var(--c-pop);
     --c-color-status-bar: white;
     --c-wavy: 0;
+
+    --code-theme: light;
+}
+
+.modern {
+    --c-bg: #eee;
+    --c-elem-bg-dull: #e6e6e6;
+    --c-elem-bg-pop: #ccc;
+
+    --c-pop: #409eff;
+    --c-less-pop: #3492cd;
+    --c-hover-pop: #007acc;
+
+    --c-font: #333;
+    --c-font-muted: #666;
+    --c-font-sel: var(--c-bg);
+    --c-font-sel-bg: var(--c-less-pop);
+    --c-inv-bg: var(--c-bg);
+
+    --c-emoji: #f1c40f;
+
+    --c-link: var(--c-pop);
+    --c-color-status-bar: var(--c-pop);
+    --c-wavy: 0;
+
+    --code-theme: light;
+
 }
 
 /* .purple {
@@ -62,30 +89,6 @@
     --c-link: var(--c-pop);
     --c-color-status-bar: var(--c-pop);
     --c-wavy: 0;
-}
-
-
-.goat {
-    --c-bg: #eee;
-    --c-elem-bg-dull: ;
-    --c-elem-bg-pop: ;
-
-    --c-pop: #409eff;
-    --c-less-pop: #91caf0;
-    --c-hover-pop: #007acc;
-
-    --c-font: #333;
-    --c-font-muted: #666;
-    --c-font-sel: var(--c-bg);
-    --c-font-sel-bg: var(--c-less-pop);
-    --c-inv-bg: var(--c-bg);
-
-    --c-emoji: #f1c40f;
-
-    --c-link: var(--c-pop);
-    --c-color-status-bar: var(--c-pop);
-    --c-wavy: 0;
-
 }
 
 .earthy {
@@ -139,8 +142,8 @@
 .blorange {
 
     --c-bg: #00193c;
-    --c-elem-bg-dull: rgba(27, 111, 145, 0.3);
-    --c-elem-bg-pop: rgba(127, 167, 158, 0.15);
+    --c-elem-bg-dull: #043355;
+    --c-elem-bg-pop: #25445a;
 
     --c-pop: #f6a56d;
     --c-less-pop: #de381e;
@@ -158,12 +161,14 @@
     --c-color-status-bar: var(--c-pop);
     --c-wavy: 0;
 
+    --code-theme: dark;
+
 }
 
 .dark_pistachio {
     --c-bg: #1E152A;
-    --c-elem-bg-dull: ;
-    --c-elem-bg-pop: ;
+    --c-elem-bg-dull: #170d24;
+    --c-elem-bg-pop: #707c63;
 
     --c-pop: #A5C882;
     --c-less-pop: #5AB1BB;
@@ -180,6 +185,8 @@
     --c-link: var(--c-pop);
     --c-color-status-bar: var(--c-pop);
     --c-wavy: 0;
+
+    --code-theme: dark;
 }
 
 /* .gold_sand {

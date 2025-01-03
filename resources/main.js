@@ -69,6 +69,12 @@ let total_portrait_num = 9;
 
 function changeImage() {
 
+  portrait_elem = document.getElementById('portrait')
+
+  if (portrait_elem===null) {
+    return
+  }
+
    var image = new Image();
 
    if (portrait_index < 0) {
@@ -79,7 +85,7 @@ function changeImage() {
 
    image.onload = function () {
 
-        document.getElementById('portrait').src = image.src
+    portrait_elem.src = image.src
 
     };
 
@@ -159,6 +165,10 @@ function checkSection() {
   var teaching = document.getElementById("teaching");
   var projects = document.getElementById("projects");
   var research = document.getElementById("research");
+
+  if (education === null) {
+    return
+  }
 
   var header = document.getElementById("header-indicator");
 
@@ -294,7 +304,13 @@ function nprToggle() {
 
   k = 1
 
-  totalk = document.getElementById("nprtable").children[0].children.length
+  nprtable = document.getElementById("nprtable")
+
+  if (nprtable === null) {
+    return
+  }
+
+  totalk = nprtable.children[0].children.length
 
   var intervalId = window.setInterval(function(){
     document.getElementById("nprtable").children[0].children[k].hidden = false
@@ -347,6 +363,18 @@ function set_theme(theme, skip_anim=false) {
   document.body.classList.add(theme);
   document.querySelector('meta[name="theme-color"]')
           .setAttribute('content', getComputedStyle(document.body).getPropertyValue('--c-color-status-bar')); //#F2F0ED
+
+  var style = getComputedStyle(document.body)
+  code_theme = style.getPropertyValue('--code-theme')
+
+  light_code_theme = document.getElementById("code_rouge_styling_light")
+  dark_code_theme = document.getElementById("code_rouge_styling_dark")
+  if (light_code_theme) {
+    light_code_theme.disabled = !(code_theme == "light")
+  }
+  if (dark_code_theme) {
+    dark_code_theme.disabled = !(code_theme == "dark")
+  }
 
 
   if (!skip_anim) {
