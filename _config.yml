@@ -47,6 +47,8 @@ defaults:
     values:
       include_side_nav: true
       include_math_jax: false
+      include_jquery: false
+      include_plotlyjs: false
       layout: "default"
   -
     scope:

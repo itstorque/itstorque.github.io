@@ -53,3 +53,11 @@
 {% if page.include_math_jax %}
 {% include mathjax.html %}
 {% endif %}
+
+{% if page.include_plotlyjs %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endif %}
+
+{% if page.include_jquery %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+{% endif %}

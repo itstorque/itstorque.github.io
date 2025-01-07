@@ -4,6 +4,8 @@ layout: default
 
 include_side_nav: false
 include_math_jax: true
+include_plotlyjs: false
+include_jquery: false
 
 include_blog_css: true
 

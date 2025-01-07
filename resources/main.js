@@ -2,6 +2,7 @@ mobileMenuDisabled = true // still in development
 css_color_stylesheet = false
 css_stylesheet_counter = 0
 CSS_STYLESHEET_COUNTER_SWITCH = 5
+emojis_changed = false
 
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
@@ -34,6 +35,8 @@ window.addEventListener("load", async function() {
   // this will overwrite any events...
   await replaceEmojis();
 
+  emojis_changed = true
+  
   checkSection()
   addIndividualExpands()
 
@@ -484,10 +487,15 @@ async function replaceEmojis() {
       });
 
       matches.forEach((emoji) => {
+        console.log(emoji);
           document.body.innerHTML = document.body.innerHTML.replace(
             RegExp('(\>[^\>]*)' + emoji + '([^\>=]*\<)', 'g'), 
             '$1<img alt=\"' + emoji + '\" src=\"' + D[emoji] + '\" style=\"height: 1em; margin: 0\" loading="lazy" />$2'
             );
+          // console.log([...document.querySelectorAll("*")].filter(a => a.textContent.includes(emoji)));
+          // [...document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, a, span")].filter(a => a.textContent.includes(emoji))
+          //   .forEach(a => a.innerHTML = a.innerHTML.replace(RegExp(emoji, 'g'), '$1<img alt=\"' + emoji + '\" src=\"' + D[emoji] + '\" style=\"height: 1em; margin: 0\" loading="lazy" />$2'));
+
         }
       )
 
