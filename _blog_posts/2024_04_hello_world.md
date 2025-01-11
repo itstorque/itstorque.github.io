@@ -3,9 +3,7 @@ title: Hello World
 date: "2024/08/18"
 emoji: 🎉
 summary: 
-    A test page to test website formatting.
-    It has code blocks, latex equations.
-    Inline and display.
+    The beginnings of a blog
 ---
 
 # Beginnings of a blog
@@ -38,3 +36,6 @@ The scaffolding for this site is pretty simple: Jekyll site with plain css. I de
 - Apple-Style Emojis: Lazy load and replace every emoji character on a webpage dynamically with the iOS style version of the emoji 🥹. ← Do it! Inspect element this emoji!
 - Theme engine: Cookie-enabled theme storage with multiple themes. Hit the dice 5+ times for a *~barebones~* dropdown menu. You can also open developer tools, find a theme class name (e.g. `.default` or `.dark_pistachio`) and change the colors 🎨😀.
 - Hidden interactive quirks: they wouldn't be hidden if I told you where they are.
+
+Check out the code that runs generates my personal website and blog here: 
+[itstorque/itstorque.github.io (github)](https://github.com/itstorque/itstorque.github.io)

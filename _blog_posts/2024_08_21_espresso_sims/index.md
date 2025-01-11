@@ -2,10 +2,9 @@
 title: EspressoSimulations.jl
 date: "2025/01/05"
 emoji: ☕️
+post_published: true
 summary: 
-    A test page to test website formatting.
-    It has code blocks, latex equations.
-    Inline and display.
+    A mathematical exploration of different parameter regimes using coupled differential algebraic equations.
 ---
 
 <style>
@@ -113,7 +112,7 @@ When dealing with factors regarding espresso extraction, we are concerned with t
 transport of "coffee molecules" into the liquid drink. This extraction is a function
 of parameters across multiple different scales.
 
-<img src="/blog/media/espresso_sims_main_fig.png" width="100%"/>
+<img src="espresso_sims_main_fig.png" width="100%"/>
 
 We will be thinking about two main order of magnitudes of scales: the puck scale and 
 the grain scale. 
@@ -142,7 +141,7 @@ concerns different scales ($\\mathrm{cm}$ for the puck scale vs.  $\\mathrm{\mu 
 
 <center>
 <figure>
-   <img src="/blog/media/espresso_sims_grind_sa_fig.png" width="75%"/>
+   <img src="espresso_sims_grind_sa_fig.png" width="75%"/>
   <figcaption>Figure from Uman et al. <a href="#references">[3]</a> showcasing the dependence of the grind distribution on temperature.
   The grind size typically features two peaks and the underlying surface area distribution directly effects
   the extraction quality <a href="#references">[4]</a>. This is typically the reason espresso connoisseurs chase high-end grinders for beans <a href="#references">[4]</a>.
@@ -151,6 +150,15 @@ concerns different scales ($\\mathrm{cm}$ for the puck scale vs.  $\\mathrm{\mu 
 </center>
 
 - add fig of coffee grind size spectrum
+
+# TODO: baskets
+
+- add blurb on precision baskets
+- how to generaliz eemodel to bad baskets
+- add pressure out from baskets -> basket size effects output pressure
+- blurb on pressure chambered baskets for ground coffee https://www.youtube.com/watch?v=3oFV88PzEFE
+- single shot baskets are harder to prep and make consistent. removal of z-symmetry
+- smaller puck offers less resistance to water flow, so you need to grind finer to maintain extraction time
 
 # Multi-Scale Homogenized Advection-Diffusion Setup
 
@@ -225,7 +233,7 @@ a mass-matrix ODE to compute the flow of coffee sollubles similar to [**TODOTODO
 
 <center>
 <figure>
-  <img src="/blog/blog_splash/espresso_sims_logo_text.jpg" width="50%" style="max-width: 17em;"/>
+  <img src="espresso_sims_logo_text.jpg" width="50%" style="max-width: 17em;"/>
   <figcaption>Logo of the EspressoSimulations.jl package <a href="#references">[0]</a>.
   </figcaption>
 </figure>

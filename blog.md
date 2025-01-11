@@ -60,6 +60,17 @@ color: purple
         margin-bottom: -1rem;
     }
 
+    @media (max-width: 1200px) {
+        article.post_flat .post_emoji {
+            margin-left: 0rem;
+            margin-right: 0.5rem;
+        }
+        article.post_flat img {
+            height: 2.25rem !important;
+            margin-bottom: -0.3rem !important;
+        }
+    }
+
     /* .posts {
         max-width: 60ch;
         display: flex;

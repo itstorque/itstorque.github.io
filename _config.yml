@@ -34,7 +34,7 @@ collections:
     sort_by: date
     title: true
     output: true
-    permalink: /blog/:path/
+    permalink: /blog/:path
     sitemap: true
 
 highlighter: rouge
