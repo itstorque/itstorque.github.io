@@ -7,6 +7,7 @@ summary:
 
 include_jquery: true
 include_plotlyjs: true
+post_published: true
 ---
 
 # Introduction
@@ -127,9 +128,57 @@ system's that rely on 4-digit pins and the recent trends toward safer codes. The
 birthdays, weddings or any other dates of note (if not non-date related reasons), but the assumption of birthdays seems to be plausible given this gaussian-like
 distribution and the makeup of the population.
 
+## Date Codes
+
+<center>
+<figure>
+   <img src="/blog/media/four_pin_code_analysis_date_grid.png" width="100%"/>
+  <figcaption>
+<div markdown="1" style="text-align: left">
+
+- (a) i. zoom into the lower-left corner of the figure in [The O.G. Figure](#the-og-figure), highlighting two regions that correspond to dates.
+- (a) ii. the green vertical segment pre-rotation
+- (b) Number of days per month for a calendar year (including leap years)
+- (c) i. the red region from (a) i. corresponding to codes that resemble a date of the format DD/MM.
+- (c) ii. the green region from (a) ii. rotated to resemble (c) i. for dates of the format MM/DD.
+</div>
+
+  </figcaption>
+</figure>
+</center>
+
+There is a $y=x$ symmetric structure in the bottom left of the main figure that resembles codes built from joining months and days together.
+We can verify this by seeing how the structure in (c) i and ii matches that of (b), where the months that have less than 31 days have a divot in them.
+The median of the `DD/MM` code panel (red dashed pane) is greater than that of the `MM/DD` panel (green solid), suggesting it is more common
+as a pin code.
+
+For the curious, here is a heatmap of aggregated birthdays from the social security administration:
+<center>
+<figure>
+   <img src="/blog/media/four_pin_code_analysis_ssa_bdays.png" width="75%"/>
+  <figcaption>
+<div markdown="1" style="text-align: left">
+A representative distribution of U.S. Birthdays over the span of 15 years. Dips can be seen
+on major observed U.S. holidays and February 29th (a leap day). A birthday on February 29th
+is 4 times less likely than any other day.
+</div>
+
+  </figcaption>
+</figure>
+</center>
+
+The frequency of the code `0229` is 41% as much as that of `0228`, whereas the birthday 02/29 frequency is
+25% as much as of 02/28.
+
+About 17.8% of codes can be considered date codes (if pin codes were equally frequency, this would instead be 6%).
+
 ## The diagonal feature
 
-TODO: text
+
+There is a prominent diagonal feature in the main heatmap that represents code with 2 repeating digits.
+This prominent diagonal features an additional spike every $\approx 11$ tiles, as is evident in the plot
+below, which plots the frequency vs. the repeated sequence of 2 digits.
+
 <center>
 <figure>
    <img src="/blog/media/four_pin_code_analysis_diag.png" width="75%"/>
@@ -137,11 +186,20 @@ TODO: text
   </figcaption>
 </figure>
 </center>
-TODO: text
+
+We can notice that there are two additional peaks that are even more frequent than all repeated digit
+codes (for example, `3333`). These peaks at `2020` and `6969` are probably significant due to their 
+correspondance with meme-y dates.
+
+7% of all codes lie on the diagonal feature, as opposed to an expected 1% of the code space being
+taken up by diagonal codes.
+
 
 ## Common Digits
 
-TODO: text
+Below is an analysis of the most common digits counting repetitions in blue and without counting
+repetitions in orange. As in, `0000` is counts `0` four times in blue and once in orange.
+
 <center>
 <figure>
    <img src="/blog/media/four_pin_code_analysis_common_digits.png" width="75%"/>
@@ -149,7 +207,9 @@ TODO: text
   </figcaption>
 </figure>
 </center>
-TODO: text
+
+`1` and `2` are the most common digits followed by `0` if you allow for repetitions and `3` if you don't.
+This is probably because many of the `0` codes get halved in frequency if the code is based on a date.
 
 ## Least used space of pins
 
@@ -158,9 +218,104 @@ This probably has to do with people being less likely to write a 4 digit number 
 The reason some numbers are populated densely at the bottom is the prevalance of the code `0000` and the
 overlap with the date grid - hence the `>31`.
 
-## Other fun facts
+4.6% of codes used occupy this region of space, even though the size of this region is 6.8% of the total 
+possible space of codes. This is a pretty good indication that this region is very underutilized and you 
+should consider codes in this region next time you are crafting a pincode.
 
-TODO: text
+## What about rotational codes
+
+I looked into this way less than I wanted, but for every project, there comes a time where you need to decide 
+to stop going down rabbit holes and leaving it for your (or someone elses! maybe you?!) future self.
+
+Here I decided to take some random convinient codes that have a nice clockwise (CW) or counter-clockwise (CCW)
+rotation to them and decided to see which orientation of a code is more common. I think this points towards CW
+codes being more common, but further investigation is needed.
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Code Generator</th>
+      <th>Preferred Orientation</th>
+      <th>CW Permutation Counts</th>
+      <th>CCW Permutation Counts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>4268</td>
+      <td>CCW</td>
+      <td>11635</td>
+      <td>17383</td>
+    </tr>
+    <tr>
+      <td>1397</td>
+      <td>CW</td>
+      <td>11161</td>
+      <td>9439</td>
+    </tr>
+    <tr>
+      <td>1254</td>
+      <td>CW</td>
+      <td>17781</td>
+      <td>13652</td>
+    </tr>
+    <tr>
+      <td>4587</td>
+      <td>CW</td>
+      <td>8017</td>
+      <td>7959</td>
+    </tr>
+    <tr>
+      <td>5698</td>
+      <td>CW</td>
+      <td>7624</td>
+      <td>7036</td>
+    </tr>
+    <tr>
+      <td>5907</td>
+      <td>CW</td>
+      <td>5128</td>
+      <td>4735</td>
+    </tr>
+    <tr>
+      <td>1367</td>
+      <td>CW</td>
+      <td>6998</td>
+      <td>6168</td>
+    </tr>
+    <tr>
+      <td>1394</td>
+      <td>CW</td>
+      <td>6988</td>
+      <td>6326</td>
+    </tr>
+    <tr>
+      <td>1287</td>
+      <td>CW</td>
+      <td>8420</td>
+      <td>7058</td>
+    </tr>
+    <tr>
+      <td>1354</td>
+      <td>CCW</td>
+      <td>8974</td>
+      <td>20038</td>
+    </tr>
+    <tr>
+      <td>1365</td>
+      <td>CW</td>
+      <td>8799</td>
+      <td>7285</td>
+    </tr>
+  </tbody>
+</table>
+
+It would be fun to model this more intently by including a model of how "hard" hitting certain 
+keystrokes (and the order) of them is. For example, by adding some form of weighted cartesian-esque 
+distance between keys and the resting position of a thumb after the previous key.
+
+## Common (and 1 not very common) Codes
+
 <center>
 <figure>
    <img src="/blog/media/four_pin_code_analysis_heatmap_highlighted.png" width="75%"/>
