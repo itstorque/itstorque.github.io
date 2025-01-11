@@ -8,6 +8,7 @@ summary:
 include_jquery: true
 include_plotlyjs: true
 post_published: true
+reviewed_by: @torqued
 ---
 
 # Introduction
