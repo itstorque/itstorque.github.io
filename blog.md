@@ -43,6 +43,23 @@ color: purple
         font-size: 5rem;
     }
 
+    article.post_flat img {
+        object-fit: contain;
+        width: 3rem;
+        height: 3rem !important;
+        border-radius: 0;
+        margin-bottom: -1rem !important;
+    }
+
+    article.post_flat .post_emoji {
+        width: 3rem;
+        display: inline-block;
+        margin-left: -5rem;
+        margin-right: 2rem;
+        padding: 0;
+        margin-bottom: -1rem;
+    }
+
     /* .posts {
         max-width: 60ch;
         display: flex;
@@ -159,11 +176,31 @@ color: purple
 </div>
 
 <!-- <h1>{{ post.emoji }}<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1> -->
-<div class="posts">
+<div class="posts" id="post_published">
+  {% for post in site.blog_posts reversed %}
+    {% if post.post_published %}
+        {% include blog_list_item.html post=post %}
+        <br/>
+        <br/>
+    {% endif %}
+  {% endfor %}
+</div>
 
+<div class="posts" id="post_dev" style="display: none">
   {% for post in site.blog_posts reversed %}
     {% include blog_list_item.html post=post %}
     <br/>
     <br/>
   {% endfor %}
 </div>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const in_dev_mode = urlParams.get('dev');
+
+if (in_dev_mode == true) {
+    console.log("aaa dev")
+    document.getElementById("post_dev").style.display = "block";
+    document.getElementById("post_published").style.display = "none";
+}
+</script>

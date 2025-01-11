@@ -21,7 +21,7 @@ color: default
 </div>
 
 Hey there! My name is Torque (<span class="fake_anchor" onclick="playAudio()"><span style="font-size: 15px; transform: translateY(-3px);display: inline-block;">🔉</span>/tɔɹk/</span>)
-and I am a researcher at Microsoft working on developing a <span class="emoji-word topological">topological</span> quantum computer. 
+and I'm a researcher<br/>at Microsoft working on developing a <span class="emoji-word topological">topological</span> quantum computer. 
 {: .intro}
 
 <div class="landscape">

@@ -56,4 +56,5 @@ defaults:
     values:
       layout: "blog_post"
       title: Untitled Blog Post
+      post_published: false
       emoji: 📝
