@@ -26,7 +26,7 @@ inputing (this is ignoring the fact that you really shouldn't be trying to optim
 it is to input a 4 digit password). The other end of this is 4-digit pins are much less secure
 than typical alphanumeric passwords where most sites require more than 8 digits. An optimistic
 calculation of an alphanumeric password with 8-12 digits requires a malicious entity to try 
-$72^{8}\-72^{12}$ possible combinations. When compared to a 4-digit pin with $10^4$, this is a 
+$72^{8}-72^{12}$ possible combinations. When compared to a 4-digit pin with $10^4$, this is a 
 puny amount.
 
 Disclaimer: Unlike passwords we use everywhere, 4 digit pins aren't meant to have high entropy
@@ -46,7 +46,7 @@ My hope is that this:
 I will be using the [haveibeenpwned.com](https://haveibeenpwned.com/) API to retrieve information about leaked passwords. 
 This is a great website that allows you to check if a password you use has been leaked using a smart mechanism to keep your
 password secure. It relies on the basis of hash functions that takes an input string to a long hexadecimal string 
-$h(p) \xrightarrow s$ where $p$ is our password and $s$ is a hash of that password. These hash functions are typically hard
+$h(p) \xrightarrow{} s$ where $p$ is our password and $s$ is a hash of that password. These hash functions are typically hard
 to reverse with classical computers. The querying procedure is as follows
 
 1. Take the hash of of your password $s = h(p)$
