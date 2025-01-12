@@ -433,9 +433,11 @@ function get_themes() {
     return []
   }
 
-  return Array.prototype.map.call(css_color_stylesheet.cssRules, function(a) {
+  themes = Array.prototype.map.call(css_color_stylesheet.cssRules, function(a) {
     return a.selectorText.split(".").pop()
   })
+
+  return themes.filter((value, index, array) => array.indexOf(value) === index);
 
 }
 
