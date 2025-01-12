@@ -7,28 +7,6 @@ summary:
     A mathematical exploration of different parameter regimes using coupled differential algebraic equations.
 ---
 
-<style>
-   // Adding 'Contents' headline to the TOC
-   #markdown-toc::before {
-      content: "Contents";
-      font-weight: bold;
-   }
-
-
-   // Using numbers instead of bullets for listing
-   #markdown-toc ul {
-      list-style: decimal;
-   }
-
-   #markdown-toc {
-      border: 1px solid #aaa;
-      padding: 1.5em;
-      list-style: decimal;
-      display: inline-block;
-   }
-</style>
-
-
 # Motivation(-ish)
 
 I am by no means an expert on making or tasting coffee -- not a great start for this post! 
@@ -134,7 +112,7 @@ We will be modelling this using a reduced 1D model as well such that we can drop
 Differential Algebraic Equations (DAEs) on the two angular dimensions of a spherical coordinate system.
 
 We will therefore end up with an equivalent multi-scale 2D model for an espresso puck where each dimension
-concerns different scales ($\\mathrm{cm}$ for the puck scale vs.  $\\mathrm{\mu m}$ for the grain scale).
+concerns different scales ($\mathrm{cm}$ for the puck scale vs.  $\mathrm{\mu m}$ for the grain scale).
 
 
 ## Extraction Snobbery
@@ -187,31 +165,122 @@ concerns different scales ($\\mathrm{cm}$ for the puck scale vs.  $\\mathrm{\mu 
 Enforcing mass conservation on the homogenised control volume, we find that the mass of coffee
 absorbed in the liquid at time $t$ is:
 
-<div>
-   \begin{align}
-      M_l(t) &= \pi R^2 \int_0^L (1-\phi_s)c_l(z, t) \; dz
-      \newline
-      \dfrac{dM_l(t)}{dt} &= \pi R^2 \cdot \left ( 
-           \int_0^L D_{eff} \partialderivative{c_l(z, t)}{z} + \vec{b}_{et} \cdot \vec{G} \; dz
-          \right)
-      \newline
-      \dfrac{dM_l(t)}{dt} &= \pi R^2 \cdot \left ( 
-         -\dfrac{\kappa_{eff} P_{tot}}{\mu L} c_l(z=L, t) + \int_0^L \vec{b}_{et}\cdot \vec{G} \;dz 
-         \right)
-      \label{eq:mass}
-   \end{align}
- </div>
+$$
+\begin{align}
+  M_l(t) &= \pi R^2 \int_0^L (1-\phi_s)c_l(z, t) \; dz
+  \newline
+  \dfrac{dM_l(t)}{dt} &= \pi R^2 \cdot \left ( 
+       \int_0^L D_{eff} \partialderivative{c_l(z, t)}{z} + \vec{b}_{et} \cdot \vec{G} \; dz
+      \right)
+  \newline
+  \dfrac{dM_l(t)}{dt} &= \pi R^2 \cdot \left ( 
+     -\dfrac{\kappa_{eff} P_{tot}}{\mu L} c_l(z=L, t) + \int_0^L \vec{b}_{et}\cdot \vec{G} \;dz 
+     \right)
+  \label{eq:mass}
+\end{align}
+$$
 
- Assuming that at $t=0$, the concentration of coffee in the liquid is 0, we get that $M_l(t=0)=0$,
- which implies that
+Assuming that at $t=0$, the concentration of coffee in the liquid is 0, we get that $M_l(t=0)=0$,
+which implies that
 
- <div>
-   \begin{align}
-   aaaa
-   \end{align}
- </div>
+$$
+\begin{align}
+aaaa
+\end{align}
+$$
 
 I listed the assumptions that go into this model [here](#assumptions).
+
+## The System of Differential Equations
+
+### System of Differential Algebraic Equations Formulation
+
+A typical differential equation for a state vector $u$ is written as:
+
+$$
+   \begin{align}
+   \dfrac{du}{dt} = f(t, u)
+   %  \label{eq:basicdudt}
+ \end{align}
+$$
+
+Which describes how the state $u$ evolves as a function of time and its state.
+We will be defining a mass-matrix differential equation that has an
+extra term $M$:
+
+$$
+   \begin{align}
+   M \dfrac{du}{dt} = f(t, u)
+   %  \label{eq:massdudt}
+ \end{align}
+$$
+
+In our case, $M$ is sparse, singular and independent of $t$ and $u$, this makes our differential
+equation a system of differential algebraic equations (DAEs) of index 1.
+
+<!-- todo add blurb on why and link to https://arxiv.org/pdf/2008.03883 -->
+
+This mass matrix will be set to normalize the spherical diffusion problem... more details and reference code here.
+
+### The Terms
+
+We will first discretize over the size of granules in our puck, typically
+(TODO: see figure with two peaks above) this modelling is done with 
+two particle sizes - coarse grains and fine grains, but the code is
+extensible such that one can in principle add as many grain sizes
+as one wishes to model. The model size grows quadratically with this 
+number (each grain size adds an $O(N^2)$ terms to the state vector).
+We will enumerate over the grain sizes using the name particle size number. We will denote the set of grain sizes $\mathscr{P}$.
+
+We will define the (dimensionless) rate of reaction at any point
+in the extraction process as:
+
+$$
+   \begin{align}
+  G_i = K c_{\text{surf}, i} (1 - c_l) \cdot (c_{\text{surf}, i} - \beta c_l)
+  \label{eq:Gi_eq}
+ \end{align}
+$$
+
+for $i \in \left[1, |\mathscr{P}|\right]$ being a particle size number ($i\in [1, 2]$ for coarse and fine 
+grain sizes) and $c_{\text{surf}, i}$ is the surface concentration of
+sollubles in the individual grains. You can notice that the rate of reaction
+goes along the gradient of concentration of sollubles in the liquid and the surface
+($\sim (1-c_l)c_{surf, i}$), such that the more sollubles that are in the surface
+compared to the liquid, the more of it will exit the surface (larger reaction rate).
+
+$\beta = \frac{c_{\text{sat}}}{c_{s0}}$ is a dimensionless parameter that factors in the saturation
+concentration of sollubles that can have immediately outside of a grain/in the liquid. Where $c_{s0} \equiv c_{s}\vert_{t=0}$ is the concentration of of coffee sollubles in the grains at time $t=0$. We will also assume that at $t=0$, there
+is no coffee in the liquid (preinfusion has not performed any meaningful extraction, only pre-etting the bed), i.e. $c_l\vert _{t=0} = 0$.
+
+$K$ is an inverse mass transfer Biot number that describes the ratio of typical flux of coffee in the solid to that through the liquid/solid interface. This basically describes how much of the liquid undergoing extraction goes into and interacts (amount of flux) with the insides of the grain versus the outside shell of the grain. The dimensional form of $K$ can be calculated as $K = k c_{s0}^2 \tau_{\text{shot}}b_{et, 0}$ for a certain choice of normalization 
+Brunauer-Emmett-Teller surface area (TODO: add ref to https://nanoearth.ictas.vt.edu/access/selector/bet.html for more details) (for example, mean of all areas $b_{et, i}$ for $i$ particle size number).
+
+Once we have the reaction rates defined, we can write down our reaction-advection-diffusion equation in terms of the darcy flux $\mathbf{q}= - \dfrac{\kappa}{\mu} \nabla P$ and effectve diffusivity ($D_{eff}$) as:
+
+$$
+   \begin{align}
+   (1-\phi_s) \dfrac{\partial c_l}{\partial t} = \nabla \cdot (D_{eff} \nabla c_l - \mathbf{q} c_l) + \sum_{i=1}^{|\mathscr{P}|} b_{et, i} G_i
+    \label{eq:rad_eq}
+ \end{align}
+$$
+
+This equation is a generalized equation of 
+(TODO: insert ref to orig. paper)
+from the form of (TODO: insert ref to Multiscale modelling and analysis of lithiumion battery charge and discharge).
+
+TODO:
+
+$\phi_s = \sum_{i=1}^{|\mathscr{P}|} \phi_{s, i}$ is the local volume fraction of coffee where for each particle size index, we can calculate the individual 
+local volume fraction using the Brunauer-Emmett-Teller (BET) surface area and radius of the particles $r_i$ as 
+$\phi_{s, i} = b_{et, i}\cdot \left(\dfrac{4}{3} \pi r_i^3\right)\cdot (4\pi r_i^2)^{-1}$. Notice that this volume fraction is nothing other than the 
+ratio of the volume of a sphere to the surface area of a sphere times the BET surface area.
+
+
+
+<!-- TODO: Three parameters, namely Def f , Ds and k, remain -->
+
+For the code, we will define the finite difference variant of equation $\ref{eq:rad_eq}$, 
 
 ## Solving the ODE
 

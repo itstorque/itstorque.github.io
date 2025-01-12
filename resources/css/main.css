@@ -1223,6 +1223,18 @@ article.post_flat:hover .date {
   }
 }
 
+/* MATHJAX */
+mjx-container[jax="SVG"] > svg a {
+  fill: var(--c-link) !important;
+  stroke: var(--c-link) !important;
+  cursor: pointer;
+}
+
+/* add padding to scrolling */
+h1,h2,h3,h4,h5,h6,g {
+  scroll-margin-top: 2em;
+}
+
 /* .posts .post h1:not(.emoji) {
   text-align: left;
   display: inline-block; 
