@@ -170,7 +170,7 @@ $$
   M_l(t) &= \pi R^2 \int_0^L (1-\phi_s)c_l(z, t) \; dz
   \newline
   \dfrac{dM_l(t)}{dt} &= \pi R^2 \cdot \left ( 
-       \int_0^L D_{eff} \partialderivative{c_l(z, t)}{z} + \vec{b}_{et} \cdot \vec{G} \; dz
+       \int_0^L D_{eff} \dfrac{\partial c_l(z, t)}{\partial z} + \vec{b}_{et} \cdot \vec{G} \; dz
       \right)
   \newline
   \dfrac{dM_l(t)}{dt} &= \pi R^2 \cdot \left ( 
@@ -242,7 +242,8 @@ $$
  \end{align}
 $$
 
-for $i \in \left[1, |\mathscr{P}|\right]$ being a particle size number ($i\in [1, 2]$ for coarse and fine 
+for $i \in \left[1, |\mathscr{P}|\right]$ being a particle size number 
+($i\in [1, 2]$ for coarse and fine 
 grain sizes) and $c_{\text{surf}, i}$ is the surface concentration of
 sollubles in the individual grains. You can notice that the rate of reaction
 goes along the gradient of concentration of sollubles in the liquid and the surface
@@ -276,11 +277,88 @@ local volume fraction using the Brunauer-Emmett-Teller (BET) surface area and ra
 $\phi_{s, i} = b_{et, i}\cdot \left(\dfrac{4}{3} \pi r_i^3\right)\cdot (4\pi r_i^2)^{-1}$. Notice that this volume fraction is nothing other than the 
 ratio of the volume of a sphere to the surface area of a sphere times the BET surface area.
 
+Due to the symmetry of the puck, we can assume that the darcy flux $\mathbf{q}$
+in steady state has only a z-component, i.e. $\mathbf{q} = [0, 0, q_z]^T$. We can
+then drop the $q_x$ and $q_y$ terms of the equation and greatly simplify it. This is
+equivalent to the 1D reduction we showed in coffee transport figure above. Where the only
+puck-length-scale one needs to care about is the z-axis, and therefore, the 3D problem
+can be reduced to a 1D component problem.
 
+We also need to consider the backaction dynamics on the grains - as we extract sollubles from them, their
+ability to supply new sollubles on the surface is impeded by sollubles having just left it. The spherical grain
+will move sollubles from the core outwards across the radius dimension to yield an equation like:
+
+$$
+\begin{align}
+\dfrac{\partial c_{s, i}}{\partial t} = \dfrac{1}{r_i^2} \dfrac{\partial}{\partial r} \left( r_i^2 D_{s, i}\dfrac{\partial c_{s, i}}{\partial r} \right)
+\end{align}
+$$
+
+where is the particle size number ($i \in [1, |\mathscr{P}|]$) as above. With boundary conditions:
+
+$$
+\begin{align}
+-D_{s, i} \dfrac{\partial c_{s, i}}{\partial t} \bigg \vert _{r_i = 0} = 0 \;\; \text{and} \nonumber \\
+-D_{s, i} \dfrac{\partial c_{s, i}}{\partial t} \bigg \vert _{r_i = r_i} = \beta \dfrac{1}{r_i b_{et, 0}} G_i \;\;
+\end{align}
+$$
+
+TODO: differentiate between $r_i$ and $r_i$ variable and grain radius.... ughhhhhhhh....
 
 <!-- TODO: Three parameters, namely Def f , Ds and k, remain -->
 
-For the code, we will define the finite difference variant of equation $\ref{eq:rad_eq}$, 
+For the code, we will define a finite difference formulation of equation $\ref{eq:rad_eq}$ including boundary conditions,
+homogenization and the dimension simplifications to get:
+
+$$
+\begin{align}
+   \delta_t c_l[1] &= q_z c_l[1] - D_{\text{eff}} \cdot \dfrac{-\frac{3}{2}c_l[1] + 2c_l[2] - \frac{1}{2}c_l[3]}{dz} \label{eq:finite_diff_rad_eq_1} \\
+
+   \delta_t c_l[2:N_z-1] &= \dfrac{1}{(1-\phi_s)} \cdot \bigg ( \\
+      &- q_z \cdot \dfrac{c_l[3:N_z] - c_l[1:N_z-2]}{2dz}\nonumber \\
+      &+ D_{\text{eff}} \cdot \dfrac{c_l[3:N_z] - c_l[2:N_z-1] + c_l[1:N_z-2]}{dz^2}\nonumber \\
+      &+ \sum_{i=1}^{|\mathscr{P}|} b_{et, i} G_i[2:N_z-1] \nonumber\\
+   \bigg ) \nonumber \\ % \label{eq:finite_diff_rad_eq}
+
+   \delta_t c_l[N_z] &= \frac{1}{2}c_l[N_z-2] - 2c_k[N_z-1] + \frac{3}{2} c_k[N_z]
+   
+   \label{eq:finite_diff_rad_eq_2}
+
+
+ \end{align}
+$$
+
+Equations \ref{eq:finite_diff_rad_eq_1}-\ref{eq:finite_diff_rad_eq_2} describe the dynamics of extraction in the liquid phase,
+however, we must also update the state vector of the grains to account for sollubles having left the various shells. We will 
+update the $|\mathscr{P}|$
+$N_r \times N_z$ matrices hat correspond to every particle size number. For every
+$i \in [1, |\mathscr{P}|]$:
+
+$$
+\begin{align}
+   \delta_t c_{s, i}[1, :] &= \Delta_i \label{eq:finite_diff_sol_eq_1}\\
+
+   \delta_t c_{s, i}[2:N_r-1, :] &=  \Delta_i[2:N_r] - \Delta_i[1:N_r-1] \\ % \label{eq:finite_diff_rad_eq}
+
+   \delta_t c_{s, i}[N_r, :] &= - \Delta_i[N_r] - 4\pi \beta \dfrac{1}{r_i b_{et, 0}} G_i
+
+ \end{align}
+$$
+
+Where $\Delta_i$ describes the signed instantaneous flux of coffee sollubles from shell $j$ to $j+1$ where $j\in [1, N_r-1]$:
+
+$$
+\begin{align}
+   \Delta_i &= 4\pi D_{s, i} \left(\frac{1}{2} \vec R[2:N_r] + \frac{1}{2} \vec R[1:N_r-1] \right)^2 \nonumber\\
+   &\times \dfrac{c_{s, i}[2:N_r, 1:N_z] - c_{s, i}[1:N_r-1, 1:N_z]}{dr} \label{eq:finite_diff_sol_eq_2}\\
+\end{align}
+$$
+
+The above equations \ref{eq:finite_diff_sol_eq_1}-\ref{eq:finite_diff_sol_eq_2} describe the advection-diffusion outside
+the various shells of the grain "spheres," where the dynamics is independent of the $z$-axis. Notice how the second index 
+for each matrix, along $N_z$ see the same equation, the parameteric equations and boundary conditions only apply on $z$ due
+to the symmetry we identified in the coffee transport figure above reducing the grain dimensions to 1D, independent of the
+puck-length-scale problem.
 
 ## Solving the ODE
 
