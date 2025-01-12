@@ -1225,9 +1225,16 @@ article.post_flat:hover .date {
 
 /* MATHJAX */
 mjx-container[jax="SVG"] > svg a {
+  /* make equation ref same as a tag */
   fill: var(--c-link) !important;
   stroke: var(--c-link) !important;
   cursor: pointer;
+}
+mjx-container {
+  /* stop overflow of equation making mobile window larger, allow for scroll instead */
+  max-width: 100% !important;
+  overflow-x: scroll;
+  min-width: 0 !important;
 }
 
 /* add padding to scrolling */
