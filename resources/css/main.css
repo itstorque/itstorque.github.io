@@ -65,7 +65,7 @@
   display: none;
   
   z-index: 1;
-  height: 6.5em;
+  height: 4em;
   background-color: var(--c-bg);
 }
 
@@ -891,6 +891,7 @@ div.publication a {
 
   #next_theme, #theme_swap_indicator {
     position: absolute !important;
+    top: 0 !important;
     /* background-color: var(--c-bg); */
   }
 
@@ -1069,6 +1070,7 @@ div.publication a {
 }
 
 @media (hover: hover) {
+
   #next_theme:hover.animation img {
     animation: opacity-blink 1s linear 1, tilt-shaking 0.25s linear 4;
   }
