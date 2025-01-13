@@ -44,7 +44,7 @@ function checkFlag() {
       title: {
         text:'Interactive Code Map',
         font: {
-          size: 24
+          size: "1em",
         },
       },
       xaxis: {

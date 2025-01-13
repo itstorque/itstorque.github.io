@@ -361,6 +361,13 @@ div#article_right_col {
     transition: 0.1s ease-out;
 }
 
+figure img {
+    width: 75%;
+}
+figure img.large {
+    width: 100%;
+}
+
 @media (max-width: 1200px) {
 
     body {
@@ -413,6 +420,20 @@ div#article_right_col {
 
     #article_right_col {
         display: none;
+    }
+
+    blockquote {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    figure img, figure img.large {
+        width: 100%;
+    }
+
+    figure {
+        margin-left: 0;
+        margin-right: 0;
     }
     
 }

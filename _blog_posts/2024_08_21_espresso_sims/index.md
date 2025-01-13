@@ -119,7 +119,7 @@ concerns different scales ($\mathrm{cm}$ for the puck scale vs.  $\mathrm{\mu m}
 
 <center>
 <figure>
-   <img src="espresso_sims_grind_sa_fig.png" width="75%"/>
+   <img src="espresso_sims_grind_sa_fig.png"/>
   <figcaption>Figure from Uman et al. <a href="#references">[3]</a> showcasing the dependence of the grind distribution on temperature.
   The grind size typically features two peaks and the underlying surface area distribution directly effects
   the extraction quality <a href="#references">[4]</a>. This is typically the reason espresso connoisseurs chase high-end grinders for beans <a href="#references">[4]</a>.
@@ -388,7 +388,7 @@ a mass-matrix ODE to compute the flow of coffee sollubles similar to [**TODOTODO
 
 <center>
 <figure>
-  <img src="espresso_sims_logo_text.jpg" width="50%" style="max-width: 17em;"/>
+  <img src="espresso_sims_logo_text.jpg" width="50%" style="min-width: 5em; max-width: 17em;"/>
   <figcaption>Logo of the EspressoSimulations.jl package <a href="#references">[0]</a>.
   </figcaption>
 </figure>

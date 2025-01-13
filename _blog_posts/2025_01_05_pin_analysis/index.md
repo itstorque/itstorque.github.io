@@ -74,7 +74,7 @@ and the y-axis is the last two. The colormap is the log counts of uses, the brig
 it is (that's worse). Hover on different pins to see what their counts are and feel free to make some hypotheses before we dive deeper!
 
 <center>
-<div id="plot1" style="width: 60vh; height: 60vh; display: inline-block;"></div>
+<div id="plot1" style="margin: 0 -2.5vw; width: 95vw; height: 95vw; max-height: 60vh; max-width: 60vh; display: inline-block;"></div>
 </center>
 <script src="four_pin_code_interactive_plot.js"></script>
 
@@ -85,7 +85,7 @@ Below is a static version of the image for no-js browsers.
 
 <center>
 <figure>
-   <img src="four_pin_code_analysis_heatmap.png" width="75%"/>
+   <img src="four_pin_code_analysis_heatmap.png"/>
   <figcaption>Figure plotting the log-counts of various 4-digit pins where the x-axis and y-axis are the first and last two digits of the pincode respectively. It's easy to see correlations in the data,
   such as the diagonal representing repated doublets (code of the form $c_1c_2c_1c_2$) or the vertical feature at 19/20 corresponding to passwords with the basis of years under them (for example, codes based on birthdays).
   </figcaption>
@@ -104,7 +104,7 @@ Let's zoom in on the vertical feature from the above plot
 
 <center>
 <figure>
-   <img src="four_pin_code_analysis_1900s.png" width="100%"/>
+   <img src="four_pin_code_analysis_1900s.png" class="large"/>
   <figcaption>Figure plotting the frequency of codes that start (left subplot) and end (right subplot) with 19. We can see that the frequency of passwords that stay with 19 are much more common than
   other random passwords (median in red) and than passwords with 19 in the last two digits. This means that the 19 at the beginning has
   some entropy to it.
@@ -116,7 +116,7 @@ The next thing I wanted to look at was what was the distribution of the years pe
 
 <center>
 <figure>
-   <img src="four_pin_code_analysis_year_fit.png" width="75%"/>
+   <img src="four_pin_code_analysis_year_fit.png"/>
   <figcaption>
   </figcaption>
 </figure>
@@ -132,7 +132,7 @@ distribution and the makeup of the population.
 
 <center>
 <figure>
-   <img src="four_pin_code_analysis_date_grid.png" width="100%"/>
+   <img src="four_pin_code_analysis_date_grid.png" class="large"/>
   <figcaption>
 <div markdown="1" style="text-align: left">
 
@@ -155,7 +155,7 @@ as a pin code.
 For the curious, here is a heatmap of aggregated birthdays from the social security administration:
 <center>
 <figure>
-   <img src="four_pin_code_analysis_ssa_bdays.png" width="75%"/>
+   <img src="four_pin_code_analysis_ssa_bdays.png">
   <figcaption>
 <div markdown="1" style="text-align: left">
 A representative distribution of U.S. Birthdays over the span of 15 years. Dips can be seen
@@ -181,7 +181,7 @@ below, which plots the frequency vs. the repeated sequence of 2 digits.
 
 <center>
 <figure>
-   <img src="four_pin_code_analysis_diag.png" width="75%"/>
+   <img src="four_pin_code_analysis_diag.png"/>
   <figcaption>
   </figcaption>
 </figure>
@@ -202,7 +202,7 @@ repetitions in orange. As in, `0000` is counts `0` four times in blue and once i
 
 <center>
 <figure>
-   <img src="four_pin_code_analysis_common_digits.png" width="75%"/>
+   <img src="four_pin_code_analysis_common_digits.png"/>
   <figcaption>
   </figcaption>
 </figure>
@@ -318,7 +318,7 @@ distance between keys and the resting position of a thumb after the previous key
 
 <center>
 <figure>
-   <img src="four_pin_code_analysis_heatmap_highlighted.png" width="75%"/>
+   <img src="four_pin_code_analysis_heatmap_highlighted.png"/>
   <figcaption>
   </figcaption>
 </figure>
