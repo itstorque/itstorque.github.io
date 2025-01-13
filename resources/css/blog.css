@@ -10,7 +10,7 @@ body {
 #main_icon {
     position: fixed;
     top: 1.2rem;
-    left: 2rem;
+    left: 3.5rem;
     font-size: 1.5rem;
 
     cursor: pointer;
@@ -24,7 +24,7 @@ body {
     position: absolute;
     font-size: 0.7em;
     top: 1.8em;
-    left: 1em;
+    left: 2.2em;
     opacity: 0;
     transition: opacity ease-in-out 0.3s;
     display: block;
@@ -41,6 +41,12 @@ body {
 
 #main_icon:hover #icon_hint {
     opacity: 1;
+}
+
+#main_icon svg {
+    fill: var(--c-font);
+    position: absolute;
+    left: -1.5em;
 }
 
 #toc {

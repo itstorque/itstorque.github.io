@@ -1,10 +1,10 @@
 ---
 title: EspressoSimulations.jl
-date: "2025/01/05"
+date: "2025/01/12"
 emoji: ☕️
 post_published: true
 summary: 
-    A mathematical exploration of different parameter regimes using coupled differential algebraic equations.
+   A mathematical formulation and exploration of modelling espresso extraction using coupled differential algebraic equations.
 ---
 
 # Motivation(-ish)

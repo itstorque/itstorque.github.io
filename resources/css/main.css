@@ -363,7 +363,7 @@ div#check-out-my-container {
   cursor: pointer;
 }
 
-#resume, #github, #linkedin {
+#resume, #github, #linkedin, #blog {
   display: inline-block;
   width: max-content;
   margin: auto;
@@ -371,7 +371,7 @@ div#check-out-my-container {
   padding: 15px 15px;
 }
 
-#resume a, #github a, #linkedin a {
+#resume a, #github a, #linkedin a, #blog a {
   text-align: center;
   font-weight: bold;
 
@@ -383,12 +383,12 @@ div#check-out-my-container {
   display: inline-block;
 }
 
-#resume a p, #github a p, #linkedin a p {
+#resume a p, #github a p, #linkedin a p, #blog a p {
   display: inline-block;
   margin: 0;
 }
 
-#resume a .resume_icon, #github a .github_icon, #linkedin a .linkedin_icon {
+#resume a .resume_icon, #github a .github_icon, #linkedin a .linkedin_icon, #blog a .blog_icon {
   fill: var(--c-pop);
   transition: 0.3s;
 }
@@ -396,20 +396,20 @@ div#check-out-my-container {
 
 @media (hover: hover) {
 
-  #resume a, #github a, #linkedin a {
+  #resume a, #github a, #linkedin a, #blog a {
     background: linear-gradient(to left, var(--c-bg) 50%, var(--c-pop) 50%);
     background-position: right;
     background-size: 0;
     transition: background-position 0.3s ease-in-out;
   }
 
-  #resume a:hover, #github a:hover, #linkedin a:hover {
+  #resume a:hover, #github a:hover, #linkedin a:hover, #blog a:hover {
     color: var(--c-inv-bg);
     background-position: left;
     background-size: 210% 100%;
   }
 
-  #resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon {
+  #resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon, #blog a:hover .blog_icon {
     fill: var(--c-inv-bg);
   }
 }
@@ -418,6 +418,12 @@ div#check-out-my-container {
   height: 25px;
   width: 25px;
   margin: 0 5px -5px 5px;
+}
+
+#blog svg {
+  height: 32px;
+  width: 32px;
+  margin: 0 5px -7.5px 5px;
 }
 
 h3.check_out_my {

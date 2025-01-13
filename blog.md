@@ -179,8 +179,9 @@ color: purple
     <span class="title_separator"></span>
     <br/><br/>
     <p class="blog_blurb">
-        This blog aims to have some write-ups of weird esoteric mini-research projects I try to explore in my free time. Expect to see a smorgasbord of topics spanning CS, AI, 
-        ML/AI, Physics and Math.
+        This blog aims to have some write-ups of weird mini-research projects I try to explore in my free time. Expect to see a smorgasbord of topics spanning CS, ML/AI, Physics and Math.<br/><br/>
+        If you have any feedback or suggestions on one of my posts, project-colab ideas or want
+        to discuss problems you are thinking about, feel free to reach out to me at <code class="language-plaintext highlighter-rouge" style="font-size: 0.8em">blog[at]itstorque.com</code>!
     </p>
     <br/><br/>
 

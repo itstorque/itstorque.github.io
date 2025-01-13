@@ -55,10 +55,14 @@ that filter out epileptic triggers with a team of product designers.
 {: .check_out_my}
 
 <div id="check-out-my-container">
-  <div id="resume"><a href="https://itstorque.github.io/resume-2022/main.pdf">
+  <div id="blog"><a href="blog">
+  {% include blog_icon.html %}
+  <p>Blog</p>
+  </a></div>
+  <!-- <div id="resume"><a href="https://itstorque.github.io/resume-2022/main.pdf">
   {% include resume_icon.html %}
   <p>Resume</p>
-  </a></div>
+  </a></div> -->
   <div id="github"><a href="https://github.com/itstorque">
   {% include github_icon.html %}
   <p>GitHub</p>
