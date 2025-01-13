@@ -891,7 +891,7 @@ div.publication a {
 
   #next_theme, #theme_swap_indicator {
     position: absolute !important;
-    background-color: var(--c-bg);
+    /* background-color: var(--c-bg); */
   }
 
   #theme_swap_indicator {
