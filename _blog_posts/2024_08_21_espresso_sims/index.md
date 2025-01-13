@@ -1,5 +1,5 @@
 ---
-title: EspressoSimulations.jl
+title: Simulating Espresso Extraction
 date: "2025/01/12"
 emoji: ☕️
 post_published: true

@@ -1154,7 +1154,7 @@ article.post_flat {
 }
 
 article.post_flat h1 {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-top: 0em;
 }
 
@@ -1180,7 +1180,9 @@ article.post_flat .date {
   color: var(--c-pop);
   font-weight: 700;
   letter-spacing: .08em;
-  margin-bottom: 0;
+  margin-bottom: -0.5em;
+  margin-left: 3.5em;
+  font-size: 1em;
 }
 
 
@@ -1205,11 +1207,13 @@ article.post_flat:hover .date {
   article.post_flat .date {
     display: inline-block;
     margin-right: 20%;
+    margin-left: 0;
+    margin-bottom: 0;
     position: relative;
     vertical-align: top;
     width: 20%;
     text-align: right;
-
+    font-size: 1.2em;
   }
   article.post_flat .date::after {
     content: "";
@@ -1227,6 +1231,11 @@ article.post_flat:hover .date {
     display: inline-block;
     width: 55%;
   }
+
+  article.post_flat h1 {
+    font-size: 2em;
+  }
+  
 }
 
 /* MATHJAX */

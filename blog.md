@@ -104,7 +104,6 @@ color: purple
         If you have any feedback or suggestions on one of my posts, project-colab ideas or want
         to discuss problems you are thinking about, feel free to reach out to me at <code class="language-plaintext highlighter-rouge" style="font-size: 0.8em">blog[at]itstorque.com</code>!
     </p>
-    <br/><br/>
 
 </div>
 
