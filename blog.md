@@ -69,87 +69,10 @@ color: purple
             height: 2.25rem !important;
             margin-bottom: -0.3rem !important;
         }
+        article.post_flat .date br {
+            display: none;
+        }
     }
-
-    /* .posts {
-        max-width: 60ch;
-        display: flex;
-    }
-
-    .posts .post h1:not(.emoji) {
-        text-align: left;
-        display: inline-block; 
-        flex-grow: 4;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    .posts .post h1 a {
-        color: black;
-        text-decoration: none;
-    }
-
-    .posts .post h1.emoji {
-        display: inline-block; 
-        font-size: 3rem; 
-        margin-right: 1rem; 
-        margin-bottom: 0rem;
-        margin-top: 0;
-    }
-
-    .posts .post > div {
-        display: flex; 
-        flex-direction: row; 
-        justify-content: space-between;
-        align-items: center;
-
-        max-height: 20ch;
-    }
-
-    .posts .post .post_blurb {
-        align-items: end;
-    }
-
-    .posts .post .post_blurb {
-        margin-left: 4.5rem;
-    }
-
-    .posts .post .date {
-        flex-shrink: 0;
-        font-weight: bold;
-        font-size: 1rem;
-        height: 100%;
-        margin-left: 2rem;
-    }
-
-    .posts .post .post_blurb p {
-        margin-top: 1rem;
-        text-align: left;
-        margin-bottom: 0;
-        max-height: 6ch;
-    }
-
-    .posts .button_box {
-        flex-shrink: 0;
-        margin-bottom: 0.5rem;
-    }
-
-    .posts .post .more_button {
-        margin-left: 2rem;
-        color: black; 
-        background-color: #f6f6f6;
-        padding: 0.4rem; 
-        text-decoration: none; 
-        font-size: 0.8em; 
-        font-weight: bold;
-
-        transition: background ease-in-out 0.3s,color ease-in-out 0.1s;
-    }
-
-    .posts .post .more_button:hover {
-        background-color: var(--pop); 
-        color: #f6f6f6; 
-    } */
 
     div.blogs_splash {
         position: absolute;
@@ -165,8 +88,6 @@ color: purple
         object-position: bottom;
         object-fit: cover;
         background: var(--less-pop);
-        /* background: rgb(131,58,180);
-        background: linear-gradient(152deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%); */
     }
 
 </style>

@@ -5,7 +5,7 @@
     <p class="date">
         {% assign d = post.date | date: "%-d" %}
         {% case d %}{% when "1" or "21" or "31" %}{{ d }}ST{% when "2" or "22" %}{{ d }}ND{% when "3" or "23" %}{{ d }}RD{% else %}{{ d }}TH{% endcase %}
-        {{ post.date | date: "%B" | upcase }}
+        {{ post.date | date: "%B" | upcase }}<br/>
         {{ post.date | date: "%Y" | upcase }}
     </p>
 
