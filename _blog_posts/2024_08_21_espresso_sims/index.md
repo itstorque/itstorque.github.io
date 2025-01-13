@@ -290,20 +290,24 @@ will move sollubles from the core outwards across the radius dimension to yield 
 
 $$
 \begin{align}
-\dfrac{\partial c_{s, i}}{\partial t} = \dfrac{1}{r_i^2} \dfrac{\partial}{\partial r} \left( r_i^2 D_{s, i}\dfrac{\partial c_{s, i}}{\partial r} \right)
+\dfrac{\partial c_{s, i}}{\partial t} = \dfrac{1}{r_i^2} \dfrac{\partial}{\partial r} \left( r_i^2 D_{s, i}\dfrac{\partial c_{s, i}}{\partial r} \right) \label{eq:sol_diff_eq}
 \end{align}
 $$
 
-where is the particle size number ($i \in [1, |\mathscr{P}|]$) as above. With boundary conditions:
+where is the particle size number
+($i \in [1, |\mathscr{P}|]$) as above. 
+With boundary conditions:
 
 $$
 \begin{align}
 -D_{s, i} \dfrac{\partial c_{s, i}}{\partial t} \bigg \vert _{r_i = 0} = 0 \;\; \text{and} \nonumber \\
--D_{s, i} \dfrac{\partial c_{s, i}}{\partial t} \bigg \vert _{r_i = r_i} = \beta \dfrac{1}{r_i b_{et, 0}} G_i \;\;
+-D_{s, i} \dfrac{\partial c_{s, i}}{\partial t} \bigg \vert _{r_i = r_i} = \beta \dfrac{1}{r_i b_{et, 0}} G_i \;\;  \label{eq:sol_diff_eq_cond}
 \end{align}
 $$
 
 TODO: differentiate between $r_i$ and $r_i$ variable and grain radius.... ughhhhhhhh....
+
+TODO: add finite defintion of $G_i$ since this is used for teh equation and is a function of $r_i$
 
 <!-- TODO: Three parameters, namely Def f , Ds and k, remain -->
 
@@ -312,7 +316,7 @@ homogenization and the dimension simplifications to get:
 
 $$
 \begin{align}
-   \delta_t c_l[1] &= q_z c_l[1] - D_{\text{eff}} \cdot \dfrac{-\frac{3}{2}c_l[1] + 2c_l[2] - \frac{1}{2}c_l[3]}{dz} \label{eq:finite_diff_rad_eq_1} \\
+   \delta_t c_l[1] &= q_z c_l[1] + D_{\text{eff}} \cdot \dfrac{\frac{1}{2}c_l[3] - 2c_l[2] + \frac{3}{2}c_l[1] }{dz} \label{eq:finite_diff_rad_eq_1} \\
 
    \delta_t c_l[2:N_z-1] &= \dfrac{1}{(1-\phi_s)} \cdot \bigg ( \\
       &- q_z \cdot \dfrac{c_l[3:N_z] - c_l[1:N_z-2]}{2dz}\nonumber \\
@@ -330,8 +334,12 @@ $$
 
 Equations \ref{eq:finite_diff_rad_eq_1}-\ref{eq:finite_diff_rad_eq_2} describe the dynamics of extraction in the liquid phase,
 however, we must also update the state vector of the grains to account for sollubles having left the various shells. We will 
-update the $|\mathscr{P}|$
-$N_r \times N_z$ matrices hat correspond to every particle size number. For every
+update the $|\mathscr{P}| \times N_r \times N_z$ 
+matrices (there are $|\mathscr{P}|$ independent 
+matrices of size $N_r \times N_z$ whose dynamics are set by 
+differential operators along $N_r$) to derive a system of differential equation that 
+correspond to every particle size number in the same manner
+as the continuous variant in \ref{eq:sol_diff_eq}-\ref{eq:sol_diff_eq_cond}. For every
 $i \in [1, |\mathscr{P}|]$:
 
 $$

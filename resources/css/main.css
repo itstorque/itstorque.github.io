@@ -1234,6 +1234,7 @@ mjx-container {
   /* stop overflow of equation making mobile window larger, allow for scroll instead */
   max-width: 100% !important;
   overflow-x: scroll;
+  overflow-y: hidden;
   min-width: 0 !important;
 }
 
