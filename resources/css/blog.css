@@ -33,10 +33,15 @@ body {
 #main_icon:hover .name {
     text-decoration: none wavy var(--c-pop);
     text-decoration-skip-ink: none;
-    text-underline-offset: -0.05em;
+
+    text-underline-offset: .1em;
+    text-decoration-thickness: 0.1em;
+
+    -webkit-text-decoration: none wavy var(--c-pop);
 }
 #main_icon:hover .name {
     text-decoration: underline wavy var(--c-pop);
+    -webkit-text-decoration: underline wavy var(--c-pop);
 }
 
 #main_icon:hover #icon_hint {
