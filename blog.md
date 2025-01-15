@@ -69,7 +69,7 @@ color: purple
             height: 2.25rem !important;
             margin-bottom: -0.3rem !important;
         }
-        article.post_flat .date br {
+        article.post_flat .date br, .posts br {
             display: none;
         }
     }

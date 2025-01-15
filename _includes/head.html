@@ -42,6 +42,14 @@
 <meta property="twitter:url" content="{{ site.url }}">
 <meta name="twitter:site" content="@tareqdandachi">
 
+
+<script src="/resources/theme.js" rel="preload"></script>
+<script>
+    const theme = readThemeCookie();
+    document.documentElement.dataset.theme = theme;
+</script>
+
+<!-- TODO: can we move this to body? -->
 <script src="/resources/main.js" rel="preload"></script>
 
 <meta name="google-site-verification" content="f-y-ZFKp9GWsBxWzsAdEHEUtW0qn-7nb5An3KHLX638" />

@@ -372,6 +372,10 @@ figure img.large {
     #main_icon {
         top: -0.3rem;
     }
+
+    .blog_splash {
+        margin-bottom: 2em;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -406,10 +410,6 @@ figure img.large {
 
     p.blog_blurb {
         font-size: 1.2em;
-    }
-
-    .blog_splash {
-        margin-bottom: 0;
     }
 
     .pageMobileBar {
