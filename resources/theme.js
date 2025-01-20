@@ -35,14 +35,7 @@ function swap_theme() {
 	css_stylesheet_counter += 1
 	
 	var themes = get_themes(); // ["default", "purple", "dawn"];
-	var current_theme = "default";
-	
-	document.body.classList.forEach((existingClass) => {
-		if (themes.includes(existingClass)) {
-		document.body.classList.remove(existingClass);
-		current_theme = existingClass
-		}
-	});
+	var current_theme = document.documentElement.dataset.theme;
 	
 	const current_theme_index = themes.indexOf(current_theme);
 	
