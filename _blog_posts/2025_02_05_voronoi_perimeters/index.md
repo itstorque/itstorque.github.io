@@ -33,7 +33,7 @@ $$
 \square_D = [0, 1]^D = \{ (x_1, x_2, \ldots, x_D) \in \mathbb{R}^D \mid 0 \leq x_i \leq 1 \text{ for all } i = 1, 2, \ldots, D \}
 $$
 
-The notation $\square_2$ ($D=2$) specifies the case shown in PurpleMind's video, but we will derive the equation for arbitrary dimensions in this video. 
+The notation $\square_2$ ($D=2$) specifies the case shown in PurpleMind's video, but we will derive the equation for arbitrary dimensions in this post. 
 
 > Notice that the volume of the subspace of all voronoi cells is a constant regardless of 
 > the number of cells since the volume of anything that fills $\square_D$ is $1^D$. 
@@ -51,7 +51,8 @@ The notation $\square_2$ ($D=2$) specifies the case shown in PurpleMind's video,
 
 One generic place to see Voronoi cells is when performing a classification using k-means clustering. The
 video addresses the problem of calculating the average perimeter of Voronoi cells for a random choice of $p$
-points sampled uniformly at random over $S$ with dimension 2. The video shows a strong evidence to believe the averaging perimeter follows the expression:
+points sampled uniformly at random over $S$ with dimension 2. The video shows strong evidence to believe 
+the average perimeter follows the expression:
 
 $$E[P_2] = \dfrac{4}{\sqrt{p}}$$
 
@@ -63,17 +64,17 @@ In this post I aim to show a derivation of this using probability theory - an el
 unsolved. The video focuses on $D=2$, but I will keep it general here since there are many other (high-dimension) applications
 where I can see this derivation being useful, from physics to ML. This general derivation will extend to arbitrary convex shapes that contain a Voronoi diagram (for example, a Voronoi diagram in a circle). I will also present a computational geometry method to generalize the numerical experiments to $D$-dimensions to verify my proof in higher dimensions.
 
-## A slight tangent
+## A slight tangent on applications
 
-In a physical realization of this, crystal formation or using it in classification, usually gets new events following some distribution. It's common for this distribution to be modelled as a Poisson Point distribution, where the events occur with some rate $\lambda$, where each event adds a node to the Voronoi diagram. In crystal formation, people tend to model this as crystal growths that start at some node (starting based on a Poisson Point distribution) and growing with some rate [\[4\]](#references). 
+Real world examples involving Voronoi diagrams are crystal formation and various classification methods. In many of these cases, new events occur over time following some distribution (e.g. a new crystal starts forming). It's common for this distribution to be modelled as a Poisson Point distribution, where the events occur with some rate $\lambda$, and each event adds a node to the Voronoi diagram. In crystal formation, people tend to model this as crystal growths that start at some node (starting based on a Poisson Point distribution) and growing with some rate [\[4\]](#references). 
 
-What's interesting about this is that at any instance, if you were to freeze time and take a volume with random nodes in it, the distribution of these points would be uniform over the space. This means that this derivation is of interest beyond its own derivation, with applications to real-time systems.
+What's interesting about this is that at any instance, if you were to freeze time and take a volume with random nodes in it, the distribution of these points would be uniform over the space. This means that this derivation is of interest beyond its own derivation, with applications in real-world systems.
 
 # Derivation
 
 There is a [section below](#code-to-follow-along-the-proof) to follow along the proof and generate the expressions in Python's sympy.
 
-Given a volume $V\subset \square_N$ and the number $n$ of voronoi cells in $\square_N$, we can define the probability of $V$ not having a node is 
+Given a volume $V\subset \square_N$ and the number $n$ of voronoi cells in $\square_N$, we can define the probability of $V$ not having a node as 
 
 $$
 \begin{align}
@@ -86,9 +87,9 @@ $$
 
 where $n$ is the number of cells (alternatively, $n^{-1}$ is the mean cell volume). 
 
-The number of planar boundaries are a distance $d$ away from a node can be counted by seeing how many nodes are a distance $2d$ away from the node due to the definition of a Voronoi diagram placing lines halfway between nodes. This means that we can count the number of surface planes around a node (in a spherical shell spanning radii 
+The number of planar boundaries that are a distance $d$ away from a node can be counted by seeing how many nodes are a distance $2d$ away from the node due to the definition of a Voronoi diagram placing lines halfway between nodes. This means that we can count the number of surface planes around a node (in a spherical shell spanning radii 
 $[x, x+dx)$) by seeing how many other nodes lie in the shell 
-$[2x, 2x+2dx)$. The average number of boundaries is the integral over the shell with density $1/n$ ($n$ nodes uniformly distributed in volume $1^D$). For the 2D case, there is on average $8\pi n x dx$ planes near a distance $x$ away from a node. This is showcased in the plot below with 8 random points.
+$[2x, 2x+2dx)$. The average number of boundaries is the integral over the shell with density $1/n$ ($n$ nodes uniformly distributed in volume $1^D$). For the 2D case, there are on average $8\pi n x dx$ planes near a distance $x$ away from a node. This is showcased in the plot below with 8 random points.
 
 <center>
 <figure>
@@ -99,7 +100,7 @@ $[2x, 2x+2dx)$. The average number of boundaries is the integral over the shell 
 </figure>
 </center>
 
-Since we are interested in the area of the planar boundaries, we need to extend the integral from only calculating the expectation of number of boundaries to include the area. The area of the intersection between a spherical shell (dimension $D$, radius $r$) and a $D-1$ plane (passing a distance $x$ away) follows the area of the $D-1$ sphere with radius set by $\sqrt{r^2-x^2}$. The animation below is for the 3D sphere, the same analogy holds for any dimension.
+Since we are interested in the area of the planar boundaries, we need to extend the integral from only calculating the expectation of number of boundaries to include the area. The area of the intersection between a spherical shell (dimension $D$, radius $r$) and a $D-1$ plane (passing a distance $x$ away) follows the area of the $D-1$ sphere with radius set by $\sqrt{r^2-x^2}$. The animation below is for the 3D sphere but the same analogy holds for any dimension.
 
 <center>
 <figure>
@@ -112,7 +113,7 @@ Since we are interested in the area of the planar boundaries, we need to extend 
 
 The average $D-1$ volume of a voronoi cell when $D=2$ is 
 
-At this point, we can now calculate the surface area for one voronoi cell, we want to be able to calculate the entire area of all cells, this can be done by multiplying by the expectation of an area not having any voronoi points, such that this can yield a new distribution of areas. The integral can be evaluated to get the expected 1D volume $E[S_{\mathrm{cell}, 2}]$:
+At this point, we can now calculate the surface area for one voronoi cell but we want to be able to calculate the entire surface area of all cells. This can be done by multiplying by the expectation of an area not having any voronoi points, such that this can yield a new distribution of areas. The integral can be evaluated to get the expected 1D volume $E[S_{\mathrm{cell}, 2}]$:
 
 $$
     E[S_{\mathrm{cell}, 2}] = \int\limits_0^r n\cdot \dfrac{16\pi \cdot rx}{\sqrt{r^2-x^2}} dx = 16\pi n r^2
@@ -128,13 +129,13 @@ Hooray!
 
 ## Deviations from the expression
 
-There are some deviations from the expression that are due to the boundary always having a fixed side length - I call this aggregate boundary effects. Since we model the average expected boundary size for some number of cells, when the number of cells is small, the deterministic (non-random) surface area of the shape we are embedding has a larger effect than the probabilisticly expected surface area. As an effect of this,
+There are some deviations from the expression that are due to the boundary always having a fixed side length - I call these aggregate boundary effects. Since we model the average expected boundary size for some number of cells, when the number of cells is small, the deterministic surface area of the shape we are embedding has a larger effect than the probabilistically expected surface area. As an effect of this,
 this derivation works best for $n>>1$ (and $n=1$).
 
-This effect takes larger form for larger dimensions, since there are more boundary effects and $n$ needs to be much larger to reach a limit of small aggregate boundary effects. In the $D=4$ case, the error is bounded by 10% according to the numerics in the [computational results section](#computational-results).
+This effect is larger for larger dimensions, since there are more boundary effects and $n$ needs to be much larger to reach a limit of small aggregate boundary effects. In the $D=4$ case, the error is bounded by 10% according to the numerics in the [computational results section](#computational-results).
 
 An observation/conjecture I had on the errors is that they follow $a\cdot \left(1+\dfrac{n}{\sqrt{D}}\right)^{-1}$ for some prefactor 
-$a$. In 4D, fitting $a$ yields $a_{4D} \approx 1.2$ and in 2D $a_{2D} \approx 0.42$. This blog post has already gone too long so I will stop here and perhaps follow-up someday.
+$a$. In 4D, fitting $a$ yields $a_{4D} \approx 1.2$ and in 2D $a_{2D} \approx 0.42$. This blog post has already gone too long so I will stop here and perhaps follow up in the future.
 
 ## Voronoi diagrams over arbitrary region shapes
 
@@ -144,7 +145,7 @@ This means that as long as a shape is convex (all Voronoi planes don't have arbi
 
 ## A general closed-form symbolic expression
 
-You can use the snippet below to generate the expression for any dimension $D$. However, you could also go a step further and do the math using gamma functions and by separating the even and odd dimension values. We can end up writing a general expression for $D$ dimensions as below:
+You can use the [Code To Follow Along Proof Section](#code-to-follow-along-the-proof) to generate the expression for any dimension $D$. However, you could also go a step further and do the math using gamma functions and by separating the even and odd dimension values. We can end up writing a general expression for $D$ dimensions:
 
 $$
 E[P_D] = \frac{2^{D - 1} n^{-1 + \frac{1}{D}} \left(D - 1\right) \Gamma^{2}\left(\frac{D}{2}\right) \Gamma\left(1 - \frac{1}{D}\right) \Gamma^{- \frac{1}{D}}\left(\frac{D}{2} + 1\right)}{\Gamma\left(D - \frac{1}{2}\right)}
@@ -159,7 +160,7 @@ $$ -->
 Volume of a shell: 
 $$\frac{\pi^{\frac{D}{2}} D dx \left(2 x\right)^{D}}{x \Gamma\left(\frac{D}{2} + 1\right)}$$
 
-Integral A2 in code
+Integral A2 in [code](#code-to-follow-along-the-proof)
 
 $$
 \begin{align}
@@ -168,7 +169,7 @@ E[S_{\mathrm{cell}, D}] &=\int\limits_{0}^{r} \frac{4^{D} dr n r \left(\pi x\rig
 \end{align}
 $$
 
-Integral A3 in code
+Integral A3 in [code](#code-to-follow-along-the-proof)
 
 $$
 \begin{align}
@@ -207,14 +208,12 @@ $$
 
 The video only covered the 2D variant of the problem, while this derivation is for
 an arbitrary dimension $D$. To make sure that the derivation succeeded, we will need
-to generalize the code showcased since shapely doesn't do intersections in dimensions
-higher than 2D.
+to generalize the code showcased since the python package used in the code from the video
+(shapely) doesn't do intersections in dimensions higher than 2D [\[10\]](#references).
 
 Since these high dimensional shapes get large, calculating intersections quickly gets
 tricky and performance is important. While the code in the video uses a combination of
 python (for geometry calculations and MC sampling) and C (Voronoi calculations), we will be using Julia and C in the same manner, to benefit from the speed boost and the diverse backend of [Julia's `Polyhedra.jl` package](https://juliapolyhedra.github.io/).
-
-In the actual code, we are interested in subdividing the space in $\square_N$ by
 
 ## Representations
 
@@ -253,7 +252,7 @@ To transform from a $V$-representation to an $H$-representation, we follow the d
 
 ## Computing the surface area of a voronoi cell
 
-I use scipy spatial's Voronoi [\[7\]](#references) to calculte the Voronoi diagram in $D$ dimensions. Following the code showcased in the video, I add points at some large number ($100$ in the code) and then we clip the polygons to help generate voronoi cells along the boundary. The trade off in the chosen "large" number is as follows: 
+I use `scipy.spatial`'s Voronoi [\[7\]](#references) to calculate the Voronoi diagram in $D$ dimensions. Following the code showcased in the video, I add points at some large number ($100$ in the code) and then we clip the polygons to help generate voronoi cells along the boundary. The trade off in the chosen "large" number is as follows: 
 - The larger the number is the more accurate the perimeter estimate is for a single realization. 
 - However, as the dimensions grow, ($D\gtrsim 4$), the numerics become inconsistent and the double description produces inconsistent reps due to numerical accuracy errors.  
 
@@ -263,16 +262,16 @@ We then intersect that polyhedron with the $D$ dimensional cube $\square_D$ to g
 This new region has an $H$-rep and can have its area and volume calculated using either
 that or by computing its $V$-rep (convex hull) again.
 
-The volume calculation is a nice consistency check since as we outlined in the [introduction](#introduction), the volume is constant for any vornoi configuration. The error in the volume represents errors mainly in the tolerances of the double description method. For $D=2$ this error should be $\lt 10^{-6}$, as 
+The volume calculation is a nice consistency check -- as we outlined in the [introduction](#introduction), the volume is constant for any vornoi configuration. The error in the volume represents errors mainly in the tolerances of the double description method. For $D=2$ this error should be $\lt 10^{-6}$, as 
 $D$ approaches $4$ and above, the error I observed while running this is closer to $\approx 10^{-2}$. In principle, one could be more cautious with the representation conversions and work in Julia's rational space to get much higher accuracy, but I will skip this for the purposes of this post. Perhaps a follow up post is required 😁.
 
 ## Intersections
 
 To intersect 2 convex $D$-d polytopes, we will use the algorithm discussed [here](https://www.cs.mcgill.ca/~fukuda/soft/polyfaq/node25.html), where we are given the corners of a cube $\square^D$ and the set of points that define planes of the Voronoi cells:
 
-- Compute the minimal $H$-representation of $\square^D$, we can reuse this as this is one of the more expensive steps.
+- Compute the minimal $H$-representation of $\square^D$ which we can reuse, as this is one of the more expensive steps.
 - Create a $V$-rep from the Voronoi surfaces and convert it to a minimal correspending $H$-representation using the vertex enumeration problem.
-- Once your two polytopes are in $H$ representations, the computation is pretty fast as its only a union of the two inequality systems, followed by a step of redundancy removal to reduce to a minimal $H$-rep.
+- Once your two polytopes are in $H$ representations, the computation is pretty fast as it's only a union of the two inequality systems, followed by a step of redundancy removal to reduce to a minimal $H$-rep.
 
 ## Computational Results
 
@@ -307,8 +306,8 @@ We find good agreement between the derived expressions and the Julia numerical s
 
 # Acknolwedgements
 
-- **Sophia Diggs-Galligan** for fun discussions about methods to construct the numerical simulations efficiently and for listening to my never ending complaining about how a closed-form expression is an absolute requirement for this derivation.
 - **PurpleMind** for nerd sniping me so hard and the well-produced explainer video [\[1\]](#references).
+- **Sophia Diggs-Galligan** for fun discussions about methods to construct the numerical simulations efficiently and for listening to my never ending complaining about how a closed-form expression is an absolute requirement for this derivation.
 - The code maintainers of Julia's `Polyhedra.jl` [\[3\]](#references), scipy spatial [\[7\]](#references), QHull [\[8\]](#references) and GLPK [\[9\]](#references).
 - After deriving this, I found a version of this derivation for $D=3$ presented in the Phillip's Research Report [\[4\]](#references). The derivation in this blog is more general for $D$ dimensions.
 
@@ -552,3 +551,4 @@ We find good agreement between the derived expressions and the Julia numerical s
 7. https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.Voronoi.html
 8. http://www.qhull.org/
 9. https://www.gnu.org/software/glpk/
+10. https://shapely.readthedocs.io/en/stable/
