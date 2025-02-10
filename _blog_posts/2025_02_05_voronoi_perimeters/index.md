@@ -387,9 +387,7 @@ We find good agreement between the derived expressions and the Julia numerical s
   using PyPlot
   using Statistics
   using ProgressMeter
-  ```
-
-  ```jl
+  
   function generate_nd_cube(dim::Int; corners::Number=100.)::Matrix{Number}
       # Generate all possible combinations of -1 and 1 for the given dimension
       cube_points = zeros(typeof(corners), 2^dim, dim)
@@ -542,13 +540,14 @@ We find good agreement between the derived expressions and the Julia numerical s
 
 # References
 
-1. https://www.youtube.com/watch?v=Y6bWUfmJ0-4
-2. https://www.cs.mcgill.ca/~fukuda/soft/polyfaq/node25.html
-3. https://juliapolyhedra.github.io/
-4. https://pearl-hifi.com/06_Lit_Archive/02_PEARL_Arch/Vol_16/Sec_53/Philips_Rsrch_Reports_1946_thru_1977/Philips%20Research%20Reports-08-1953.pdf
+1. PurpleMind's Video, "[The Surprising Math Behind Voronoi Diagram Perimeters](https://www.youtube.com/watch?v=Y6bWUfmJ0-4)"
+2. K. Fukuda, [Frequently Asked Questions in Polyhedral Computation
+](https://www.cs.mcgill.ca/~fukuda/soft/polyfaq/node25.html)
+3. [Polyhedral Computation in Julia](https://juliapolyhedra.github.io/)
+4. J. L. Meijering, Interface area, edge length, and number of vertices in crystal aggregates with random nucleation, [Philips Research Reports, 1946-1977, page 270-290](https://pearl-hifi.com/06_Lit_Archive/02_PEARL_Arch/Vol_16/Sec_53/Philips_Rsrch_Reports_1946_thru_1977/Philips%20Research%20Reports-08-1953.pdf)
 5.  Motzkin, T. S., Raiffa, H., Thompson, G. L. and Thrall, R. M. The double description method Contribution to the Theory of Games, Princeton University Press, 1953
 6. Fukuda, K. and Prodon, A. Double description method revisited Combinatorics and computer science, Springer, 1996, 91-111
-7. https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.Voronoi.html
-8. http://www.qhull.org/
-9. https://www.gnu.org/software/glpk/
-10. https://shapely.readthedocs.io/en/stable/
+7. [Scipy Spatial Docs on Voronoi](https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.Voronoi.html)
+8. [QHull](http://www.qhull.org/)
+9. [GLPK: GNU Linear Programming Kit](https://www.gnu.org/software/glpk/)
+10.  [Shapely Docs](https://shapely.readthedocs.io/en/stable/)
