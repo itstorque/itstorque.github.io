@@ -6,3 +6,4 @@ _working/
 .DS_Store
 vendor
 .bundle
+resources/emojis.json

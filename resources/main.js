@@ -333,7 +333,7 @@ function playAudioGif() {
 
 async function replaceEmojis() {
 
-  const regexpEmojiPresentation = /\p{Emoji_Presentation}/gu;
+  const regexpEmojiPresentation = /\p{Extended_Pictographic}/gu;
   matches = document.body.innerHTML.match(regexpEmojiPresentation);
 
   await fetch('/resources/emojis.json.gz')
@@ -344,6 +344,7 @@ async function replaceEmojis() {
       E = JSON.parse( pako.ungzip(compressed, { to: 'string' }) )
       D = {}
       E.forEach(x => {
+        console.log(x["emoji"], ("https://em-content.zobj.net/source/apple/391/" + x["name"].replaceAll(" ", "-").replaceAll(":", "") + "_" + x["unicode"].replaceAll(" ", "-") + ".png").toLowerCase());
         D[ x["emoji"] ] =  ("https://em-content.zobj.net/source/apple/391/" + x["name"].replaceAll(" ", "-").replaceAll(":", "") + "_" + x["unicode"].replaceAll(" ", "-") + ".png").toLowerCase()
       });
 
