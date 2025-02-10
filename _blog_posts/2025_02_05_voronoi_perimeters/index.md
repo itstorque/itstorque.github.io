@@ -9,16 +9,9 @@ post_published: true
 
 # Introduction
 
-I was watching [PurpleMind's YouTube video](https://www.youtube.com/watch?v=Y6bWUfmJ0-4) on the perimeter of cells in a Voronoi
+I was watching [PurpleMind's YouTube video](https://www.youtube.com/watch?v=Y6bWUfmJ0-4) about the perimeter of cells in a Voronoi
 diagram where they discussed aggregated results from a large set of submissions on the solution for the perimeter of a Voronoi
-diagram. You should definitely go watch the video, it's well produced and thought provoking (I mean... I'm writing a blog at 
-11pm after having watched the video, so it must have been). 
-
-> **EDIT**
-> 
-> It's actually a few days later now due to scope creep :) At least the derivation is for arbitrary dimensions and convex shapes of the aggregate Voronoi diagram, woo!
-
-<br/>
+diagram. You should definitely go watch it; it's well-produced and thought-provoking.
 
 As a summary of the video, a Voronoi diagram is a type of 2D plot
 that describes polygons based on the closeness of points over some subspace $S \subset \mathbb{R}^D$ with dimension $D$.
@@ -31,44 +24,39 @@ $$
 
 The notation $\square_2$ ($D=2$) specifies the case shown in PurpleMind's video, but we will derive the equation for arbitrary dimensions in this video. 
 
-> Notice that the volume of the subsace of all voronoi cells is a constant regardless of 
-> number of cells since the volume of anything that fills $\square_D$ is $1^D$. 
+> Notice that the volume of the subspace of all voronoi cells is a constant regardless of 
+> the number of cells since the volume of anything that fills $\square_D$ is $1^D$. 
 > 
-> However, the surface area is dependent on the dimension and number of cells - 
+> However, the surface area is dependent on the dimension and the number of cells - 
 > in the one cell case, the surface area of the one cell is the area of 
 > a $D$-dimensional cube: 
 > $2D\cdot 1^{D-1}$.
 >
-> > This is due to the fact we have $2D$ sides, each with area ($D-1$ volume) $1^{D-1}$ 
-> > e.g.
-> > - A square ($D=2$) has $2D=4$ lines, each line with length $1^1=1$
-> > - A cube ($D=3$) has $2D=6$ squares, each square with area $1^2=1$ 
-> > - A 4D hypercube ($D=4$) has $2D=8$ cubes, each cube with area $1^4=1$ 
+> This is due to the fact that we have $2D$ sides, each with area ($D-1$ volume) $1^{D-1}$ 
+> e.g.
+> - A square ($D=2$) has $2D=4$ lines, each line with length $1^1=1$
+> - A cube ($D=3$) has $2D=6$ squares, each square with area $1^2=1$ 
+> - A 4D hypercube ($D=4$) has $2D=8$ cubes, each cube with area $1^4=1$ 
 
-One common place to be exposed to generate Voronoi cells is from a classification using k-means clustering. The
-video is concerned with the problem of calculating the average perimeter of Voronoi cells for a random choice of $p$
-points sampled uniformly at random over $S$. The video shows there is very good reason to believe the perimeter 
-follows the expression
+One generic place to see Voronoi cells is when performing a classification using k-means clustering. The
+video addresses the problem of calculating the average perimeter of Voronoi cells for a random choice of $p$
+points sampled uniformly at random over $S$ with dimension 2. The video shows a strong evidence to believe the averaging perimeter follows the expression:
 
 $$E[P_2] = \dfrac{4}{\sqrt{p}}$$
 
-primarily through numerical simulations and intuition about toy versions of the problem (uniform grids, etc.).
-Notice how when there is one point in the square, the expected perimeter is $4$, since the entire subspace is a
+primarily through numerical simulations and intuition about toy versions of the problem (e.g. by thinking about uniform grids).
+Notice how, when there is one point in the square, the expected perimeter is $4$, since the entire subspace is a
 Voronoi cell. Whereas when $p\xrightarrow{} \infty$, we get that $E[P_2]\xrightarrow{} 0$. 
 
-In this post I will aim to show a derivation of this using probability theory - an element of the video that remains
-unsolved. The video focuses on $D=2$, but I will keep it general here, since there are many other (high-dimension) applications
-where I can see this derivation being useful, from physics all the way to ML.
+In this post I aim to show a derivation of this using probability theory - an element of the video that remains
+unsolved. The video focuses on $D=2$, but I will keep it general here since there are many other (high-dimension) applications
+where I can see this derivation being useful, from physics to ML. This general derivation will extend to arbitrary convex shapes that contain a Voronoi diagram (for example, a Voronoi diagram in a circle). I will also present a computational geometry method to generalize the numerical experiments to $D$-dimensions to verify my proof in higher dimensions.
 
-## Some more motivation
+## A slight tangent
 
-You should feel free to skip this section, I like to think about random applications of math in
+In a physical realization of this, crystal formation or using it in classification, usually gets new events following some distribution. It's common for this distribution to be modelled as a Poisson Point distribution, where the events occur with some rate $\lambda$, where each event adds a node to the Voronoi diagram. In crystal formation, people tend to model this as crystal growths that start at some node (starting based on a Poisson Point distribution) and growing with some rate [\[4\]](#references). 
 
-- classification algorithms
-- crystals and defects: there is literature on this
-- 
-
-A slight tangent about poisson point distributions and uniform distributions...
+What's interesting about this is that at any instance, if you were to freeze time and take a volume with random nodes in it, the distribution of these points would be uniform over the space. This means that this derivation is of interest beyond its own derivation, with applications to real-time systems.
 
 # Derivation
 
@@ -78,7 +66,9 @@ Given a volume $V\subset \square_N$ and the number $n$ of voronoi cells in $\squ
 
 $$
 \begin{align}
-    \lim_{\delta V \xrightarrow{} 0} (1 - n\delta V)^{V/\delta V} = e^{-nV}
+E[\mathrm{Volume\; } V \text{ Empty}] &= 
+    \lim_{\delta V \xrightarrow{} 0} (1 - n\delta V)^{V/\delta V}\\ 
+    &= e^{-nV}
     \label{eq:density}
 \end{align}
 $$
@@ -102,10 +92,10 @@ Since we are interested in the area of the planar boundaries, we need to extend 
 
 The average $D-1$ volume of a voronoi cell when $D=2$ is 
 
-At this point, we can now calculate the surface area for one voronoi cell, we want to be able to calculate the entire area of all cells, this can be done by multiplying by the expectation of an area not having any voronoi points, such that this can yield a new distribution of areas. The integral can be evaluated to get the 1D volume:
+At this point, we can now calculate the surface area for one voronoi cell, we want to be able to calculate the entire area of all cells, this can be done by multiplying by the expectation of an area not having any voronoi points, such that this can yield a new distribution of areas. The integral can be evaluated to get the expected 1D volume $E[S_{\mathrm{cell}, 2}]$:
 
 $$
-    \int\limits_0^r n\cdot \dfrac{16\pi \cdot rx}{\sqrt{r^2-x^2}} dx = 16\pi n r^2
+    E[S_{\mathrm{cell}, 2}] = \int\limits_0^r n\cdot \dfrac{16\pi \cdot rx}{\sqrt{r^2-x^2}} dx = 16\pi n r^2
 $$
 
 If we now integrate this with the density from equation $\ref{eq:density}$, we get:
@@ -128,13 +118,13 @@ $a$. In 4D, fitting $a$ yields $a_{4D} \approx 1.2$ and in 2D $a_{2D} \approx 0.
 
 ## Voronoi diagrams over arbitrary region shapes
 
-Notice that in this proof, at no point was it crucial to know the exact shape of the volume containing our Voronoi cells. (TODO, add ref to eq above) The entire derivation is made around a single voronoi cell and then generalized to the actual volume by relying on equation $\ref{eq:density}$. 
+Notice that in this proof, at no point was it crucial to know the exact shape of the volume containing all our Voronoi cells. The entire derivation is based on a single voronoi cell and then generalized to the actual volume by relying on the general equation for the density of nodes, eq. $\ref{eq:density}$. 
 
 This means that as long as a shape is convex (all Voronoi planes don't have arbitrary cuts in them after intersection) and has a volume of $1$, the probability of some small sub-volume follows equation $\ref{eq:density}$ and the exact same derivation as above applies to the solid, as was emperically observed in the YouTube video. This includes Voronoi diagrams over the N-sphere, N-cube, N-prism, N-pyramid...
 
 ## A general closed-form symbolic expression
 
-You can use the snippet below to generate the expression for any dimension $D$, you however could also go a step further and do the math using gamma functions and by separating the even and odd dimension values. We can end up writing a general expression for $D$ dimensions as below:
+You can use the snippet below to generate the expression for any dimension $D$. However, you could also go a step further and do the math using gamma functions and by separating the even and odd dimension values. We can end up writing a general expression for $D$ dimensions as below:
 
 $$
 E[P_D] = \frac{2^{D - 1} n^{-1 + \frac{1}{D}} \left(D - 1\right) \Gamma^{2}\left(\frac{D}{2}\right) \Gamma\left(1 - \frac{1}{D}\right) \Gamma^{- \frac{1}{D}}\left(\frac{D}{2} + 1\right)}{\Gamma\left(D - \frac{1}{2}\right)}
@@ -149,17 +139,20 @@ $$ -->
 Volume of a shell: 
 $$\frac{\pi^{\frac{D}{2}} D dx \left(2 x\right)^{D}}{x \Gamma\left(\frac{D}{2} + 1\right)}$$
 
-Integral A2
+Integral A2 in code
+
 $$
 \begin{align}
-&=\int\limits_{0}^{r} \frac{4^{D} dr n r \left(\pi x\right)^{D - 1} \left(r - x\right)^{\frac{D}{2} - \frac{3}{2}} \left(r + x\right)^{\frac{D}{2} - \frac{3}{2}}}{\Gamma\left(D - 1\right)}\, dx \\
+E[S_{\mathrm{cell}, D}] &=\int\limits_{0}^{r} \frac{4^{D} dr n r \left(\pi x\right)^{D - 1} \left(r - x\right)^{\frac{D}{2} - \frac{3}{2}} \left(r + x\right)^{\frac{D}{2} - \frac{3}{2}}}{\Gamma\left(D - 1\right)}\, dx \\
 &=\frac{4^{D} \pi^{D - 1} n r^{2 D - 2}}{\left(2 D - 3\right)!!}
 \end{align}
 $$
 
-A3
+Integral A3 in code
+
 $$
 \begin{align}
+E&[\mathrm{Volume\; } V \text{ Empty}\; | \dim V = D]\\
 &=\exp \left(- \frac{2 n r^{D} \left(2 \pi\right)^{\frac{D}{2} - \frac{1}{2}} \left(\left(\frac{\sqrt{2} \sqrt{\pi}}{2}\right)^{\left(D + 1\right) \bmod 2}\right)}{D!!}\right)\\
 &= \frac{2^{D + 1} \pi^{D - \frac{1}{2}} n r^{2 D - 2} \exp\left(- \frac{\pi^{\frac{D}{2}} n r^{D}}{\Gamma\left(\frac{D}{2} + 1\right)}\right)}{\Gamma\left(D - \frac{1}{2}\right)}
 \end{align}
@@ -291,6 +284,13 @@ We find good agreement between the derived expressions and the Julia numerical s
   </figcaption>
 </figure>
 </center>
+
+# Acknolwedgements
+
+- **Sophia Diggs-Galligan** for fun discussions about methods to construct the numerical simulations efficiently and for listening to my never ending complaining about how a closed-form expression is an absolute requirement for this derivation.
+- **PurpleMind** for nerd sniping me so hard and the well-produced explainer video [\[1\]](#references).
+- The code maintainers of Julia's `Polyhedra.jl` [\[3\]](#references), scipy spatial [\[7\]](#references), QHull [\[8\]](#references) andGLPK [\[9\]](#references).
+- After deriving this, I found a version of this derivation for $D=3$ presented in the Phillip's Research Report [\[4\]](#references). The derivation in this blog is more general for $D$ dimensions.
 
 # Code
 
@@ -521,16 +521,7 @@ We find good agreement between the derived expressions and the Julia numerical s
 
 </div>
 
-# Acknolwedgements
-
-- Sophia Diggs-Galligan for fun discussions about methods to construct the numerical simulations efficiently and for listening to my never ending complaining about how a closed-form expression is an absolute requirement for this derivation.
-- Youtuber (TODO)
-- Code maintainers for scipy, QHull, GLPK and Julia's `Polyhedra.jl` (TODO)
-- After deriving this, I found a version of this derivation for $D=3$ presented in the Phillip's Research Report [\[1\]](#references). The derivation in this blog is more general for $D$ dimensions.
-
 # References
-
-TODO: tidy up and add to blog
 
 1. https://www.youtube.com/watch?v=Y6bWUfmJ0-4
 2. https://www.cs.mcgill.ca/~fukuda/soft/polyfaq/node25.html
@@ -539,3 +530,5 @@ TODO: tidy up and add to blog
 5.  Motzkin, T. S., Raiffa, H., Thompson, G. L. and Thrall, R. M. The double description method Contribution to the Theory of Games, Princeton University Press, 1953
 6. Fukuda, K. and Prodon, A. Double description method revisited Combinatorics and computer science, Springer, 1996, 91-111
 7. https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.Voronoi.html
+8. http://www.qhull.org/
+9. https://www.gnu.org/software/glpk/

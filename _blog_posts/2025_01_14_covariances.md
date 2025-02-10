@@ -4,14 +4,19 @@ date: "2025/01/14"
 emoji: 🎛️
 summary:
     Calculating expressions for the auto and crosscorrelation of the BPSK, QPSK, 8-PSK and QAM.
+
+published: true
 ---
+
+This is a small calculation that sprung out of interest in a personal project of mine - I may 
+follow up here with the details of that project with relation to various 
+RFID applications. Calculating correlation functions in general is fun, so if that is something
+you enjoy, this post is for you.
 
 A common way to represent digital signals in communication schemes
 is Phase-Shift Keying (PSK). Instead of encoding a binary digit as a low
 or high voltage, PSK relies on a carrier phase, by modulating a cosine
 frequency as a function of time, you can communicate a different bit.
-
-PSK is widely used in many wireless schemes, including RFID, Bluetooth and WLAN. The correlation function applied to various PSKs can be a measure of extracting the ... add motivation
 
 We will consider Coherent PSK (CPSK) schemes first and then show
 equivalence with the much more widely used (and easier to implement)

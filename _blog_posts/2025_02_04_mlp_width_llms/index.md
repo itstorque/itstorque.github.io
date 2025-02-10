@@ -4,7 +4,7 @@ date: "2025/02/05"
 emoji: 🧠
 summary:
     Why is the MLP input embedding space $4\times$ that the original embedding dimension? How does that affect feature extraction?
-post_published: false
+post_published: true
 ---
 
 # Introduction
@@ -15,18 +15,16 @@ GPTs when we wanted a way for the MLP layer to extract rich features and capture
 This is a common design pattern in many transformer models, including GPT, where the MLP layer is often set up to 
 significantly increase the representation size before contracting it back to the original dimension.
 
-# So why $4$?
+# Effect of MLP width on an Overfitted Tiny Language Model
 
-# Overfitted Tiny Language Models
-
-<center>
+<!-- <center>
 <figure>
    <img src="charactergpt_training_tb.png" style="width: 100% !important;"/>
   <figcaption>
     Training a small language model with 5 different input embedding sizes for the MLP layer. As you increase the width, the model trains and overfits faster.
   </figcaption>
 </figure>
-</center>
+</center> -->
 
 <center>
 <figure>
@@ -38,7 +36,12 @@ significantly increase the representation size before contracting it back to the
 </figure>
 </center>
 
-Learns slower, but overfits even slower. Overfitting is a function of the small dataset size.
+We see that as the MLP's width decreases wrt the embedding stream size, the model learns slower, but also overfits even slower. Details of the model and its training details are below. Overfitting is a function of this dataset being tiny! I plan to repeat this experiment on the output of OpenWebText to reproduce the GPT-2 model as well as varints of that model with different MLP widths.
+
+Another interesting follow up would be repeating this with specialized single learning tasks with limited that work well in limited embedding size applications (allowing much more sweeps). For example, a training set where the tokens teach the model to add integers or modulo multiplication. It would be interesting to study the scaling of the number of learning tasks with the width of the MLP layer.
+
+Until then, we have a demonstration of how the intuition behind the MLP width is correct in practice. Increasing the size of the MLP allows it to discover more aggregate features of the data where in the limit of small data, we see fast overfitting. The other cool thing to notice is that (at least for this tiny model), the width of 4 is by no way an optimal width that was fine-tuned, but is probably an arbitrary choice. In terms of compute, reducing the size of that layer would allow us to churn through more data and produce fast training results (in something like GPT-4, reducing the width of the MLP by $25%$ would lead to a reduction in parameters of somethuing like 225 Billion parameters!). The optimal point for larger datasets may by somewhere between 3 and 3.5, and is probably a function of the number of learning tasks.
+
 
 ## Model and Training Details
 
@@ -110,7 +113,6 @@ Learns slower, but overfits even slower. Overfitting is a function of the small 
   </tbody>
 </table>
 
-# What about OpenWebText
+## Acknolwedgements
 
-Training a GPT-2 like network, due to compute limitations, will be training on $\frac{1}{64}$-th of the amount of tokens
-used to train GPT-2.
+Thanks to all the work from Kaparthy and contributors on [nanoGPT](https://github.com/karpathy/nanoGPT) that was essential for this small investigation.
