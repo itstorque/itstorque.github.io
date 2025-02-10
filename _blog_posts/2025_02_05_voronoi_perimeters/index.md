@@ -91,6 +91,8 @@ The number of planar boundaries that are a distance $d$ away from a node can be 
 $[x, x+dx)$) by seeing how many other nodes lie in the shell 
 $[2x, 2x+2dx)$. The average number of boundaries is the integral over the shell with density $1/n$ ($n$ nodes uniformly distributed in volume $1^D$). For the 2D case, there are on average $8\pi n x dx$ planes near a distance $x$ away from a node. This is showcased in the plot below with 8 random points.
 
+<br/>
+
 <center>
 <figure>
   <img src="voronoi_circle_times_2.png"/>
@@ -99,6 +101,8 @@ $[2x, 2x+2dx)$. The average number of boundaries is the integral over the shell 
   </figcaption>
 </figure>
 </center>
+
+<br/>
 
 Since we are interested in the area of the planar boundaries, we need to extend the integral from only calculating the expectation of number of boundaries to include the area. The area of the intersection between a spherical shell (dimension $D$, radius $r$) and a $D-1$ plane (passing a distance $x$ away) follows the area of the $D-1$ sphere with radius set by $\sqrt{r^2-x^2}$. The animation below is for the 3D sphere but the same analogy holds for any dimension.
 
@@ -111,7 +115,7 @@ Since we are interested in the area of the planar boundaries, we need to extend 
 </figure>
 </center>
 
-The average $D-1$ volume of a voronoi cell when $D=2$ is 
+<br/>
 
 At this point, we can now calculate the surface area for one voronoi cell but we want to be able to calculate the entire surface area of all cells. This can be done by multiplying by the expectation of an area not having any voronoi points, such that this can yield a new distribution of areas. The integral can be evaluated to get the expected 1D volume $E[S_{\mathrm{cell}, 2}]$:
 
@@ -155,12 +159,14 @@ $$
 E[P_D] = \displaystyle \begin{cases} \frac{2^{D - 1} n^{\frac{1 - D}{D}} \left(D - 1\right) \Gamma^{2}\left(\frac{D}{2}\right) \Gamma\left(1 - \frac{1}{D}\right) \Gamma^{- \frac{1}{D}}\left(\frac{D}{2} + 1\right)}{\Gamma\left(D - \frac{1}{2}\right)} & \text{for even}\: D \\\frac{2^{D + 1} n^{\frac{1 - D}{D}} \left(D - 1\right) \Gamma\left(1 - \frac{1}{D}\right) \Gamma^{\frac{2 D - 1}{D}}\left(\frac{D}{2} + 1\right)}{D^{2} \Gamma\left(D - \frac{1}{2}\right)} & \text{otherwise} \end{cases}
 $$ -->
 
-### Manual derivation for arbitrary dimensions $D$:
+<br/>
+
+### Manual derivation for arbitrary dimensions $D$
 
 Volume of a shell: 
 $$\frac{\pi^{\frac{D}{2}} D dx \left(2 x\right)^{D}}{x \Gamma\left(\frac{D}{2} + 1\right)}$$
 
-Integral A2 in [code](#code-to-follow-along-the-proof)
+Integral A2 in [code](#code-to-follow-along-the-proof):
 
 $$
 \begin{align}
@@ -169,15 +175,19 @@ E[S_{\mathrm{cell}, D}] &=\int\limits_{0}^{r} \frac{4^{D} dr n r \left(\pi x\rig
 \end{align}
 $$
 
-Integral A3 in [code](#code-to-follow-along-the-proof)
+<br/>
+
+Integral A3 in [code](#code-to-follow-along-the-proof), where $V$ is a volume as defined in eq. $\ref{eq:density}$:
 
 $$
 \begin{align}
-E&[\mathrm{Volume\; } V \text{ Empty}\; | \dim V = D]\\
+E&[V \text{ Empty}\; | \dim V = D]\\
 &=\exp \left(- \frac{2 n r^{D} \left(2 \pi\right)^{\frac{D}{2} - \frac{1}{2}} \left(\left(\frac{\sqrt{2} \sqrt{\pi}}{2}\right)^{\left(D + 1\right) \bmod 2}\right)}{D!!}\right)\\
 &= \frac{2^{D + 1} \pi^{D - \frac{1}{2}} n r^{2 D - 2} \exp\left(- \frac{\pi^{\frac{D}{2}} n r^{D}}{\Gamma\left(\frac{D}{2} + 1\right)}\right)}{\Gamma\left(D - \frac{1}{2}\right)}
 \end{align}
 $$
+
+<br/>
 
 And finally, the expectation on the perimeter:
 
@@ -188,7 +198,11 @@ E[P_D] &= \int\limits_{0}^{\infty} \frac{2^{D + 1} \pi^{D - \frac{1}{2}} n r^{2 
 \end{align}
 $$
 
+<br/>
+
 ### Expressions for various dimensions $D$
+
+<br/>
 
 $$
 \begin{align}
