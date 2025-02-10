@@ -5,7 +5,7 @@ emoji: 🎛️
 summary:
     Calculating expressions for the auto and crosscorrelation of the BPSK, QPSK, 8-PSK and QAM.
 
-published: true
+post_published: true
 ---
 
 This is a small calculation that sprung out of interest in a personal project of mine - I may 
