@@ -14,7 +14,18 @@ diagram where they discussed aggregated results from a large set of submissions 
 diagram. You should definitely go watch it; it's well-produced and thought-provoking.
 
 As a summary of the video, a Voronoi diagram is a type of 2D plot
-that describes polygons based on the closeness of points over some subspace $S \subset \mathbb{R}^D$ with dimension $D$.
+that describes polygons based on the closeness of points over some subspace $S \subset \mathbb{R}^D$ with dimension $D$. An example over a random realization of points is plotted below:
+
+<center>
+<figure>
+  <img src="voronoi_diagram.png"/>
+  <figcaption>
+  An example of a voronoi diagram showcasing 25 random points, 25 voronoi cells (regions) and the various cell boundaries that make up a cell. A cell has a variable number of boundaries depending on how neighboring points are laid out.
+  </figcaption>
+</figure>
+</center>
+
+
 For the sake of this post, we'll be talking about $S$ spanning 
 $[0, 1]$ on all of its axes, We will be defining these voronoi cells on a space $S=\square_D$:
 
@@ -77,7 +88,16 @@ where $n$ is the number of cells (alternatively, $n^{-1}$ is the mean cell volum
 
 The number of planar boundaries are a distance $d$ away from a node can be counted by seeing how many nodes are a distance $2d$ away from the node due to the definition of a Voronoi diagram placing lines halfway between nodes. This means that we can count the number of surface planes around a node (in a spherical shell spanning radii 
 $[x, x+dx)$) by seeing how many other nodes lie in the shell 
-$[2x, 2x+2dx)$. The average number of boundaries is the integral over the shell with density $1/n$ ($n$ nodes uniformly distributed in volume $1^D$). For the 2D case, there is on average $8\pi n x dx$ planes near a distance $x$ away from a node. 
+$[2x, 2x+2dx)$. The average number of boundaries is the integral over the shell with density $1/n$ ($n$ nodes uniformly distributed in volume $1^D$). For the 2D case, there is on average $8\pi n x dx$ planes near a distance $x$ away from a node. This is showcased in the plot below with 8 random points.
+
+<center>
+<figure>
+  <img src="voronoi_circle_times_2.png"/>
+  <figcaption>
+  An example of a 2D voronoi diagram showcasing 8 random points. The red ball contains 5 adjacent cell boundaries and the blue ball with twice the radius contains 5 nodes. There is always a correspondence between these two ball sizes. This can be generalized to higher dimensions by using $D$-spheres.
+  </figcaption>
+</figure>
+</center>
 
 Since we are interested in the area of the planar boundaries, we need to extend the integral from only calculating the expectation of number of boundaries to include the area. The area of the intersection between a spherical shell (dimension $D$, radius $r$) and a $D-1$ plane (passing a distance $x$ away) follows the area of the $D-1$ sphere with radius set by $\sqrt{r^2-x^2}$. The animation below is for the 3D sphere, the same analogy holds for any dimension.
 
@@ -289,7 +309,7 @@ We find good agreement between the derived expressions and the Julia numerical s
 
 - **Sophia Diggs-Galligan** for fun discussions about methods to construct the numerical simulations efficiently and for listening to my never ending complaining about how a closed-form expression is an absolute requirement for this derivation.
 - **PurpleMind** for nerd sniping me so hard and the well-produced explainer video [\[1\]](#references).
-- The code maintainers of Julia's `Polyhedra.jl` [\[3\]](#references), scipy spatial [\[7\]](#references), QHull [\[8\]](#references) andGLPK [\[9\]](#references).
+- The code maintainers of Julia's `Polyhedra.jl` [\[3\]](#references), scipy spatial [\[7\]](#references), QHull [\[8\]](#references) and GLPK [\[9\]](#references).
 - After deriving this, I found a version of this derivation for $D=3$ presented in the Phillip's Research Report [\[4\]](#references). The derivation in this blog is more general for $D$ dimensions.
 
 # Code
