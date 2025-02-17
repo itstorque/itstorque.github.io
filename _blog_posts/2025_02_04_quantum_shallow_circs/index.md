@@ -347,7 +347,6 @@ local operations!
 # References
 
 1. Sergey Bravyi, David Gosset, and Robert Konig. Quantum advantage with shallow
-circuits. Science, 362(6412):308–311, oct 2018.
+circuits. Science, 362(6412):308–311, October 2018.
 2. Edwin Barnes, Christian Arenz, Alexander Pitchford, and Sophia Economou. Fast
-microwave-driven three-qubit gates for cavity-coupled superconducting qubits. Physi-
-cal Review B, 96, 12 2016.
+microwave-driven three-qubit gates for cavity-coupled superconducting qubits. Physical Review B, 2016.
