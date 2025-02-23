@@ -376,11 +376,28 @@ div#article_right_col {
     transition: 0.1s ease-out;
 }
 
-figure img {
-    width: 75%;
+figure img, img.figure, img.small_figure {
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 3em auto;
+    max-height: 50vh;
+    max-width: 90%;
 }
-figure img.large {
-    width: 100%;
+figure img.large, img.figure.large {
+    max-width: 100%;
+}
+
+img.small_figure {
+    max-width: 80%;
+}
+
+figcaption {
+    margin: auto;
+    margin-top: -2em;
+    margin-bottom: 2em;
+    width: 85%;
+    text-align: center;
 }
 
 @media (max-width: 900px) {

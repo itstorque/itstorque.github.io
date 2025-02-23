@@ -91,31 +91,21 @@ The number of planar boundaries that are a distance $d$ away from a node can be 
 $[x, x+dx)$) by seeing how many other nodes lie in the shell 
 $[2x, 2x+2dx)$. The average number of boundaries is the integral over the shell with density $1/n$ ($n$ nodes uniformly distributed in volume $1^D$). For the 2D case, there are on average $8\pi n x dx$ planes near a distance $x$ away from a node. This is showcased in the plot below with 8 random points.
 
-<br/>
-
-<center>
 <figure>
   <img src="voronoi_circle_times_2.png"/>
   <figcaption>
   An example of a 2D voronoi diagram showcasing 8 random points. The red ball contains 5 adjacent cell boundaries and the blue ball with twice the radius contains 5 nodes. There is always a correspondence between these two ball sizes. This can be generalized to higher dimensions by using $D$-spheres.
   </figcaption>
 </figure>
-</center>
-
-<br/>
 
 Since we are interested in the area of the planar boundaries, we need to extend the integral from only calculating the expectation of number of boundaries to include the area. The area of the intersection between a spherical shell (dimension $D$, radius $r$) and a $D-1$ plane (passing a distance $x$ away) follows the area of the $D-1$ sphere with radius set by $\sqrt{r^2-x^2}$. The animation below is for the 3D sphere but the same analogy holds for any dimension.
 
-<center>
 <figure>
   <img src="ball_circle.gif"/>
   <figcaption>
   A 3D sphere being slided by a 2D plane giving rise to a 2D circlular ring whose radius is a function of $\sim x^2-r^2$.
   </figcaption>
 </figure>
-</center>
-
-<br/>
 
 At this point, we can now calculate the surface area for one voronoi cell but we want to be able to calculate the entire surface area of all cells. This can be done by multiplying by the expectation of an area not having any voronoi points, such that this can yield a new distribution of areas. The integral can be evaluated to get the expected 1D volume $E[S_{\mathrm{cell}, 2}]$:
 
@@ -291,32 +281,26 @@ To intersect 2 convex $D$-d polytopes, we will use the algorithm discussed [here
 
 We find good agreement between the derived expressions and the Julia numerical simulations. Below we plot the numerical results and derived model for $D \in \{2,3,4\}$.
 
-<center>
 <figure>
   <img src="2D_plot.png"/>
   <figcaption>
   Comparison for $D=2$. Took approximately a minute to generate.
   </figcaption>
 </figure>
-</center>
 
-<center>
 <figure>
   <img src="3D_plot.png"/>
   <figcaption>
   Comparison for $D=3$. Took approximately 3 minutes to generate.
   </figcaption>
 </figure>
-</center>
 
-<center>
 <figure>
   <img src="4D_plot.png"/>
   <figcaption>
   Comparison for $D=4$. Took approximately 15 minutes to generate.
   </figcaption>
 </figure>
-</center>
 
 # Acknolwedgements
 
