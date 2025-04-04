@@ -4,7 +4,7 @@ date: "2025/02/05"
 emoji: 🧠
 summary:
     Why is the MLP input embedding space $4\times$ that the original embedding dimension? How does that affect feature extraction?
-post_published: true
+post_published: false
 ---
 
 # Introduction
