@@ -206,11 +206,85 @@ Notice how this egg has a fully cooked yolk while the whites are left pretty raw
 # Experimental Methods
 
 ## Experimental Setup
+<figure markdown="1">
+   <img src="egg_images/eggjet2000.jpg">
+   <figcaption></figcaption>
+</figure>
+
+### Eggsperimental Subjects
+The eggsperimental subjects were acquired by Sophia (thanks Sophia!). They were securely attached to our device via an egg harness, which consists of the carrier knot tied out of cotton string.
 
 <figure markdown="1">
    <img src="egg_images/harness.jpeg">
    <figcaption></figcaption>
 </figure>
+
+### Egg Movement Device - Eggjet2000
+
+The Eggjet2000: changing eggsperimental design in a big way!
+
+<figure markdown="1">
+   <img src="egg_images/eggjet2000_front.jpg">
+   <figcaption></figcaption>
+</figure>
+
+The Eggjet2000 is a motor powered robot arm providing an automated solution to moving the egg between water baths. It is controlled with an Arduino Uno.
+
+The physical structure consists of a 20kg digital servo motor mounted on a vertical aluminum extrusion. This aluminum extrusions is screwed onto a flat base plate with a weight (a block of metal) resting on it to keep it stable. 
+
+A bent aluminum bar attaches to the motor on one side and has a screw that the egg in its harness can be tied to. The bend in this bar provides enough clearance for the egg to move in front of the Eggjet2000 unhindered. 
+
+<figure markdown="1">
+   <img src="egg_images/eggjet2000_side.jpg">
+   <figcaption></figcaption>
+</figure>
+
+
+### Water Baths & Temp Control
+
+Two pots placed on either side of the Eggjet2000 contained the water baths. The length of the string was adjusted with enough slack so the egg can land lightly and randomly tilt to one side.
+
+This experiemnt called for 2 water baths - one kept at boiling and another variable. The baths were monitored with two digital instant read thermometers. An electric kettle of hot water and ice cubes were kept handy to adjust temperatures.
+
+<figure markdown="1">
+   <img src="egg_images/thermometers.jpg">
+   <figcaption></figcaption>
+</figure>
+
+The bath set to constantly boil on the stove and was measured to be 98C. A raiser with 3 legs was placed in this bath to prevent pot conduction from unevenly heating the egg.
+
+<figure markdown="1">
+   <img src="egg_images/raiser_top.jpg">
+   <figcaption></figcaption>
+</figure>
+
+<figure markdown="1">
+   <img src="egg_images/raiser_bottom.jpg">
+   <figcaption></figcaption>
+</figure>
+
+A custom lid was also developed to decrease water loss due to evaporation and to maintain thermal energy while still allowing egg passage. This was constructed out of a cardboard circle with an egg-shaped portion cut and bent away to act as a handle for researchers and means of egress for the egg. It was then wrapped in aluminum foil. 
+
+<figure markdown="1">
+   <img src="egg_images/eggjet_lid.jpg">
+   <figcaption></figcaption>
+</figure>
+
+<figure markdown="1">
+   <img src="egg_images/eggjet_lid_bottom.jpg">
+   <figcaption></figcaption>
+</figure>
+
+
+## Experimental Procedure
+
+Arm Positions:
+The Arduino Uno was programmed to move the robot arm in any position along an 180 degree arc. The hanging egg is submerged in one bath at the 0 degree position, waiting in the air above and between the water baths at the 90 degree position, and submerged in the other bath in the 180 degree position. The waiting in the air posistion for 5 seconds helps prevent cracking of the egg's shell due to quick thermal changes, and minimizes drips and temperature contamination between baths.
+
+Timing and Temperatures:
+For the Nature paper method, the arm was set to submerge the egg in each bath for 150 seconds, alternating between 98C and 28C.
+
+For our optimal method, the eggs were submerged in the following baths for 180 seconds per bath: 30C, 97C, 52C, 97C, 30C, 97C, and a cooling 30C. This was done by swapping the vessel with the 30C bath for one containing a 52C bath. 
 
 ## Calibration
 
@@ -236,7 +310,7 @@ the egg).
 
 # Acknolwedgements
 
-- **Rihn**: designed and lead all the experimental work. Built various contraptions for the experimental validation.
+- **Rihn**: designed and led all the experimental work. Built various contraptions for the experimental validation.
 - **Felipe & Rihn**: for building the robot arm ("The Egginator 2000") 
 - **Anders Olsen, Boof, Wasabi, Lev, Sophia Diggs-Galligan, Felipe, Sar M.**: Thanks for the discussions on many details of the egg-related theory and experiments, being taste test subjects and for cheering as "The Egginator 2000" did its job.
 - **Di Lorenzo and team**: the original work that inspired this blog-post, you managed to nerd-snipe me and many of my friends on this problem.
