@@ -15,8 +15,11 @@ color: default
   <body id="body" class="{{ page.color }}">
 
     <div class="pageLine"></div>
-
     <div id="themes_dev_div"></div>
+    {% if page.name == "blog.md" %}
+      <div class="pageMobileBar"></div>
+      {% include blog_top_left_logo.html %}
+    {% endif %}
 
     {% if page.include_side_nav %}
       {% include nav.html %}

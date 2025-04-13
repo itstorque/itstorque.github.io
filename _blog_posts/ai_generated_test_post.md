@@ -21,7 +21,7 @@ A Galois field is a finite set of elements with well-defined addition and multip
 
 ### 1. Field Elements
 
-Let's create some Galois field elements using the Python package "Galois":
+Let's create some Galois field elements using the Python package `galois`{:.language-css .highlight}:
 
 ```python
 import galois
@@ -37,9 +37,40 @@ print(f"Primitive polynomial: {GF.prim_poly}")
 ```
 
 The output will be:
-```
+```python
 Primitive element: GF31(3)
 Primitive polynomial: Poly(x + 28, GF31)
+```
+
+Random snippet with an HH model example for spiking NN:
+
+```julia
+# Hodgkin-Huxley model
+
+using DifferentialEquations
+using Plots
+
+# Potassium ion-channel rate functions
+alpha_n(v) = (0.02 * (v - 25.0)) / (1.0 - exp((-1.0 * (v - 25.0)) / 9.0))
+beta_n(v) = (-0.002 * (v - 25.0)) / (1.0 - exp((v - 25.0) / 9.0))
+
+# Sodium ion-channel rate functions
+alpha_m(v) = (0.182 * (v + 35.0)) / (1.0 - exp((-1.0 * (v + 35.0)) / 9.0))
+beta_m(v) = (-0.124 * (v + 35.0)) / (1.0 - exp((v + 35.0) / 9.0))
+
+alpha_h(v) = 0.25 * exp((-1.0 * (v + 90.0)) / 12.0)
+beta_h(v) = (0.25 * exp((v + 62.0) / 6.0)) / exp((v + 90.0) / 12.0)
+
+function HH!(du, u, p, t)
+    gK, gNa, gL, EK, ENa, EL, C, I = p
+    v, n, m, h = u
+
+    du[1] = (-(gK * (n^4.0) * (v - EK)) - (gNa * (m^3.0) * h * (v - ENa)) -
+             (gL * (v - EL)) + I) / C
+    du[2] = (alpha_n(v) * (1.0 - n)) - (beta_n(v) * n)
+    du[3] = (alpha_m(v) * (1.0 - m)) - (beta_m(v) * m)
+    du[4] = (alpha_h(v) * (1.0 - h)) - (beta_h(v) * h)
+end
 ```
 
 ### 2. Solving Equations
@@ -49,8 +80,7 @@ Suppose we have the following system of equations over GF(8):
 
 We can represent this system as a matrix equation (Ax = b):
 
-```Python
-
+```python
 from galois import Matrix
 
 A = Matrix(data=[[3, 7, 2], [7, 3, 1], [5, 6, 4]]).to_GF(8)
@@ -65,7 +95,7 @@ print(solution)
 
 The program will print:
 
-```
+```python
 GF(8)[7]
 GF(8)[5]
 GF(8)[3]
