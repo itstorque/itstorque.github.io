@@ -2,7 +2,7 @@
 title: Cooking an Egg Optimally?
 date: "2025/02/23"
 emoji: 🥚
-post_published: false
+post_published: true
 summary: 
     Reproducing the work of E. Di Lorenzo on the Periodic cooking of eggs in Julia 
     and using it to find cursed parameter regimes for egg cooking. 
@@ -30,8 +30,8 @@ rise of different dominant egg-modes and the fact that the gelation activation e
 the yolk and albumen are different, we find a simulation where this is possible.
 
 Through-out this blog, we will have:
-1. A derivation of the models required to simulate the dynamics of boiling an egg, as implemented in our repo [BoilingEggSimulations.jl](https://github.com/itstorque/pulsed-egg-cooking)
-2. Simulations of egg temperatures and gelation from the [BoilingEggSimulations.jl](https://github.com/itstorque/pulsed-egg-cooking) repo
+1. A derivation of the models required to simulate the dynamics of boiling an egg, as implemented in our repo [PulsedEggSimulations.jl](https://github.com/itstorque/PulsedEggSimulations.jl)
+2. Simulations of egg temperatures and gelation from the [PulsedEggSimulations.jl](https://github.com/itstorque/PulsedEggSimulations.jl) repo
 3. Experimental validation of those temperature profiles
    <ol type="a">
    <li>Reproducing the pulsed egg from the Nature paper</li>
@@ -119,11 +119,7 @@ In the code, this is implemented using a `SplitODEProblem` that takes in a time 
 where $D(\vec T) = \vec\alpha(\vec T) \odot \nabla^2$ and a right hand side that sets the BCs and any other thermal inputs 
 $S(z)$. The BCs are set as $\alpha_{\mathrm{albumen}}(T_{\mathrm{drive}})\cdot T_{\mathrm{drive}} / \Delta z^2$, and unless otherwise stated, $S(z)=0$.
 
-TODO: insert 1D chain thermal properties
-
-TODO: insert parameters used for egg
-
-TODO: insert reactivity equations
+For more details on the thermal properties and model, the reactivity equations used for gelation and the egg parameters, checkout the code in the [package repository](https://github.com/itstorque/PulsedEggSimulations.jl).
 
 We will model done-ness (the process of having a node $i$ gone through gelation, $X_i(t) \in [0, 1]$) in a similar fashion to the paper
 using the Arrhenius equation as they did in the paper:
@@ -328,7 +324,7 @@ of boiling eggs.
 
 # Referneces
 
-1. main paper
-2. params paper
-3. salmonela+E Coli paper
-4. Safety for consumption E Coli
+1. [E. Di Lorenzo et al., Periodic cooking of eggs - Nature](https://www.nature.com/articles/s44172-024-00334-w)
+2. [B. Abbasnezhad, Numerical modeling of heat transfer and pasteurizing value during thermal processing of intact egg](https://scholar.google.com/scholar_lookup?&title=Numerical%20modeling%20of%20heat%20transfer%20and%20pasteurizing%20value%20during%20thermal%20processing%20of%20intact%20egg&journal=Food%20Sci.%20Nutr.&doi=10.1002%2Ffsn3.257&volume=4&pages=42-49&publication_year=2016&author=Abbasnezhad%2CB&author=Hamdami%2CN&author=Monteau%2CJ-Y&author=Vatankhah%2CH)
+3. salmonela+E Coli paper (TODO: add reference)
+4. Safety for consumption E Coli (TODO: add reference)
