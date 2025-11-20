@@ -295,7 +295,7 @@ setting, so we will calibrate it using only two stationary thermal baths with co
 similar to the pulsing method laid out in the Di Lorenzo paper. 
 
 After cooking an egg following some pulsing description between two thermal baths, we can setup a simulation with two baths
-(calibrated to a measurement from the experiment using a thermometer with 0.1-1 $\degree$C accuracy). The diameters of the 
+(calibrated to a measurement from the experiment using a thermometer with 0.1-1 $^{\circ}$C accuracy). The diameters of the 
 yolk and white in the simulation can be determined from slicing the cooked egg in half, these dimension parameters will be
 used as our calibrated diameters now. After running the simulation, we can tweak the `scaler` parameter in the simulation
 to fine-tune the thermal properties of the egg that were left to be phenomenologically tuned. This includes factors like 
