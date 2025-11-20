@@ -255,7 +255,7 @@ The bath set to constantly boil on the stove and was measured to be 98C. A raise
 </figure>
 
 <figure markdown="1">
-   <img src="egg_images/raiser_bottom.jpg">
+   <img src="egg_images/raiser_side.jpg">
    <figcaption></figcaption>
 </figure>
 
