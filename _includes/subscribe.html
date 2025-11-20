@@ -1,0 +1,84 @@
+<style>
+    .embeddable-buttondown-form {
+        margin: 1em;
+        padding: 1em 2em;
+        border: #ccc;
+        border-radius: 1em;
+        background-color: #ffffff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+    }
+  
+    .embeddable-buttondown-form label {
+      display: block;
+      margin-bottom: 0.3em;
+      font-weight: bold;
+      font-size: 0.9em;
+      color: #333;
+    }
+  
+    .embeddable-buttondown-form input[type="email"] {
+      width: 100%;
+      padding: 0.7em;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+  
+    .embeddable-buttondown-form input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin: 1em auto;
+      margin-right: 0;
+      display: block;
+      font-weight: bold;
+    }
+  
+    .embeddable-buttondown-form input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  
+    .embeddable-buttondown-form p {
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+      margin-top: 15px;
+    }
+  
+    .embeddable-buttondown-form a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  
+    .embeddable-buttondown-form a:hover {
+      text-decoration: underline;
+    }
+
+    .embeddable-buttondown-form h2 {
+        color: black;
+    }
+  </style>
+  
+  
+  <form
+  action="https://buttondown.com/api/emails/embed-subscribe/torque"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('https://buttondown.com/torque', 'popupwindow')"
+  class="embeddable-buttondown-form">
+    <h2>Subscribe to Stay Updated</h2>
+    <label for="bd-email">Enter your email</label>
+    <input type="email" name="email" id="bd-email" />
+
+    <input type="submit" value="Subscribe" />
+    <!-- <p>
+        <a href="https://buttondown.com/torque" target="_blank">https://buttondown.com/torque</a>
+    </p> -->
+</form>

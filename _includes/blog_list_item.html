@@ -1,48 +1,20 @@
-<!-- <article class="post">
-
-    <img src="/blog/blog_splash/default.jpg" width="480px"/>
-
-    {% assign url = site.baseurl | append: post.url %}
-
-    <div>
-        <h1 class="emoji">{{ post.emoji }}</h1>
-        <h1><a href="{{url}}">
-            {{ post.title | markdownify | remove: '<p>' | remove: '</p>' }}
-        </a></h1>
-        <p class="date">{{ post.date | date: "%e %B, %Y" }}</p>
-    </div>
-
-    <div class="post_blurb">
-        <p>
-            {{ post.summary | markdownify }}
-        </p>
-
-        <div class="button_box">
-            <a class="more_button" href="{{ site.baseurl }}{{ post.url }}">MORE +</a>
-        </div>
-    </div>
-
-</article> -->
-
-{% assign url = site.baseurl | append: post.url %}
+{% assign url = site.baseurl | append: post.url  | replace: '/index', '' %}
 
 <article class="post_flat" onclick="window.location = '{{url}}'">
-
-    <!-- <img src="/blog/blog_splash/default.jpg" width="480px"/> -->
 
     <p class="date">
         {% assign d = post.date | date: "%-d" %}
         {% case d %}{% when "1" or "21" or "31" %}{{ d }}ST{% when "2" or "22" %}{{ d }}ND{% when "3" or "23" %}{{ d }}RD{% else %}{{ d }}TH{% endcase %}
-        {{ post.date | date: "%B" | upcase }}
+        {{ post.date | date: "%B" | upcase }}<br/>
         {{ post.date | date: "%Y" | upcase }}
     </p>
 
     <div class="article_text_div">
         <div>
-            <!-- <h1 class="emoji">{{ post.emoji }}</h1> -->
-            <!-- <p class="date">{{ post.date | date: "%-dth %B %Y" | upcase }}</p> -->
             <h1><a href="{{url}}">
-                {{ post.title | markdownify | remove: '<p>' | remove: '</p>' }}
+                <span class="post_emoji">
+                    {{post.emoji}}
+                </span>{{ post.title | markdownify | remove: '<p>' | remove: '</p>' }}
             </a></h1>
         </div>
 
@@ -50,10 +22,6 @@
             <p>
                 {{ post.summary | markdownify }}
             </p>
-
-            <!-- <div class="button_box">
-                <a class="more_button" href="{{ site.baseurl }}{{ post.url }}">MORE +</a>
-            </div> -->
         </div>
     </div>
 

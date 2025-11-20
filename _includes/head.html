@@ -42,7 +42,15 @@
 <meta property="twitter:url" content="{{ site.url }}">
 <meta name="twitter:site" content="@tareqdandachi">
 
-<script src="/resources/main.js"></script>
+
+<script src="/resources/theme.js" rel="preload"></script>
+<script>
+    const theme = readThemeCookie();
+    document.documentElement.dataset.theme = theme;
+</script>
+
+<!-- TODO: can we move this to body? -->
+<script src="/resources/main.js" rel="preload"></script>
 
 <meta name="google-site-verification" content="f-y-ZFKp9GWsBxWzsAdEHEUtW0qn-7nb5An3KHLX638" />
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js" integrity="sha512-g2TeAWw5GPnX7z0Kn8nFbYfeHcvAu/tx6d6mrLe/90mkCxO+RcptyYpksUz35EO337F83bZwcmUyHiHamspkfg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -52,4 +60,12 @@
 
 {% if page.include_math_jax %}
 {% include mathjax.html %}
+{% endif %}
+
+{% if page.include_plotlyjs %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endif %}
+
+{% if page.include_jquery %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 {% endif %}
