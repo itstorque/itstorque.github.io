@@ -1,4 +1,4 @@
-.default {
+:root[data-theme="default"] {
     --c-bg: white;
     --c-elem-bg-dull: #f6f6f6;
     --c-elem-bg-pop: #ccc;
@@ -22,7 +22,7 @@
     --code-theme: light;
 }
 
-.modern {
+:root[data-theme="modern"] {
     --c-bg: #eee;
     --c-elem-bg-dull: #e6e6e6;
     --c-elem-bg-pop: #ccc;
@@ -139,7 +139,7 @@
 
 } */
 
-.blorange {
+:root[data-theme="blorange"] {
 
     --c-bg: #00193c;
     --c-elem-bg-dull: #043355;
@@ -165,7 +165,7 @@
 
 }
 
-.dark_pistachio {
+:root[data-theme="dark_pistachio"] {
     --c-bg: #1E152A;
     --c-elem-bg-dull: #170d24;
     --c-elem-bg-pop: #707c63;

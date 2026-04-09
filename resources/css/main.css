@@ -65,7 +65,7 @@
   display: none;
   
   z-index: 1;
-  height: 6.5em;
+  height: 4em;
   background-color: var(--c-bg);
 }
 
@@ -363,7 +363,7 @@ div#check-out-my-container {
   cursor: pointer;
 }
 
-#resume, #github, #linkedin {
+#resume, #github, #linkedin, #blog {
   display: inline-block;
   width: max-content;
   margin: auto;
@@ -371,7 +371,7 @@ div#check-out-my-container {
   padding: 15px 15px;
 }
 
-#resume a, #github a, #linkedin a {
+#resume a, #github a, #linkedin a, #blog a {
   text-align: center;
   font-weight: bold;
 
@@ -383,12 +383,12 @@ div#check-out-my-container {
   display: inline-block;
 }
 
-#resume a p, #github a p, #linkedin a p {
+#resume a p, #github a p, #linkedin a p, #blog a p {
   display: inline-block;
   margin: 0;
 }
 
-#resume a .resume_icon, #github a .github_icon, #linkedin a .linkedin_icon {
+#resume a .resume_icon, #github a .github_icon, #linkedin a .linkedin_icon, #blog a .blog_icon {
   fill: var(--c-pop);
   transition: 0.3s;
 }
@@ -396,20 +396,20 @@ div#check-out-my-container {
 
 @media (hover: hover) {
 
-  #resume a, #github a, #linkedin a {
+  #resume a, #github a, #linkedin a, #blog a {
     background: linear-gradient(to left, var(--c-bg) 50%, var(--c-pop) 50%);
     background-position: right;
     background-size: 0;
     transition: background-position 0.3s ease-in-out;
   }
 
-  #resume a:hover, #github a:hover, #linkedin a:hover {
+  #resume a:hover, #github a:hover, #linkedin a:hover, #blog a:hover {
     color: var(--c-inv-bg);
     background-position: left;
     background-size: 210% 100%;
   }
 
-  #resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon {
+  #resume a:hover .resume_icon, #github a:hover .github_icon, #linkedin a:hover .linkedin_icon, #blog a:hover .blog_icon {
     fill: var(--c-inv-bg);
   }
 }
@@ -418,6 +418,12 @@ div#check-out-my-container {
   height: 25px;
   width: 25px;
   margin: 0 5px -5px 5px;
+}
+
+#blog svg {
+  height: 32px;
+  width: 32px;
+  margin: 0 5px -7.5px 5px;
 }
 
 h3.check_out_my {
@@ -885,7 +891,8 @@ div.publication a {
 
   #next_theme, #theme_swap_indicator {
     position: absolute !important;
-    background-color: var(--c-bg);
+    top: 0 !important;
+    /* background-color: var(--c-bg); */
   }
 
   #theme_swap_indicator {
@@ -1063,6 +1070,7 @@ div.publication a {
 }
 
 @media (hover: hover) {
+
   #next_theme:hover.animation img {
     animation: opacity-blink 1s linear 1, tilt-shaking 0.25s linear 4;
   }
@@ -1148,7 +1156,7 @@ article.post_flat {
 }
 
 article.post_flat h1 {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-top: 0em;
 }
 
@@ -1174,7 +1182,9 @@ article.post_flat .date {
   color: var(--c-pop);
   font-weight: 700;
   letter-spacing: .08em;
-  margin-bottom: 0;
+  margin-bottom: -0.5em;
+  margin-left: 3.5em;
+  font-size: 1em;
 }
 
 
@@ -1199,11 +1209,13 @@ article.post_flat:hover .date {
   article.post_flat .date {
     display: inline-block;
     margin-right: 20%;
+    margin-left: 0;
+    margin-bottom: 0;
     position: relative;
     vertical-align: top;
     width: 20%;
     text-align: right;
-
+    font-size: 1.2em;
   }
   article.post_flat .date::after {
     content: "";
@@ -1221,6 +1233,31 @@ article.post_flat:hover .date {
     display: inline-block;
     width: 55%;
   }
+
+  article.post_flat h1 {
+    font-size: 2em;
+  }
+  
+}
+
+/* MATHJAX */
+mjx-container[jax="SVG"] > svg a {
+  /* make equation ref same as a tag */
+  fill: var(--c-link) !important;
+  stroke: var(--c-link) !important;
+  cursor: pointer;
+}
+mjx-container {
+  /* stop overflow of equation making mobile window larger, allow for scroll instead */
+  max-width: 100% !important;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  min-width: 0 !important;
+}
+
+/* add padding to scrolling */
+h1,h2,h3,h4,h5,h6,g {
+  scroll-margin-top: 2em;
 }
 
 /* .posts .post h1:not(.emoji) {

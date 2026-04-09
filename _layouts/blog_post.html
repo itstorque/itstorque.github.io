@@ -20,7 +20,7 @@
 
     <div class="pageMobileBar"></div>
     <div class="pageLine"></div>
-    <a href="/blog"><h3 id="main_icon"><span id="icon_hint">$\vec r\times \vec F$</span><span class="name">torque</span>'s blog</h3></a>
+    {% include blog_top_left_logo.html %}
 
     <div id="themes_dev_div"></div>
 
@@ -44,7 +44,7 @@
                         </div>
                         
                             <div id="autofill_toc">
-                                {% include toc.html html=content %}
+                                {% include toc.html html=content h_max=3 %}
                             </div>
                     </div>
 
@@ -77,6 +77,9 @@
                 <div id="content">
                     {{ content }}
                 </div>
+
+                <br/><br/><br/>
+                {% include subscribe.html %}
 
 
             </div>

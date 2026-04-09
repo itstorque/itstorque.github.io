@@ -19,6 +19,7 @@ encoding: UTF-8
 kramdown:
  input: GFM
  hard_wrap: false
+ mathjax: false
 future: true
 jailed: false
 gfm_quirks: paragraph_end
@@ -34,7 +35,7 @@ collections:
     sort_by: date
     title: true
     output: true
-    permalink: /blog/:path/
+    permalink: /blog/:path
     sitemap: true
 
 highlighter: rouge
@@ -47,6 +48,8 @@ defaults:
     values:
       include_side_nav: true
       include_math_jax: false
+      include_jquery: false
+      include_plotlyjs: false
       layout: "default"
   -
     scope:
@@ -54,4 +57,5 @@ defaults:
     values:
       layout: "blog_post"
       title: Untitled Blog Post
+      post_published: false
       emoji: 📝
