@@ -305,7 +305,7 @@ We find good agreement between the derived expressions and the Julia numerical s
 # Acknolwedgements
 
 - **PurpleMind** for nerd sniping me so hard and the well-produced explainer video [\[1\]](#references).
-- <a href="sophiadg.com">**Sophia Diggs-Galligan**</a> for fun discussions about methods to construct the numerical simulations efficiently and for listening to my never ending complaining about how a closed-form expression is an absolute requirement for this derivation.
+- <a href="https://sophiadg.com">**Sophia Diggs-Galligan**</a> for fun discussions about methods to construct the numerical simulations efficiently and for listening to my never ending complaining about how a closed-form expression is an absolute requirement for this derivation.
 - The code maintainers of Julia's `Polyhedra.jl` [\[3\]](#references), scipy spatial [\[7\]](#references), QHull [\[8\]](#references) and GLPK [\[9\]](#references).
 - After deriving this, I found a version of this derivation for $D=3$ presented in the Phillip's Research Report [\[4\]](#references). The derivation in this blog is more general for $D$ dimensions.
 

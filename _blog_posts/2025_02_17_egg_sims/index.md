@@ -308,7 +308,7 @@ the egg).
 
 - **Rihn**: designed and led all the experimental work. Built various contraptions for the experimental validation.
 - **Felipe & Rihn**: for building the robot arm ("The Egginator 2000") 
-- **Anders Olsen, Boof, Wasabi, Lev, <a href="sophiadg.com">Sophia Diggs-Galligan</a>, Felipe, Sar M.**: Thanks for the discussions on many details of the egg-related theory and experiments, being taste test subjects and for cheering as "The Egginator 2000" did its job.
+- **Anders Olsen, Boof, Wasabi, Lev, <a href="https://sophiadg.com">Sophia Diggs-Galligan</a>, Felipe, Sar M.**: Thanks for the discussions on many details of the egg-related theory and experiments, being taste test subjects and for cheering as "The Egginator 2000" did its job.
 - **Di Lorenzo and team**: the original work that inspired this blog-post, you managed to nerd-snipe me and many of my friends on this problem.
 
 ### Note on the safety of these experiments
