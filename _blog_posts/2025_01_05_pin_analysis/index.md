@@ -357,5 +357,5 @@ alphanumeric inputs for passwords, don't use 4 digit pins, use a strong alphanum
 # Acknowledgements
 
 - ***<span style="color:var(--c-less-pop);">Nick Berry</span>*** for the original idea and innovative work early on.
-- ***<span style="color:var(--c-less-pop);">Sophia Diggs-Galligan</span>*** for fun and insightful conversations on the data analysis portion.
+- <a href="sophiadg.com">***<span style="color:var(--c-less-pop);">Sophia Diggs-Galligan</span>***</a> for fun and insightful conversations on the data analysis portion.
 - The ***<span style="color:var(--c-less-pop);">HaveIBeenPwned</span>*** team for making all this useful data available to everyone via their free API.
